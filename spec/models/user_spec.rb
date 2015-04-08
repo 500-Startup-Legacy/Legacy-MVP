@@ -31,6 +31,16 @@ RSpec.describe User, type: :model do
     it { should_not be_valid }
   end
 
+  describe "when an email address has upper case letters" do
+    before do 
+      @juan.email = 'JuAn@SmItH.cOm' 
+      @juan.save
+    end
+    it 'should be saved completely downcased' do 
+      expect(@juan.email).to eq('juan@smith.com' )
+    end
+  end
+
   describe "when an email has already been taken by a different user" do
     before do 
       @juan.save
