@@ -4,7 +4,14 @@ RSpec.describe "UserPages", type: :request do
 
   subject { page }
 
-  describe "Signup Page" do
+  describe "profile page" do
+    let(:user) { FactoryGirl.create(:user) }
+    before(:each) { visit user_path(user) }
+
+    it { should have_content(user.full_name) }
+  end
+
+  describe "signup page" do
     before { visit signup_path }
 
     it { should have_content 'Sign up' }
