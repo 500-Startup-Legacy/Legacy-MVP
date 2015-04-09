@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    @juan = User.new(first_name:'Juan', last_name: 'Smith', email:'juan@smith.com')
+    # @juan = FactoryGirl.create(:user)
+    @juan = User.new(first_name:'Juan', last_name: 'Smith', email:'juan@smith.com', password: 'foobar', password_confirmation: 'foobar')
   end
 
   subject { @juan }
@@ -48,6 +49,10 @@ RSpec.describe User, type: :model do
     end
     subject  {@carlos }
     it { should_not be_valid }
+  end
+
+  it "should have a full name" do
+    expect(@juan.full_name).to eq(@juan.first_name + " " + @juan.last_name)
   end
 
 end
