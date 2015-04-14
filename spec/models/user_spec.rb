@@ -8,6 +8,9 @@ RSpec.describe User, type: :model do
 
   subject { @juan }
 
+  it { should respond_to :remember_token }
+  it { should respond_to :authenticate }
+
   describe "when a first name, last name, and email are present" do
     it { should be_valid }
   end
@@ -53,6 +56,13 @@ RSpec.describe User, type: :model do
 
   it "should have a full name" do
     expect(@juan.full_name).to eq(@juan.first_name + " " + @juan.last_name)
+  end
+
+  describe "remember token" do
+    before { @juan.save }
+    it "should not be blank" do
+      expect(@juan.remember_token).not_to be_blank 
+    end
   end
 
 end

@@ -13,3 +13,7 @@
     -  [ ] a user can can view posts the user himself has made about other people
 
     -  [ ] a user can view posts a deceased user has has released 
+
+-  [ ]  Set up SSL (easy for heroku-app domain, more involved for custom domain)
+
+
