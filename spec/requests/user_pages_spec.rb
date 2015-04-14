@@ -37,6 +37,14 @@ RSpec.describe "UserPages", type: :request do
         expect { click_button submit }.to change(User, :count).by(1)
       end
 
+      describe "after saving user" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: "juan@smith.com") }
+
+        it { should have_link 'Sign out' }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+      end
+
     end
   end
 
