@@ -10,6 +10,8 @@ RSpec.describe User, type: :model do
 
   it { should respond_to :remember_token }
   it { should respond_to :authenticate }
+  it { should respond_to :relationships }
+  it { should respond_to :memorialized_users }
 
   describe "when a first name, last name, and email are present" do
     it { should be_valid }

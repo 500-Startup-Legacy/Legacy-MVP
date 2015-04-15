@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
   validates :email, presence:true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: true
   has_secure_password
 
+  has_many :relationships, foreign_key: "memorializer_id", dependent: :destroy
+  has_many :memorialized_users, through: :relationships, source: :memorialized
+
   def full_name
     "#{first_name} #{last_name}"
   end
