@@ -9,6 +9,13 @@ class User < ActiveRecord::Base
   has_many :relationships, foreign_key: "memorializer_id", dependent: :destroy
   has_many :memorialized_users, through: :relationships, source: :memorialized
 
+  has_many :reverse_relationships, foreign_key: "memorialized_id", 
+                                   class_name: 'Relationship', 
+                                   dependent: :destroy
+
+  has_many :memorializers, through: :reverse_relationships, source: :memorializer
+
+
   def full_name
     "#{first_name} #{last_name}"
   end
@@ -19,6 +26,18 @@ class User < ActiveRecord::Base
 
   def User.digest(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def memorializing?(other_user)
+    relationships.find_by(memorialized_id: other_user.id)
+  end
+
+  def memorialize!(other_user)
+    relationships.create!(memorialized_id:other_user.id)
+  end
+
+  def unmemorialize!(other_user)
+    relationships.find_by(memorialized_id:other_user.id).destroy
   end
 
   private
