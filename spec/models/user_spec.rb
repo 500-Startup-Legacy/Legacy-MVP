@@ -10,6 +10,12 @@ RSpec.describe User, type: :model do
 
   it { should respond_to :remember_token }
   it { should respond_to :authenticate }
+  it { should respond_to :relationships }
+  it { should respond_to :memorialized_users }
+  it { should respond_to :memorialize! }
+  it { should respond_to :unmemorialize! }
+  it { should respond_to :reverse_relationships }
+  it { should respond_to :memorializers }
 
   describe "when a first name, last name, and email are present" do
     it { should be_valid }
@@ -62,6 +68,28 @@ RSpec.describe User, type: :model do
     before { @juan.save }
     it "should not be blank" do
       expect(@juan.remember_token).not_to be_blank 
+    end
+  end
+
+  describe "memorializing" do
+    let(:other_user) { FactoryGirl.create(:user) }
+    before do
+      @juan.save
+      @juan.memorialize!(other_user)
+    end
+  
+    it { should be_memorializing other_user }
+    specify { expect(@juan.memorialized_users).to include(other_user) }
+
+    describe "memorialized user" do
+      subject { other_user }
+      specify { expect(other_user.memorializers).to include(@juan) }
+    end
+
+    describe "and unmemorializing" do
+      before { @juan.unmemorialize! other_user }
+      it { should_not be_memorializing other_user }
+      specify { expect(@juan.memorialized_users).to_not include(other_user) }
     end
   end
 
