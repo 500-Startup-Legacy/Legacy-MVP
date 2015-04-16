@@ -17,6 +17,8 @@ RSpec.describe User, type: :model do
   it { should respond_to :reverse_relationships }
   it { should respond_to :memorializers }
 
+  it { should respond_to :memories }
+
   describe "when a first name, last name, and email are present" do
     it { should be_valid }
   end
@@ -91,6 +93,26 @@ RSpec.describe User, type: :model do
       it { should_not be_memorializing other_user }
       specify { expect(@juan.memorialized_users).to_not include(other_user) }
     end
+  end
+
+  describe "memory association" do
+    before { @juan.save }
+    let!(:older_memory) { FactoryGirl.create(:memory, user:@juan, created_at: 1.day.ago) }
+    let!(:newer_memory) { FactoryGirl.create(:memory, user:@juan, created_at: 1.hour.ago) }
+
+    it "should return the right memories in the right order" do
+      expect(@juan.memories.to_a).to eq [newer_memory, older_memory]
+    end
+
+    it "should destroy associated memories" do
+      memories = @juan.memories.to_a
+      @juan.destroy
+      expect(memories).not_to be_empty
+      memories.each do |memory|
+        expect(Memory.where(id: memory.id)).to be_empty
+      end
+    end
+
   end
 
 end
