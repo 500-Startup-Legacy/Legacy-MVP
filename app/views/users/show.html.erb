@@ -1,3 +1,18 @@
 <h1><%= @user.full_name %></h1>
 
+<h2>Memorializing:</h2>
+
+<ul>
+  <% @user.memorialized_users.each do |m| %>
+    <li><%= m.full_name %></li>
+  <% end %>
+</ul>
+
+<h2>Memorialized by:</h2>
+
+<ul>
+  <% @user.memorializers.each do |m| %>
+    <li><%= m.full_name %></li>
+  <% end %>
+</ul>
 
