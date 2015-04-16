@@ -2,21 +2,28 @@
 
 ##Phase I
 
--  [X]  a User sign up
+-  [X]  a `User` sign up
 
--  [X]  a User sign in
+-  [X]  a `User` sign in
 
--  [X]  a User sign out
+-  [X]  a `User` sign out
 
--  [ ]  User Dashboard
+-  [X]  a `User` can memorialize anothe `User`
 
-    -  [ ] a user can can view posts the user himself has made about other people
+-  [ ]  `User` Dashboard
+
+    -  [ ] a `User` can can view posts the `User` himself has made about other `Users`
+
+-  [ ]  a `User` can have a Memory of another `User`
 
 
 ##Other Phases
+
 -  [ ]  Set up SSL (easy for heroku-app domain, more involved for custom domain)
 
--  [ ]  a user can view posts a deceased user has has released 
+-  [ ]  a `User` can view posts a deceased `User` has has released 
+
+-  [ ]  setup Heroku to run Puma server instead of Webrick 
 
 ##Models and Relationships between Models
 
@@ -68,6 +75,29 @@ collin.memorializers
 
 we get back an array with one element (the `User` `ed`).
 
+
+###Seed.rb
+
+To bulk update the database on your local machine, run
+
+```ruby
+rake db:seed
+```
+
+To bulk update the database on Heroku, run
+
+```ruby
+heroku run rake db:seed
+```
+
+The following lines in the `seeds.rb` file: 
+
+```ruby
+User.delete_all
+Relationship.delete_all
+```
+
+ensure that all the `User`s and all the `Relationship`s in the database are deleted whenever the seed file is run.
 
 
 
