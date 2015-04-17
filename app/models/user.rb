@@ -42,6 +42,11 @@ class User < ActiveRecord::Base
     relationships.find_by(memorialized_id:other_user.id).destroy
   end
 
+  def remembrances
+    Memory.where(memorialized_user_id: self.id)
+
+  end
+
   private
     def create_remember_token
       self.remember_token = User.digest(User.new_remember_token)

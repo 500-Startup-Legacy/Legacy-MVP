@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
 
+  get "/remember/:user_id", to: 'remember#show'
+
 end
