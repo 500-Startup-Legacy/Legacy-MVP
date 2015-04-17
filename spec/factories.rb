@@ -10,8 +10,8 @@ FactoryGirl.define do
 
   factory :memory do
     content "MyText"
+    memorialized_user_id 1
     user
-    # memorialized_user_id 1
   end
 
 end

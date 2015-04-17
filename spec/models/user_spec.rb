@@ -16,6 +16,7 @@ RSpec.describe User, type: :model do
   it { should respond_to :unmemorialize! }
   it { should respond_to :reverse_relationships }
   it { should respond_to :memorializers }
+  it { should respond_to :remembrances }
 
   it { should respond_to :memories }
 
@@ -111,6 +112,18 @@ RSpec.describe User, type: :model do
       memories.each do |memory|
         expect(Memory.where(id: memory.id)).to be_empty
       end
+    end
+
+  end
+
+  describe "#remembrances" do
+    let(:other_user) { FactoryGirl.create(:user) }
+    let!(:memory_1) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:@juan.id) }
+    let!(:memory_2) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:@juan.id) }
+    let!(:memory_3) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:7) }
+
+    it "returns an collection of memories other users have had about it" do
+      expect(@juan.remembrances.to_a).to eq [memory_2, memory_1]
     end
 
   end

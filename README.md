@@ -73,6 +73,10 @@ collin.memorializers
 
 we get back an array with one element (the `User` `ed`).
 
+A `User` can have a `Memory` of another `User`.
+
+To access the memories other `User`s have created for a given `User`, use the `#remembrances` method.
+
 
 ###Seed.rb
 
