@@ -17,6 +17,7 @@ RSpec.describe User, type: :model do
   it { should respond_to :reverse_relationships }
   it { should respond_to :memorializers }
   it { should respond_to :remembrances }
+  it { should respond_to :public }
 
   it { should respond_to :memories }
 
