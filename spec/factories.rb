@@ -1,5 +1,4 @@
 FactoryGirl.define do  
-  
 
   factory :user do
     first_name 'Juan'
@@ -9,5 +8,12 @@ FactoryGirl.define do
     password_confirmation 'foobar'
   end
 
+  factory :memory do
+    content "MyText"
+    user
+    # memorialized_user_id 1
+  end
+
 end
+
 

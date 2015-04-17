@@ -1,0 +1,15 @@
+<h1><%= @user.full_name %>'s Memories</h1>
+
+<% @memories_hash.each do |memory_array| %>
+  <% memorialized_user = User.find(memory_array[0]) %>
+
+  <h2>Memories about <%= memorialized_user.full_name %></h2>
+
+  <ul>
+    <% memory_array[1].each do |memory| %>
+      <li><%=memory.content %></li>
+    <% end %>
+  </ul>
+
+<% end %>
+

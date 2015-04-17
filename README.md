@@ -10,9 +10,7 @@
 
 -  [X]  a `User` can memorialize anothe `User`
 
--  [ ]  `User` Dashboard
-
-    -  [ ] a `User` can can view posts the `User` himself has made about other `Users`
+-  [X] a `User` can can view posts the `User` himself has made about other `Users`
 
 -  [ ]  a `User` can have a Memory of another `User`
 

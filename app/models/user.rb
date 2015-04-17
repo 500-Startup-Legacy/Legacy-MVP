@@ -15,6 +15,8 @@ class User < ActiveRecord::Base
 
   has_many :memorializers, through: :reverse_relationships, source: :memorializer
 
+  has_many :memories, dependent: :destroy
+
 
   def full_name
     "#{first_name} #{last_name}"
