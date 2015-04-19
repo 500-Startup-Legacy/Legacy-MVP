@@ -16,6 +16,21 @@
 
 -  [X]  a `User` can view posts a deceased `User` has has released 
 
+##Phase II-A (Twilio)
+
+-  [ ]  add form for `User` to choose another `User` to `memorialize`
+
+    -  [ ]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
+
+-  [ ]  create method that will create new `Memory` from text
+
+
+##Phase II-B (Ziggeo)
+
+
+##Phase II-C (Front End)
+
+
 ##Nice To Haves for Later
 
 -  [ ]  setup Heroku to run Puma server instead of Webrick 
