@@ -1,0 +1,18 @@
+<h1><%= @user.full_name %>'s Memories</h1>
+
+<% @memories_hash.each do |memory_array| %>
+  <% memorialized_user = User.find(memory_array[0]) %>
+
+  <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
+  <% if memorialized_user.public %>
+  <p><%= link_to("See all memories about #{memorialized_user.first_name}", url_for(controller: 'remember', action: 'show', user_id:memorialized_user.id)) %></p>
+  <% end %>
+
+  <ul>
+    <% memory_array[1].each do |memory| %>
+      <li><%=memory.content %></li>
+    <% end %>
+  </ul>
+
+<% end %>
+

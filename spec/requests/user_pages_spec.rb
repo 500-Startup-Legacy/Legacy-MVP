@@ -8,7 +8,7 @@ RSpec.describe "UserPages", type: :request do
     let(:user) { FactoryGirl.create(:user) }
     before(:each) { visit user_path(user) }
 
-    it { should have_content(user.full_name) }
+    # it { should have_content(user.full_name) }
   end
 
   describe "signup page" do
@@ -35,6 +35,14 @@ RSpec.describe "UserPages", type: :request do
 
       it "should create a new user" do
         expect { click_button submit }.to change(User, :count).by(1)
+      end
+
+      describe "after saving user" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: "juan@smith.com") }
+
+        it { should have_link 'Sign out' }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
 
     end

@@ -1,3 +1,19 @@
 <h1><%= @user.full_name %></h1>
+<p><%= link_to('Memories', user_memories_path(@user)) %></p>
 
+<h2>Memorializing:</h2>
+
+<ul>
+  <% @user.memorialized_users.each do |m| %>
+    <li><%= m.full_name %></li>
+  <% end %>
+</ul>
+
+<h2>Memorialized by:</h2>
+
+<ul>
+  <% @user.memorializers.each do |m| %>
+    <li><%= m.full_name %></li>
+  <% end %>
+</ul>
 
