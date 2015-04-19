@@ -61,6 +61,10 @@ For a quick demonstration:
 
 -  [ ]  Set up SSL (easy for heroku-app domain, more involved for custom domain)
 
+##Getting started
+
+After cloning, run `bundle` to get all the gems you need.  Run `rake db:create` (we're using Postgresql for development), then `rake db:migrate`.  Load up the database with some dummy data by running `rake db:seed`.
+
 
 ##Models and Relationships between Models
 
@@ -148,6 +152,11 @@ Memory.delete_all
 ensure that all the `User`, `Relationship`, and `Memory` models in the database from before are deleted whenever the seed file is run.
 
 Since we do not yet have Twilio set up, the only way to add a `Memory` is either through the seeds file or through the Rails console.
+
+###Tests
+
+Testing is done with [RSpec](http://rspec.info/).  To run the tests on the command line, either use the `rspec` command or, if that doesn't work, `bundle exec rspec`.
+
 
 ###Routes
 
