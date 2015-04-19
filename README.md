@@ -1,5 +1,29 @@
 # Legacy-MVP
 
+##Overview
+
+Legacy is a time-spanning social media app.  A person can create an account, find other people using Legacy, and "memorialize" those people by creating "memories" (think "posts") about them.  When a person passes away, their "Legacy" can be viewed at a public URL.  This will display all the memories other users have created about them.
+
+For a quick demonstration: 
+
+1.  visit https://legacy-staging.herokuapp.com/ (our staging branch).
+
+2.  click on the "Sign in" link
+
+3.  in the email field, put `edbrooks214@gmail.com`, and in the password field put `foobar`
+
+4.  you  will be taken to Ed's dashboard, where you can see the two users he is memorializing: Abraham Lincoln and Collin Meyers
+
+5.  you can also see that Collin Meyers is memorializing him
+
+6.  click on the "Memories" link
+
+7.  Now you can see all the memories Ed has created about anyone.
+
+8.  Click on the linkk "See all memories about Abraham" (notice there is no corresponding link for Collin - Collin isn't dead yet, but Abraham is)
+
+9.  This takes you to the public page where Abraham is being memorialized.  Here you can see not only memories Ed has created about Abraham, but also memories other users have created about Abraham.
+
 ##Phase I
 
 -  [X]  a `User` sign up
