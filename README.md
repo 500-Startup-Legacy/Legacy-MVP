@@ -103,12 +103,16 @@ The following lines in the `seeds.rb` file:
 ```ruby
 User.delete_all
 Relationship.delete_all
+Memory.delete_all
 ```
 
-ensure that all the `User`s and all the `Relationship`s in the database are deleted whenever the seed file is run.
+ensure that all the `User`, `Relationship`, and `Memory` models in the database from before are deleted whenever the seed file is run.
+
+Since we do not yet have Twilio set up, the only way to add a `Memory` is either through the seeds file or through the Rails console.
 
 ###Routes
 
+```
           Prefix Verb   URI Pattern                                 Controller#Action
         sessions POST   /sessions(.:format)                         sessions#create
      new_session GET    /sessions/new(.:format)                     sessions#new
@@ -135,6 +139,7 @@ edit_user_memory GET    /users/:user_id/memories/:id/edit(.:format) memories#edi
          signout DELETE /signout(.:format)                          sessions#destroy
                  GET    /remember/:user_id(.:format)                remember#show
 
+```
 
 
 
