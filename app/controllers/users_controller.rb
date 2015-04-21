@@ -20,6 +20,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @memories_hash = @user.memories.group_by do |memory|
+      memory.memorialized_user_id
+    end
   end
 
 
