@@ -18,3 +18,11 @@ ed.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin
 
 collin.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
 collin.memories.create(content:'Sunnyside fo evah!', memorialized_user_id: ed.id)
+
+alex.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: ed.id)
+alex.memories.create(content:'He was a badass mofo', memorialized_user_id: collin.id)
+alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: collin.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: ed.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: abraham.id)
+
