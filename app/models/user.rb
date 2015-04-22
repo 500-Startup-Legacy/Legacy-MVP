@@ -35,8 +35,8 @@ class User < ActiveRecord::Base
     relationships.find_by(memorialized_id: other_user.id)
   end
 
-  def memorialize!(other_user, group)
-    relationships.create!(memorialized_id:other_user.id, group:group)
+  def memorialize!(other_user, group_tag)
+    relationships.create!(memorialized_id:other_user.id, group_tag:group_tag)
   end
 
   def unmemorialize!(other_user)
