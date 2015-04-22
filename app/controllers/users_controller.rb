@@ -23,6 +23,7 @@ class UsersController < ApplicationController
     @memories_hash = @user.memories.group_by do |memory|
       memory.memorialized_user_id
     end
+    binding.pry
   end
 
 

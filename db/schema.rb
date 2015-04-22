@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150417225920) do
+ActiveRecord::Schema.define(version: 20150422195254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20150417225920) do
     t.integer  "memorialized_id"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "group"
   end
 
   add_index "relationships", ["memorialized_id"], name: "index_relationships_on_memorialized_id", using: :btree

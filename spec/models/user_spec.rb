@@ -79,7 +79,7 @@ RSpec.describe User, type: :model do
     let(:other_user) { FactoryGirl.create(:user) }
     before do
       @juan.save
-      @juan.memorialize!(other_user)
+      @juan.memorialize!(other_user, "family")
     end
   
     it { should be_memorializing other_user }
