@@ -42,7 +42,11 @@ For a quick demonstration:
 
 ##Phase II-A (Twilio)
 
--  [ ]  add form for `User` to choose another `User` to `memorialize`
+-  [X]  add `group_tag` field to `Relationship` model
+
+-  [X]  add form for `User` to choose another `User` to `memorialize`
+
+-  [ ]  add mobile phone number field to  `User` model
 
     -  [ ]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
 
