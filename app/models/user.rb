@@ -36,7 +36,11 @@ class User < ActiveRecord::Base
   end
 
   def memorialize!(other_user, group_tag)
-    relationships.create!(memorialized_id:other_user.id, group_tag:group_tag)
+    begin
+      relationships.create(memorialized_id:other_user.id, group_tag:group_tag)
+    rescue
+      nil
+    end
   end
 
   def unmemorialize!(other_user)

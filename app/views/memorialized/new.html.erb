@@ -1,0 +1,17 @@
+
+<%# <%= form_for(@memorialized, :url => url_for(:controller => 'memorialized', :action => 'create') ) do |f| %1> %>
+<%#   <1%# <%= render './shared/error_messages' %2> %1> %>
+<%#   <%= f.label :email, 'Email' %1> %>
+<%#   <%= f.text_field :email %1> %>
+<%#   <%= f.label :group_tag, 'Relationship' %1> %>
+<%#   <%= f.text_field :group_tag %1> %>
+<%#   <%= f.submit 'Memorialize' %1> %>
+<%# <% end %1> %>
+
+<%= form_tag({controller: "memorialized", action: "create"}, method: "post") do %>
+  <%= label_tag(:email, "Email") %>
+  <%= text_field_tag(:email) %>
+  <%= label_tag(:group_tag, "Relationship") %>
+  <%= text_field_tag(:group_tag) %>
+  <%= submit_tag("Memorialize") %>
+<% end %>
