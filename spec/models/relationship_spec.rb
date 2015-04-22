@@ -12,6 +12,16 @@ RSpec.describe Relationship, type: :model do
   it { should respond_to :memorializer }
   it { should respond_to :memorialized }
 
+  describe "when a memorializer_id is not present" do
+    before { relationship.memorializer_id = nil }
+    it { should_not be_valid }
+  end
+
+  describe "when a memorialized_id is not present" do
+    before { relationship.memorialized_id = nil }
+    it { should_not be_valid }
+  end
+
   describe "#group_tag" do
     it { should respond_to :group_tag }
     describe "when a group is not present" do
