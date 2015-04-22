@@ -24,6 +24,12 @@ For a quick demonstration:
 
 9.  This takes you to the public page where Abraham is being memorialized.  Here you can see not only memories Ed has created about Abraham, but also memories other users have created about Abraham.
 
+##General
+
+-  [ ]  fix authorization
+
+-  [ ]  add validation to `Relationship` so a `User` cannot memorialize another `User` that they have already memorialized
+
 ##Phase I
 
 -  [X]  a `User` sign up
