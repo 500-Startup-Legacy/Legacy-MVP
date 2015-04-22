@@ -1,5 +1,5 @@
-
 class MemorializedController < ApplicationController
+  before_action :signed_in_user
 
   def index
     @user = User.find(params[:user_id])
@@ -32,4 +32,7 @@ class MemorializedController < ApplicationController
     end
   end
 
+  def signed_in_user
+    redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
 end
