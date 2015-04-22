@@ -26,9 +26,9 @@ For a quick demonstration:
 
 ##General
 
--  [ ]  fix authorization
+-  [X]  fix authorization
 
--  [ ]  add validation to `Relationship` so a `User` cannot memorialize another `User` that they have already memorialized
+-  [X]  add validation to `Relationship` so a `User` cannot memorialize another `User` that they have already memorialized
 
 ##Phase I
 
