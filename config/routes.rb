@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
-    resources :memories
+    # resources :memories, only: [:index]
+    resources :memorialized do
+      resources :memories
+    end
   end
 
   root "static_pages#home"
