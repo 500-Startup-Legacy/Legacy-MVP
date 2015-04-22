@@ -159,34 +159,41 @@ Testing is done with [RSpec](http://rspec.info/).  To run the tests on the comma
 
 
 ###Routes
-
 ```
-          Prefix Verb   URI Pattern                                 Controller#Action
-        sessions POST   /sessions(.:format)                         sessions#create
-     new_session GET    /sessions/new(.:format)                     sessions#new
-         session DELETE /sessions/:id(.:format)                     sessions#destroy
-   user_memories GET    /users/:user_id/memories(.:format)          memories#index
-                 POST   /users/:user_id/memories(.:format)          memories#create
- new_user_memory GET    /users/:user_id/memories/new(.:format)      memories#new
-edit_user_memory GET    /users/:user_id/memories/:id/edit(.:format) memories#edit
-     user_memory GET    /users/:user_id/memories/:id(.:format)      memories#show
-                 PATCH  /users/:user_id/memories/:id(.:format)      memories#update
-                 PUT    /users/:user_id/memories/:id(.:format)      memories#update
-                 DELETE /users/:user_id/memories/:id(.:format)      memories#destroy
-           users GET    /users(.:format)                            users#index
-                 POST   /users(.:format)                            users#create
-        new_user GET    /users/new(.:format)                        users#new
-       edit_user GET    /users/:id/edit(.:format)                   users#edit
-            user GET    /users/:id(.:format)                        users#show
-                 PATCH  /users/:id(.:format)                        users#update
-                 PUT    /users/:id(.:format)                        users#update
-                 DELETE /users/:id(.:format)                        users#destroy
-            root GET    /                                           static_pages#home
-          signup GET    /signup(.:format)                           users#new
-          signin GET    /signin(.:format)                           sessions#new
-         signout DELETE /signout(.:format)                          sessions#destroy
-                 GET    /remember/:user_id(.:format)                remember#show
+                    Prefix    Verb   URI Pattern                                                               Controller#Action
 
+                     sessions POST   /sessions(.:format)                                                       sessions#create
+                  new_session GET    /sessions/new(.:format)                                                   sessions#new
+                      session DELETE /sessions/:id(.:format)                                                   sessions#destroy
+   user_memorialized_memories GET    /users/:user_id/memorialized/:memorialized_id/memories(.:format)          memories#index
+                              POST   /users/:user_id/memorialized/:memorialized_id/memories(.:format)          memories#create
+ new_user_memorialized_memory GET    /users/:user_id/memorialized/:memorialized_id/memories/new(.:format)      memories#new
+edit_user_memorialized_memory GET    /users/:user_id/memorialized/:memorialized_id/memories/:id/edit(.:format) memories#edit
+     user_memorialized_memory GET    /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#show
+                              PATCH  /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#update
+                              PUT    /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#update
+                              DELETE /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#destroy
+      user_memorialized_index GET    /users/:user_id/memorialized(.:format)                                    memorialized#index
+                              POST   /users/:user_id/memorialized(.:format)                                    memorialized#create
+        new_user_memorialized GET    /users/:user_id/memorialized/new(.:format)                                memorialized#new
+       edit_user_memorialized GET    /users/:user_id/memorialized/:id/edit(.:format)                           memorialized#edit
+            user_memorialized GET    /users/:user_id/memorialized/:id(.:format)                                memorialized#show
+                              PATCH  /users/:user_id/memorialized/:id(.:format)                                memorialized#update
+                              PUT    /users/:user_id/memorialized/:id(.:format)                                memorialized#update
+                              DELETE /users/:user_id/memorialized/:id(.:format)                                memorialized#destroy
+                        users GET    /users(.:format)                                                          users#index
+                              POST   /users(.:format)                                                          users#create
+                     new_user GET    /users/new(.:format)                                                      users#new
+                    edit_user GET    /users/:id/edit(.:format)                                                 users#edit
+                         user GET    /users/:id(.:format)                                                      users#show
+                              PATCH  /users/:id(.:format)                                                      users#update
+                              PUT    /users/:id(.:format)                                                      users#update
+                              DELETE /users/:id(.:format)                                                      users#destroy
+                         root GET    /                                                                         static_pages#home
+                       signup GET    /signup(.:format)                                                         users#new
+                       signin GET    /signin(.:format)                                                         sessions#new
+                      signout DELETE /signout(.:format)                                                        sessions#destroy
+                              GET    /remember/:user_id(.:format)                                              remember#show
 ```
 
 
