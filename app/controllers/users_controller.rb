@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :signed_in_user, only: [:show]
+  before_action :signed_in_user, only: [:show, :update, :edit]
+  before_action :correct_user, only: [:show, :update, :edit]
+
   def new
     @user = User.new
   end
@@ -47,5 +49,10 @@ class UsersController < ApplicationController
 
   def signed_in_user
     redirect_to signin_url, notice: "Please sign in." unless signed_in?
+  end
+
+  def correct_user
+    @user = User.find(params[:id])
+    redirect_to(root_url) unless current_user?(@user)
   end
 end
