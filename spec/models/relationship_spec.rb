@@ -11,6 +11,7 @@ RSpec.describe Relationship, type: :model do
   it { should be_valid }
   it { should respond_to :memorializer }
   it { should respond_to :memorialized }
+  it { should respond_to :twilio_number }
 
   describe "when a memorializer_id is not present" do
     before { relationship.memorializer_id = nil }
