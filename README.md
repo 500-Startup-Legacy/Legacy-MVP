@@ -54,7 +54,7 @@ For a quick demonstration:
 
 -  [X]  add mobile phone number field to  `User` model
 
-    -  [ ]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
+    -  [X]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
 
 -  [ ]  create method that will create new `Memory` from text
 
