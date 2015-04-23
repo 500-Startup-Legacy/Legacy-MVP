@@ -53,7 +53,6 @@ class User < ActiveRecord::Base
 
   def remembrances
     Memory.where(memorialized_user_id: self.id)
-
   end
 
   private
