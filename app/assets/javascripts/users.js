@@ -35,15 +35,19 @@ window.onload = function() {
 
 	function appendContentToVideoArea(name, content) {
 
-		$('.content-video').empty();
+		$('.content-div').empty();
 
 		var $div = $('<div class="content-div"></div>');
 		var $buttonsDiv = $('<div class="buttons-div"></div>');
 		var $name = $('<h1 class="name">' + name + '</h1>');
-
 		var $memory = $('<p id="paragraph">' + content + '</p>');
+
+		var $gpsIcon = $('<i class="fa fa-map-marker fa-2x"></i>')
+
 		$memory = $memory.text().replace(/,/g, "<br>");
 		$memory = $('<p id="paragraph">' + $memory + '</p>');
+
+		$buttonsDiv.append($gpsIcon);
 
 		$div.append($buttonsDiv);
 		$div.append($name);
