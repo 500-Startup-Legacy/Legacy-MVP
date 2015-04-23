@@ -34,7 +34,7 @@ class TwilioController < ApplicationController
       if @memorialized_user
         puts @memorialized_user.full_name
         @memory = Memory.create(content:@body, user_id:@user.id, memorialized_user_id:@memorialized_user.id)
-        puts @memory.body
+        puts @memory.content
         puts "*"*100
       end
     end
