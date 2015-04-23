@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
-
+  match '/twilio/process_sms', to:'twilio#process_sms', via: 'post'
   get "/remember/:user_id", to: 'remember#show'
 
 end
