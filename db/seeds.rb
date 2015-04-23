@@ -12,10 +12,10 @@ alex3 = User.create(first_name:'alex3', last_name: 'wang', email:'alexwang949999
 alex4 = User.create(first_name:'alex4', last_name: 'wang', email:'alexwang9499999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
 alex5 = User.create(first_name:'alex5', last_name: 'wang', email:'alexwang94999999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
 
-collin.memorialize!(abraham)
-collin.memorialize!(ed)
-ed.memorialize!(abraham)
-ed.memorialize!(collin)
+collin.memorialize!(abraham, "friend")
+collin.memorialize!(ed, "family")
+ed.memorialize!(abraham, "coworker")
+ed.memorialize!(collin, "family")
 
 ed.memories.create(content:'He was our greatest president.', memorialized_user_id: abraham.id)
 ed.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
