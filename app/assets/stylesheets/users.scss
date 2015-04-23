@@ -4,7 +4,7 @@
 
 
 html {
-	font-family: Arial;
+	font-family: Arial, sans-serif;
 }
 
 h3 {
@@ -21,6 +21,40 @@ h3 {
 	background-color: gray;
 	float: left;
 	position: relative;
+	color: white;
+}
+
+.content-div {
+	position: absolute;
+	width: 20em;
+	height: 15em;
+	background-color: blue;
+	top: 6em;
+	left: 33em;
+	display: block;
+}
+
+.buttons-div {
+	width: 10px;
+	height: 100%;
+	position: absolute;
+	background-color: red;
+
+}
+
+.content-div .name {
+	font-size: 1.5em;
+	padding-bottom: 1em;
+	font-style: bolder;
+	padding-left: 1em;
+	padding-top: .5em;
+
+}
+
+#paragraph {
+	font-weight: 200;
+	padding-left: 1.5em;
+	line-height: 1.5em;
 }
 
 .pic-circles-section {
@@ -112,7 +146,7 @@ h3 {
 }
 
 .data {
-	display: none;
+	display: block;
 }
 
 .circle-1 {

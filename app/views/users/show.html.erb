@@ -55,6 +55,7 @@
      <ul>
         <% memory_array[1].each do |memory| %>
           <li class=<%=memorialized_user.id%>><%=memory.content %></li>
+          <p> <%=memory.created_at%> </p>
         <% end %>
     </ul>
 
