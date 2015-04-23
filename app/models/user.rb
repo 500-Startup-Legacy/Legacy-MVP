@@ -43,11 +43,8 @@ class User < ActiveRecord::Base
   end
 
   def memorialize!(other_user, group_tag)
-    begin
-      relationships.create(memorialized_id:other_user.id, group_tag:group_tag)
-    rescue
-      nil
-    end
+    return nil if self.relationships.map { |relationship| relationship.memorialized_id }.include? other_user.id
+    relationships.create(memorialized_id:other_user.id, group_tag:group_tag)
   end
 
   def unmemorialize!(other_user)
