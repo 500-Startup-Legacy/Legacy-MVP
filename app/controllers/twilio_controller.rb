@@ -25,8 +25,8 @@ class TwilioController < ApplicationController
   # }
 
   def process_sms
-    to_number = params[:To].slice!(0)
-    from_number = params[:From].slice!(0)
+    to_number = params[:To].slice(2..-1)
+    from_number = params[:From].slice(2..-1)
     user = User.find_by(phone_number: from_number)
     body = params[:Body]
     puts "-"*30
@@ -40,6 +40,7 @@ class TwilioController < ApplicationController
     puts "-"*5
     puts 'body: '+ body
     puts "-"*30
+    render 'process_sms.xml.erb', :content_type => 'text/xml'
   end
 
 end
