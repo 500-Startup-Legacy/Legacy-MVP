@@ -27,7 +27,7 @@ class TwilioController < ApplicationController
   def process_sms
     @to_number = params[:To].slice(2..-1)
     @from_number = params[:From].slice(2..-1)
-    @user = User.find_by(phone_number: from_number)
+    @user = User.find_by(phone_number: @from_number)
     @body = params[:Body]
     if @user
       @memorialized_user = @user.get_memorialized_user_by_twilio_number(@to_number)
