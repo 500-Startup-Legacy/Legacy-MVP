@@ -9,8 +9,17 @@ alex = User.create(first_name:'alex', last_name: 'wang', email:'alexwang949@gmai
 alex1 = User.create(first_name:'alex1', last_name: 'wang', email:'alexwang9499@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
 alex2 = User.create(first_name:'alex2', last_name: 'wang', email:'alexwang94999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
 alex3 = User.create(first_name:'alex3', last_name: 'wang', email:'alexwang949999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
-alex4 = User.create(first_name:'alex4', last_name: 'wang', email:'alexwang9499999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
-alex5 = User.create(first_name:'alex5', last_name: 'wang', email:'alexwang94999999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex4 = User.create(first_name:'alex4', last_name: 'wang', email:'alexwang94999969@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex5 = User.create(first_name:'alex5', last_name: 'wang', email:'alexwang941999999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex6 = User.create(first_name:'alex6', last_name: 'wang', email:'alexwang94912399999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex7 = User.create(first_name:'alex7', last_name: 'wang', email:'alexwang94991239999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex8 = User.create(first_name:'alex8', last_name: 'wang', email:'alexwang9499239999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex9 = User.create(first_name:'alex9', last_name: 'wang', email:'alexwang949994999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex10 = User.create(first_name:'alex10', last_name: 'wang', email:'alexwang9491399999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex11 = User.create(first_name:'alex11', last_name: 'wang', email:'alexwang949919999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+alex12 = User.create(first_name:'alex12', last_name: 'wang', email:'alexwang9499923999@gmail.com', password: 'foobar', password_confirmation: 'foobar', public:true)
+
+
 
 collin.memorialize!(abraham, "friend")
 collin.memorialize!(ed, "family")
@@ -35,8 +44,21 @@ alex.memories.create(content:'Love this guy!', memorialized_user_id: alex5.id)
 alex.memories.create(content:'He owes me money', memorialized_user_id: ed.id)
 alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: ed.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex3.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex2.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex7.id)
+alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: abraham.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex6.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
+
+alex.memories.create(content:'Love this guy!', memorialized_user_id: alex12.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex11.id)
+alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: alex10.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: alex9.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex8.id)
 alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: abraham.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
 alex.memories.create(content:'He owes me money', memorialized_user_id: alex2.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
+
+
+

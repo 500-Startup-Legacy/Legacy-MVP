@@ -12,6 +12,12 @@
       <div class="fm-circle">
         <h3>fm</h3>
       </div>
+      <div class="fr-circle">
+        <h3>fr</h3>
+      </div>
+      <div class="co-circle">
+        <h3>co</h3>
+      </div>
       <% counter = 1 %>
          <% @memories_hash.each do |memory_array| %>
            <% memorialized_user = User.find(memory_array[0]) %>
@@ -46,12 +52,11 @@
       <h5 class=<%= memorialized_user.id %>> <%=memorialized_user.full_name%></h5>
     </div>
 
-
      <ul>
         <% memory_array[1].each do |memory| %>
           <li class=<%=memorialized_user.id%>><%=memory.content %></li>
         <% end %>
-      </ul>
+    </ul>
 
     <% end %>
   </div>

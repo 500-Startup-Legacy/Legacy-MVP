@@ -21,20 +21,27 @@ window.onload = function() {
 
 	$('.circle').click(function(event) {
 		
-		$userId = event.target.id;
-		$content = $('ul').find('.' + $userId).html();
+		var $userId = event.target.id;
+
+		var $content = $('ul').find('.' + $userId).map(function(i, el){
+			return $(el).text();
+		}).get();
+
 		$name = $('.full-name .' + $userId).html();
 
 		appendContentToVideoArea($name, $content);
+		// var $content = $('ul').find('.' + $userId).html();
 	});
 
-	function appendContentToVideoArea(name, memory) {
+	function appendContentToVideoArea(name, content) {
 
 		$('.content-video').empty();
 
 		var $div = $('<div class="content-div"></div>');
 		var $name = $('<h1>' + name + '</h1>');
-		var $memory = $('<p>' + memory + '</p>');
+		var $memory = $('<p>' + content + '</p>');
+
+		$memory = $memory.text().replace(/,/g, "<br>");
 
 		$div.append($name);
 		$div.append($memory);
