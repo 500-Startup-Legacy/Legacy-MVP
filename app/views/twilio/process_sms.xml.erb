@@ -3,5 +3,10 @@
   <% puts @to_number %>
   <% puts @from_number %>
   <% puts @body %>
-  <Sms>Message received!</Sms>
+  <Sms>
+    Message received!
+  <% if @memory %>
+      You've created a memory about <%= @memorialized_user.full_name %>.
+    <% end %>
+  </Sms>
 </Response>

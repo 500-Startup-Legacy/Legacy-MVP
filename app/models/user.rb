@@ -51,6 +51,12 @@ class User < ActiveRecord::Base
     relationships.find_by(memorialized_id:other_user.id).destroy
   end
 
+  def get_memorialized_user_by_twilio_number(twilio_number)
+    self.relationships.each do |relationship|
+      return User.find(relationship.memorialized_id) if relationship.twilio_number == twilio_number
+    end
+  end
+
   def remembrances
     Memory.where(memorialized_user_id: self.id)
   end

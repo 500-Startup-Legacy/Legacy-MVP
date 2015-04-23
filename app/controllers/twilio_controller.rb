@@ -29,17 +29,23 @@ class TwilioController < ApplicationController
     @from_number = params[:From].slice(2..-1)
     @user = User.find_by(phone_number: from_number)
     @body = params[:Body]
-    puts "-"*30
-    if user
-      puts "From User: #{user.full_name}"
-      puts "-"*5
+    if @user
+      @memorialized_user = @user.get_memorialized_user_by_twilio_number(@to_number)
+      if @memorialized_user
+        @memory = Memory.create(content:@body, user_id:@user.id, memorialized_user_id:@memorialized_user.id)
+      end
     end
-    puts 'to_number: '+ to_number
-    puts "-"*5
-    puts 'from_number: '+ from_number
-    puts "-"*5
-    puts 'body: '+ body
-    puts "-"*30
+    # puts "-"*30
+    # if @user
+    #   puts "From User: #{user.full_name}"
+    #   puts "-"*5
+    # end
+    # puts 'to_number: '+ to_number
+    # puts "-"*5
+    # puts 'from_number: '+ from_number
+    # puts "-"*5
+    # puts 'body: '+ body
+    # puts "-"*30
     render 'process_sms.xml.erb', :content_type => 'text/xml'
   end
 
