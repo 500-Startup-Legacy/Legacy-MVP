@@ -30,5 +30,6 @@ module Legacy
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+    config.twilio_numbers = ['2023910271', '7033497371','3472153240']
   end
 end
