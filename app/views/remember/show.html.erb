@@ -1,8 +1,22 @@
+<head>
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
+</head>
+
 <h1><%= @user.full_name %> Remembered</h1>
 
 <ul>
 <% @user.remembrances.each do |memory| %>
-  <li><%= memory.content %> -- <%= memory.user.full_name %></li>
+	<% if memory.content.starts_with?("ziggeo") %>
+		<ziggeo ziggeo-video = <%= memory.content[6..-1] %>
+			ziggeo-width=320
+			ziggeo-height=240>
+		</ziggeo>
+		-- <%= memory.user.full_name %>
+	<% else %>
+	  <li><%= memory.content %> -- <%= memory.user.full_name %></li>
+  <% end %>
 <% end %>
 
 </ul>
