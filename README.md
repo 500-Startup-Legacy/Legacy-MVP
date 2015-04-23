@@ -56,8 +56,11 @@ For a quick demonstration:
 
     -  [X]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
 
--  [ ]  create method that will create new `Memory` from text
+-  [X]  create method that will create new `Memory` from text
 
+-  [ ]  add `paperclip` gem for saving images
+
+-  [ ]  add MMS capability from Twilio
 
 ##Phase II-B (Ziggeo)
 

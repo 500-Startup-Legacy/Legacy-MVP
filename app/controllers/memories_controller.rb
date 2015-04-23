@@ -11,9 +11,9 @@ class MemoriesController < ApplicationController
   end
 
   def create
+    @user = User.find(params[:user_id])
   	Memory.create(:content => "ziggeo#{params[:videotoken]}", :user_id => params[:user_id], :memorialized_user_id => params[:memorialized_id])
-
-  	redirect_to url_for(:controller => :memories, :action => :index)
+  	redirect_to @user
   end
 
 end
