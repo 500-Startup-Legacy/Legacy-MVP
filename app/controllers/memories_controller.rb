@@ -5,5 +5,15 @@ class MemoriesController < ApplicationController
       memory.memorialized_user_id
     end
   end
+  
+  def new
+
+  end
+
+  def create
+  	Memory.create(:content => "ziggeo#{params[:videotoken]}", :user_id => params[:user_id], :memorialized_user_id => params[:memorialized_id])
+
+  	redirect_to url_for(:controller => :memories, :action => :index)
+  end
 
 end
