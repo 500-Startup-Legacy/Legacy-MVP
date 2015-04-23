@@ -25,10 +25,10 @@ class TwilioController < ApplicationController
   # }
 
   def process_sms
-    to_number = params[:To].slice(2..-1)
-    from_number = params[:From].slice(2..-1)
-    user = User.find_by(phone_number: from_number)
-    body = params[:Body]
+    @to_number = params[:To].slice(2..-1)
+    @from_number = params[:From].slice(2..-1)
+    @user = User.find_by(phone_number: from_number)
+    @body = params[:Body]
     puts "-"*30
     if user
       puts "From User: #{user.full_name}"
