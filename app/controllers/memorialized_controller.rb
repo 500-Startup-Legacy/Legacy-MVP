@@ -20,8 +20,11 @@ class MemorializedController < ApplicationController
   def create
     @memorializer = User.find(params[:user_id])
     @memorialized = User.find_by(email: params[:email])
-    if @memorialized && @memorializer.memorialize!(@memorialized, params[:group_tag])
-      flash[:success] = "You've memorialized #{@memorialized.full_name}!"
+    relationship = @memorializer.memorialize!(@memorialized, params[:group_tag]) if @memorialized
+    if @memorialized && relationship
+      success_messsage = "You've memorialized #{@memorialized.full_name}!" 
+      success_messsage += "  Text your memories of #{@memorialized.full_name} to #{relationship.twilio_number}" if relationship.twilio_number
+      flash[:success] = success_messsage
       redirect_to @memorializer
     else
       if @memorialized
