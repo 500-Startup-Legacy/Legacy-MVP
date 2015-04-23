@@ -20,9 +20,6 @@ class UsersController < ApplicationController
     end
   end
 
-# {30=> [#<Memory:0x007fba9855f488 id: 13, content: "Sunnyside fo evah!", user_id: 29, memorialized_user_id: 30, ...],
-#  31=> [#<Memory:0x007fba9854bf00 id: 12, content: "Love this guy!", user_id: 29, memorialized_user_id: 31, ...]}
-
   def show
     @user = User.find(params[:id])
     @memories_hash = @user.memories.group_by do |memory|
@@ -44,7 +41,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :phone_number)
   end
 
   def signed_in_user

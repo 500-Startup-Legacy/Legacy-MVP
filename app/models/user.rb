@@ -1,10 +1,17 @@
 class User < ActiveRecord::Base
-  before_save {self.email = email.downcase }
+  before_save { self.email = email.downcase }
+  before_validation do 
+    if self.phone_number
+      self.phone_number = phone_number.gsub(/[^0-9]/, "") 
+      self.phone_number.slice!(0) if self.phone_number[0] == '1' && self.phone_number.length > 10
+    end
+  end
   before_create :create_remember_token
   validates :first_name, presence:true
   validates :last_name, presence:true
   validates :email, presence:true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: true
   validates :password, length: { minimum: 6 }
+  validates :phone_number, presence:true, uniqueness:true, length: { is:10 }
   has_secure_password
 
   has_many :relationships, foreign_key: "memorializer_id", dependent: :destroy
