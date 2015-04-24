@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Legacy</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
@@ -12,15 +12,21 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-      
+      <ul>
         <% if signed_in? %>
-          <p><%= link_to "Sign out", signout_path, method: 'delete' %></p>
-          <p><%= link_to "Dashboard", current_user %></p>
-          <p><%= link_to "Settings", edit_user_path(current_user) %></p>
+        <div class="button1">
+          <li><%= link_to "Sign out", signout_path, method: 'delete', class: 'block' %></li>
+        </div>
+        <div class="button2">
+          <li><%= link_to "Dashboard", current_user, class: 'block' %></li>
+        </div>
+        <div class="button3">
+          <li><%= link_to "Settings", edit_user_path(current_user), class: 'block' %></li>
+        </div>
         <% else %>
-          <p><%= link_to "Sign in", signin_path %></p>
+          <li><%= link_to "Sign in", signin_path %></li>
         <% end %>
-    
+      </ul>
     </nav>
     <%= yield %>
 

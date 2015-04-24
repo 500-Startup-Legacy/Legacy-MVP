@@ -1,0 +1,26 @@
+
+
+.block {
+	width: 7em;
+	height: 1em;
+	color: red;
+/*	background-color: black;
+*/	position: relative;
+	left: 80em;
+	cursor: pointer;
+	display: inline-block;
+}
+
+.div
+
+.block2 {
+	width: 7em;
+	height: 1em;
+	color: red;
+	background-color: black;
+	float: right;
+	cursor: pointer;
+}
+.block a {
+	color: red;
+}
