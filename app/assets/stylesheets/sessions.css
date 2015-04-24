@@ -1,0 +1,30 @@
+
+.right {
+	display: block;
+	overflow: hidden;
+	margin: 1em 1em;
+	/* border-color: ; */
+	color: white;
+	float: right;
+}
+.logo {
+	color: #69a53a;
+	padding-top: 1em;
+	padding-left: 3em;
+	position: absolute;
+}
+
+a {
+	text-decoration: none;
+}
+
+.right:hover {
+	opacity: .7;
+
+}
+
+nav {
+	height: 3em;
+	background-color: black;
+	position: relative;
+}

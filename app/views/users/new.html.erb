@@ -1,26 +1,47 @@
-<h1>Sign up!</h1>
 
-<%= form_for(@user) do |f| %>
 
-  <%= render './shared/error_messages' %>
+<div class="sign-up-form">
+  <h1>Sign Up</h1>
 
-  <%= f.label :first_name, 'First Name' %>
-  <%= f.text_field :first_name %>
+  <%= form_for(@user, :html => {:class => "pure-form, pure-form-aligned"}) do |f| %>
 
-  <%= f.label :last_name, 'Last Name' %>
-  <%= f.text_field :last_name %>
+    <%= render './shared/error_messages' %>
 
-  <%= f.label :email, 'Email' %>
-  <%= f.text_field :email %>
+    <div class="pure-control-group">
+      <%= f.label :first_name, 'First Name' %>
+      <%= f.text_field :first_name %>
+    </div>
 
-  <%= f.label :phone_number, 'Phone Number' %>
-  <%= f.text_field :phone_number %>
+    <div class="pure-control-group">
+      <%= f.label :last_name, 'Last Name' %>
+      <%= f.text_field :last_name %>
+    </div>
 
-  <%= f.label :password, 'Password' %>
-  <%= f.password_field :password %>
+    <div class="pure-control-group">
+      <%= f.label :email, 'Email' %>
+      <%= f.text_field :email %>
+   </div>
 
-  <%= f.label :password_confirmation, 'Confirmation' %>
-  <%= f.password_field :password_confirmation %>
+    <div class="pure-control-group">
+      <%= f.label :phone_number, 'Phone Number' %>
+      <%= f.text_field :phone_number %>
+   </div>
 
-  <%= f.submit 'Create my account' %>
-<% end %>
+    <div class="pure-control-group">
+      <%= f.label :password, 'Password' %>
+      <%= f.password_field :password %>
+   </div>
+
+    <div class="pure-control-group">
+      <%= f.label :password_confirmation, 'Confirmation' %>
+      <%= f.password_field :password_confirmation %>
+   </div>
+
+   <div class="pure-controls">
+    <%= f.submit 'Create my account', :class => 'pure-button, pure-button-primary' %>
+  </div>
+  <% end %>
+</div>
+
+<div class='black-bottom-signup'>
+</div>

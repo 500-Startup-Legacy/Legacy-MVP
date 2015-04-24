@@ -7,6 +7,69 @@ html {
 	font-family: Arial, sans-serif;
 }
 
+/*.black-bottom-signup {
+	position: relative;
+	width: 100%;
+	height: 20em;
+	margin-top: 2em;
+	display: block;
+	background-color: black;
+	opacity: .5;
+}*/
+
+.sign-up-form {
+/*	background-color: black;
+*/	display: block;
+	width: 32em;
+	height: 25em;
+	margin: 0 35%;
+	color: #1dc8fb;
+	background-color: #545454;
+	position: relative;
+	top: 6em;
+	padding-top: 1em;
+	border-radius: 2em;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+/* .sign-up-button {
+ 	color: black;
+ 	background-color: red;
+}
+*/
+.sign-up-form h1 {
+	position: relative;
+	left: 6em;
+	color: rgba(255, 137, 49, 1);
+}
+
+.position-video {
+	width: 20em;
+	height: 16em;
+	position: absolute;
+	top: 10em;
+	left: 8em;
+/*}*/
+}
+
+.image-area {
+	width: 20em;
+	height: 15em;
+	position: absolute;
+	top: 7em;
+	left: 8em;
+	background-size: cover;
+	background-position: center center;
+}
+
+.footer-logo {
+	color: #69a53a;
+	position: absolute;
+	left: 80em;
+	top: 46em;
+}
+
+
 h3 {
 	font-size: 2em;
 }
@@ -14,15 +77,58 @@ h3 {
 	width: 100%;
 	height: 55em;
 }
-/*
-.content-video {
-	width: 60%;
-	height: 100%;
-	background-color: gray;
-	float: left;
-	position: relative;
+
+div .family {
+	background-color: red;
+}
+
+div .friend {
+	background-color: white;
+}	
+
+.make-video-button {
+	position: absolute;
+	top: 4em;
+	left: 4em;
+}
+
+.view-public-button {
+	position: absolute;
+	top: 30em;
+	left: 49em;
 	color: white;
-}*/
+	display: block;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.view-public-button:hover {
+	opacity: .7;
+}
+
+.create-video-button {
+	position: absolute;
+	top: 33em;
+	left: 49em;
+	color: white;
+	display: block;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.create-video-button:hover {
+	opacity: .7;
+}
+
+.text-number {
+	position: absolute;
+	display: block;
+	top: 48em;
+	left: 40em;
+	color: white;
+	font-size: 12px;
+	z-index: 30;
+}
 
 .black-background {
 	position: absolute;
@@ -30,11 +136,20 @@ h3 {
 	width: 100%;
 	height: 100%;
 	display: block;
+	z-index: -1;
+}
+
+.black-background-data {
+	position: absolute;
+	background-color: black;
+	width: auto;
+	display: block;
+	height: 100%;
 }
 
 .content-div {
 	position: absolute;
-	width: 18em;
+	width: 17em;
 	height: 15em;
 	background-color: white;
 	top: 10em;
@@ -57,15 +172,19 @@ i {
 	color: rgba(255, 137, 49, 1);;
 	margin-bottom: .5em;
 	cursor: pointer;
+	z-index: 4;
+}
+
+i:hover {
+	opacity: .6;
 }
 
 .content-div .name {
 	font-size: 1.2em;
 	padding-bottom: 1em;
 	font-style: bolder;
-	padding-top: .5em;
 	margin-left: 1em;
-
+	line-height: 2px;
 }
 
 .text-area {
@@ -78,10 +197,6 @@ i {
 }
 
 #paragraph {
-/*	font-weight: 200;
-	padding-left: 3.5em;
-	line-height: 1.5em;
-	overflow: auto;*/
 	font-size: 12px;
 	position: absolute;
 	margin-left: 1.5em;
@@ -90,8 +205,7 @@ i {
 .pic-circles-section {
 	width: 100%;
 	height: 100%;
-/*	float: left;
-*/	position: relative;
+	position: relative;
 }
 
 .pic-circles-section .profile-pic {
@@ -175,7 +289,10 @@ i {
 }
 
 .data {
-	display: block;
+	overflow: auto;
+/*	height: 1px;
+*/	display: block;
+	width: auto;
 }
 
 .circle-1 {
@@ -237,7 +354,7 @@ i {
 .circle-9 {
 	background-color: #1dc8fb;
 	position: absolute;
-	top: 28em;
+	top: 26em;
 	left: 53em;
 }
 .circle-10 {
@@ -290,4 +407,8 @@ i {
 	border-radius: 60px;
 	display: block;
 	cursor: pointer;
+}
+
+.circle:hover {
+	opacity: .7;
 }

@@ -16,7 +16,7 @@ RSpec.describe "UserPages", type: :request do
 
     let(:submit) { 'Create my account' }
 
-    it { should have_content 'Sign up' }
+    it { should have_content 'Sign Up' }
 
     describe "with invalid information" do
       it "should not create a new user" do
