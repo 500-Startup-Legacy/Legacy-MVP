@@ -14,7 +14,7 @@ h3 {
 	width: 100%;
 	height: 55em;
 }
-
+/*
 .content-video {
 	width: 60%;
 	height: 100%;
@@ -22,58 +22,87 @@ h3 {
 	float: left;
 	position: relative;
 	color: white;
+}*/
+
+.black-background {
+	position: absolute;
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	display: block;
 }
 
 .content-div {
 	position: absolute;
-	width: 20em;
+	width: 18em;
 	height: 15em;
-	background-color: blue;
-	top: 6em;
-	left: 33em;
+	background-color: white;
+	top: 10em;
+	left: 32em;
 	display: block;
+	color: white;
 }
 
 .buttons-div {
 	width: 2.5em;
 	height: 100%;
 	position: absolute;
-	background-color: red;
+	background-color: black;
+	padding-left: 1em;
+	display: block;
+	float: left;
+}
 
+i {
+	color: rgba(255, 137, 49, 1);;
+	margin-bottom: .5em;
+	cursor: pointer;
 }
 
 .content-div .name {
-	font-size: 1.5em;
+	font-size: 1.2em;
 	padding-bottom: 1em;
 	font-style: bolder;
-	padding-left: 2em;
 	padding-top: .5em;
+	margin-left: 1em;
 
+}
+
+.text-area {
+	background-color: black;
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	margin-left: 3.5em;
+	height: 100%;
 }
 
 #paragraph {
-	font-weight: 200;
-	padding-left: 3em;
+/*	font-weight: 200;
+	padding-left: 3.5em;
 	line-height: 1.5em;
+	overflow: auto;*/
+	font-size: 12px;
+	position: absolute;
+	margin-left: 1.5em;
 }
 
 .pic-circles-section {
-	width: 40%;
+	width: 100%;
 	height: 100%;
-	background-color: black;
-	float: left;
-	position: relative;
+/*	float: left;
+*/	position: relative;
 }
 
 .pic-circles-section .profile-pic {
 	position: absolute;
 	top: 16em;
-	left: 16em;
-	width: 13em;
-	height: 13em;
-	-moz-border-radius: 26em;
-	-webkit-border-radius: 26em;
-	border-radius: 26em;
+	left: 65em;
+	width: 10em;
+	height: 10em;
+	-moz-border-radius: 20em;
+	-webkit-border-radius: 20em;
+	border-radius: 20em;
 	display: block;
 	background-image: url('landlady.jpeg');
 	background-size: cover;
@@ -89,7 +118,7 @@ h3 {
 	text-align: center;
 	color: white;
 	top: 17em;
-	left: 12em;
+	left: 60em;
 	width: 4em;
 	height: 4em;
 	-moz-border-radius: 8em;
@@ -109,7 +138,7 @@ h3 {
 	text-align: center;
 	color: white;
 	top: 24em;
-	left: 10em;
+	left: 60em;
 	width: 4em;
 	height: 4em;
 	-moz-border-radius: 8em;
@@ -129,7 +158,7 @@ h3 {
 	text-align: center;
 	color: white;
 	top: 29em;
-	left: 15em;
+	left: 67em;
 	width: 4em;
 	height: 4em;
 	-moz-border-radius: 8em;
@@ -153,104 +182,104 @@ h3 {
 	background-color: rgba(255, 137, 49, 1);
 	position: absolute;
 	top: 15em;
-	left: 10em;
+	left: 58em;
 }
 
 .circle-2 {
 	background-color: rgba(255, 137, 49, 1);
 	position: absolute;
 	top: 18em;
-	left: 9em;
+	left: 57em;
 }
 
 .circle-3 {
 	background-color: rgba(255, 137, 49, 1);
 	position: absolute;
 	top: 13em;
-	left: 8em;
+	left: 56em;
 }
 
 .circle-4 {
 	background-color: rgba(255, 137, 49, 1);
 	position: absolute;
 	top: 15em;
-	left: 7em;
+	left: 55em;
 }
 
 .circle-5 {
 	background-color: rgba(255, 137, 49, 1);
 	position: absolute;
 	top: 12em;
-	left: 6em;
+	left: 54em;
 }
 
 .circle-6 {
 	background-color: #1dc8fb;
 	position: absolute;
 	top: 24em;
-	left: 8em;
+	left: 58em;
 }
 
 .circle-7 {
 	background-color: #1dc8fb;
 	position: absolute;
 	top: 25em;
-	left: 6em;
+	left: 56em;
 }
 
 .circle-8 {
 	background-color: #1dc8fb;
 	position: absolute;
 	top: 27em;
-	left: 8em;
+	left: 57em;
 }
 
 .circle-9 {
 	background-color: #1dc8fb;
 	position: absolute;
 	top: 28em;
-	left: 5em;
+	left: 53em;
 }
 .circle-10 {
 	background-color: #1dc8fb;
 	position: absolute;
 	top: 24em;
-	left: 3em;
+	left: 54em;
 }
 
 .circle-11 {
 	background-color: #e7f233;
 	position: absolute;
 	top: 34em;
-	left: 15em;
+	left: 65em;
 }
 
 .circle-12{
 	background-color: #e7f233;
 	position: absolute;
-	top: 32em;
-	left: 13em;
+	top: 33em;
+	left: 67em;
 }
 
 .circle-13 {
 	background-color: #e7f233;
 	position: absolute;
-	top: 34em;
-	left: 18em;
+	top: 36em;
+	left: 67em;
 }
 
 .circle-14 {
 	background-color: #e7f233;
 	position: absolute;
 	top: 36em;
-	left: 16em;
+	left: 64em;
 }
 
 .circle-15 {
 	background-color: #e7f233;
 	position: absolute;
 	top: 39em;
-	left: 15em;
+	left: 65em;
 }
 
 .circle {
