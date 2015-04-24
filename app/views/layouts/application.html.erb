@@ -12,15 +12,15 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-      <ul>
+      
         <% if signed_in? %>
-          <li><%= link_to "Sign out", signout_path, method: 'delete' %></li>
-          <li><%= link_to "Dashboard", current_user %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+          <p><%= link_to "Sign out", signout_path, method: 'delete' %></p>
+          <p><%= link_to "Dashboard", current_user %></p>
+          <p><%= link_to "Settings", edit_user_path(current_user) %></p>
         <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+          <p><%= link_to "Sign in", signin_path %></p>
         <% end %>
-      </ul>
+    
     </nav>
     <%= yield %>
 

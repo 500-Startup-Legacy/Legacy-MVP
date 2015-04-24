@@ -12,7 +12,7 @@
   </div>
 
     <div class="pic-circles-section">
-      <div class="test">
+      <div class="image-area">
       </div>
       <div class="profile-pic">
       </div>
@@ -25,6 +25,8 @@
       <div class="co-circle">
         <h3>co</h3>
       </div>
+
+
       <% counter = 1 %>
          <% @memories_hash.each do |memory_array| %>
            <% memorialized_user = User.find(memory_array[0]) %>
@@ -32,24 +34,32 @@
            </div>
       <% counter = counter + 1 %>
       <% end %>
+
     </div>
  </div>
 
   *************************
-
+<hr>
 
   <div class="data">
-    <hr>
     <h1><%= @user.full_name %>'s Memories</h1>
 
     <% @memories_hash.each do |memory_array| %>
+
+
       <% memorialized_user = User.find(memory_array[0]) %>
+      <hr>
       <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
 
       <% if memorialized_user.public %>
       <p><%= link_to("See all memories about #{memorialized_user.first_name}", url_for(controller: 'remember', action: 'show', user_id:memorialized_user.id)) %></p>
       <% end %>
 
+      <h1>RELATION: <% if relationship = @user.relationships.find_by(memorialized_id: memorialized_user.id)%>
+        <%=relationship.group_tag%>
+        <%end%>
+
+       </h1>
 
     <div id=<%= memorialized_user.id %> class="circle"></div>
 
@@ -72,9 +82,9 @@
             <div id=video-<%=memorialized_user.id%> class="video-data">
                 <ziggeo ziggeo-video = <%= memory.content[6..-1] %> ziggeo-width=320 ziggeo-height=240> </ziggeo> 
             </div>
-
             <% else %>
             <li class=<%=memorialized_user.id%>><%=memory.content %></li>
+            <div id=image-<%=memorialized_user.id%> class="image-data"><%=memory.image_url%></div>
             <p> <%=memory.created_at%> </p>
         <% end %>
     <% end %>
@@ -82,10 +92,6 @@
 
     <% end %>
   </div>
-
-
-
-
 
 
 
