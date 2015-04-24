@@ -29,6 +29,8 @@ ed.memorialize!(abraham, "coworker")
 ed.memorialize!(collin, "family")
 sora.memorialize!(collin, "family")
 
+sora.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
+
 ed.memories.create(content:'He was our greatest president.', memorialized_user_id: abraham.id)
 ed.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
 
