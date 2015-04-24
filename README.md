@@ -40,7 +40,7 @@ For a quick demonstration:
 
 -  [X]  a `User` can memorialize anothe `User`
 
--  [X] a `User` can can view posts the `User` himself has made about other `Users`
+-  [X]  a `User` can can view posts the `User` himself has made about other `Users`
 
 -  [X]  a `User` can have a Memory of another `User`
 
@@ -58,9 +58,9 @@ For a quick demonstration:
 
 -  [X]  create method that will create new `Memory` from text
 
--  [ ]  add `paperclip` gem for saving images
+-  [X]  secure twilio_controller by chaning middleware so Twilio auth id and secret key required to make POST request
 
--  [ ]  add MMS capability from Twilio
+-  [X]  add MMS capability from Twilio
 
 ##Phase II-B (Ziggeo)
 
@@ -69,6 +69,14 @@ For a quick demonstration:
 
 
 ##Nice To Haves for Later
+
+-  [ ]  migrate Zigeo auth id from code to environmental variable
+
+-  [ ]  add `paperclip` gem for saving images of users
+
+    -  [ ]  use `paperclip` to save MMS images directly to DB
+
+    -  [ ]  delete MMS images from Twilio servers as soon as they're saved to DB
 
 -  [ ]  setup Heroku to run Puma server instead of Webrick 
 
@@ -169,6 +177,27 @@ Since we do not yet have Twilio set up, the only way to add a `Memory` is either
 ###Tests
 
 Testing is done with [RSpec](http://rspec.info/).  To run the tests on the command line, either use the `rspec` command or, if that doesn't work, `bundle exec rspec`.
+
+###Deploying to Heroku
+
+Ensure the following environmental variables are set in Heroku:
+
+-  `TWILIO_ACCOUNT_SID`
+-  `TWILIO_AUTH_TOKEN`
+
+The list of phone numbers we've purchased from Twilio is in the `config/application.rb` file.  As phone numbers are added, removed, or changed from our Twilio account, they must be updated in this file.
+
+```ruby
+#config/application.rb
+module Legacy
+  class Application < Rails::Application
+    config.active_record.raise_in_transactional_callbacks = true
+    config.twilio_numbers = ['2023910271', '7033497371','3472153240']
+  end
+end
+```
+
+To access this variable in the app, use `Rails.application.config.twilio_numbers`.
 
 
 ###Routes
