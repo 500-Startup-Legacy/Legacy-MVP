@@ -62,6 +62,8 @@ For a quick demonstration:
 
 -  [X]  add MMS capability from Twilio
 
+-  [X]  add pretty print formatter for phone numbers
+
 ##Phase II-B (Ziggeo)
 
 

@@ -61,7 +61,7 @@
 
     <ul>
 
-  <h3>(To create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</h3>
+  <h3>(To create a memory about <%= memorialized_user.full_name %>, text <%= format_phone_number @user.get_memorializing_twilio_number(memorialized_user) %>)</h3>
   <h3>(To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("here", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id)) %>)</h3>
 
 
