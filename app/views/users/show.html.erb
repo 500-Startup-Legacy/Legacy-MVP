@@ -38,6 +38,8 @@
       <% end %>
 
     </div>
+
+    <p class="footer-logo">power by You</p>
  </div>
 
 
@@ -75,7 +77,11 @@
 
     <ul>
 
-  <h3>(To create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</h3>
+      <% if @user.get_memorializing_twilio_number(memorialized_user) %>
+
+         <p id=<%='text-number-' + memorialized_user.id.to_s%>>(Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</p>
+
+      <% end %>
 
 
 To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("Create Video", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id), id: 'video-link-' + memorialized_user.id.to_s)%>

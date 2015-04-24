@@ -27,10 +27,17 @@ html {
 }
 
 .logo {
-	color: white;
-	padding-top: .5em;
+	color: #69a53a;
+	padding-top: 1em;
 	padding-left: 3em;
 	position: absolute;
+}
+
+.footer-logo {
+	color: #69a53a;
+	position: absolute;
+	left: 80em;
+	top: 45em;
 }
 h3 {
 	font-size: 2em;
@@ -78,6 +85,18 @@ div .friend {
 	text-decoration: underline;
 }
 
+.create-video-button:hover {
+	opacity: .7;
+}
+
+.text-number {
+	position: absolute;
+	display: block;
+	top: 47em;
+	left: 49em;
+	color: white;
+	font-size: 12px;
+}
 
 .black-background {
 	position: absolute;
@@ -238,7 +257,8 @@ i:hover {
 
 .data {
 	overflow: auto;
-	height: 10px;
+/*	height: 12px;
+*/	display: block;
 	width: auto;
 }
 
@@ -301,7 +321,7 @@ i:hover {
 .circle-9 {
 	background-color: #1dc8fb;
 	position: absolute;
-	top: 28em;
+	top: 26em;
 	left: 53em;
 }
 .circle-10 {

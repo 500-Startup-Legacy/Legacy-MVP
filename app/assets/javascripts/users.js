@@ -10,6 +10,8 @@ window.onload = function() {
 		$('html').find('*').removeClass('position-video');
 		$('html').find('*').removeClass('view-public-button');
 		$('html').find('*').removeClass('create-video-button');
+		$('html').find('*').removeClass('text-number');
+
 
 		var $userId = event.target.id;
 
@@ -21,6 +23,7 @@ window.onload = function() {
 
 		$('#view-public-' + $userId).addClass('view-public-button');
 		$('#video-link-' + $userId).addClass('create-video-button');
+		$('#text-number-' + $userId).addClass('text-number');
 
 		appendContentToVideoArea($name, $content, $userId);
 	});
@@ -106,10 +109,7 @@ window.onload = function() {
 
 
 
-
-
 };
-
 
 
 	// var counter = 0;
