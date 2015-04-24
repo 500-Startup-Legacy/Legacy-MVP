@@ -39,7 +39,7 @@
 
     </div>
 
-    <p class="footer-logo">power by You</p>
+    <!-- <p class="footer-logo">power by You</p> -->
  </div>
 
 
@@ -77,9 +77,9 @@
 
     <ul>
 
-      <% if @user.get_memorializing_twilio_number(memorialized_user) %>
+      <% if @user.get_memorializing_twilio_number(memorialized_user) != "" %>
 
-         <p id=<%='text-number-' + memorialized_user.id.to_s%>>(Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</p>
+         <p id=<%='phone-number-' + memorialized_user.id.to_s%>>Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %></p>
 
       <% end %>
 

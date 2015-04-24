@@ -7,6 +7,42 @@ html {
 	font-family: Arial, sans-serif;
 }
 
+/*.black-bottom-signup {
+	position: relative;
+	width: 100%;
+	height: 20em;
+	margin-top: 2em;
+	display: block;
+	background-color: black;
+	opacity: .5;
+}*/
+
+.sign-up-form {
+/*	background-color: black;
+*/	display: block;
+	width: 32em;
+	height: 25em;
+	margin: 0 35%;
+	color: #1dc8fb;
+	background-color: #545454;
+	position: relative;
+	top: 6em;
+	padding-top: 1em;
+	border-radius: 2em;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+/* .sign-up-button {
+ 	color: black;
+ 	background-color: red;
+}
+*/
+.sign-up-form h1 {
+	position: relative;
+	left: 6em;
+	color: rgba(255, 137, 49, 1);
+}
+
 .position-video {
 	width: 20em;
 	height: 16em;
@@ -26,19 +62,14 @@ html {
 	background-position: center center;
 }
 
-.logo {
-	color: #69a53a;
-	padding-top: 1em;
-	padding-left: 3em;
-	position: absolute;
-}
-
 .footer-logo {
 	color: #69a53a;
 	position: absolute;
 	left: 80em;
-	top: 45em;
+	top: 46em;
 }
+
+
 h3 {
 	font-size: 2em;
 }
@@ -92,10 +123,11 @@ div .friend {
 .text-number {
 	position: absolute;
 	display: block;
-	top: 47em;
-	left: 49em;
+	top: 48em;
+	left: 40em;
 	color: white;
 	font-size: 12px;
+	z-index: 30;
 }
 
 .black-background {
@@ -258,8 +290,8 @@ i:hover {
 
 .data {
 	overflow: auto;
-	height: 12px;
-	/*display: block;*/
+/*	height: 1px;
+*/	display: block;
 	width: auto;
 }
 
