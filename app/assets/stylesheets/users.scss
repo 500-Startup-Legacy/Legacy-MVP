@@ -152,6 +152,7 @@ i:hover {
 	padding-bottom: 1em;
 	font-style: bolder;
 	margin-left: 1em;
+	line-height: 2px;
 }
 
 .text-area {
@@ -257,8 +258,8 @@ i:hover {
 
 .data {
 	overflow: auto;
-/*	height: 12px;
-*/	display: block;
+	height: 12px;
+	/*display: block;*/
 	width: auto;
 }
 

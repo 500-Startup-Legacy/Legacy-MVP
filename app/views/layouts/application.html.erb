@@ -13,23 +13,14 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-      <!-- <ul> -->
       <p class="logo">legacy</p>
         <% if signed_in? %>
-<!--         <div class="button1">
- -->          <%= link_to "Sign out", signout_path, method: 'delete', class: 'right' %>
-<!--         </div>
- -->       
-  <!-- <div class="button2"> -->
+         <%= link_to "Sign out", signout_path, method: 'delete', class: 'right' %>
           <%= link_to "Dashboard", current_user, class: 'right' %>
-<!--         </div>
- --><!--         <div class="button3">
- -->          <%= link_to "Settings", edit_user_path(current_user), class: 'right' %>
-<!--         </div>
- -->        <% else %>
-          <%= link_to "Sign in", signin_path %>
+          <%= link_to "Settings", edit_user_path(current_user), class: 'right' %>
+        <% else %>
+          <%= link_to "Sign in", signin_path, class: 'right' %>
         <% end %>
-      <!-- </ul> -->
     </nav>
     <%= yield %>
 

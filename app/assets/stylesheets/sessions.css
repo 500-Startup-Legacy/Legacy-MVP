@@ -1,12 +1,17 @@
 
-
 .right {
-	float: right;
 	display: block;
 	overflow: hidden;
 	margin: 1em 1em;
 	border-color: ;
 	color: white;
+	float: right;
+}
+.logo {
+	color: #69a53a;
+	padding-top: 1em;
+	padding-left: 3em;
+	position: absolute;
 }
 
 a {
@@ -19,6 +24,7 @@ a {
 }
 
 nav {
-	height: 2.3em;
+	height: 3em;
 	background-color: black;
+	position: relative;
 }
