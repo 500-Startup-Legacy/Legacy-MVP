@@ -19,7 +19,10 @@ window.onload = function() {
 
 	// });
 
-	$('.circle').click(function(event) {
+	
+
+
+	$('.circle').hover(function(event) {
 		
 		var $userId = event.target.id;
 
@@ -29,11 +32,11 @@ window.onload = function() {
 
 		$name = $('.full-name .' + $userId).html();
 
-		appendContentToVideoArea($name, $content);
+		appendContentToVideoArea($name, $content, $userId);
 		// var $content = $('ul').find('.' + $userId).html();
 	});
 
-	function appendContentToVideoArea(name, content) {
+	function appendContentToVideoArea(name, content, id) {
 
 		$('.content-div').remove();
 
@@ -44,7 +47,7 @@ window.onload = function() {
 		var $memory = $('<p id="paragraph">' + content + '</p>');
 
 		var $gpsIcon = $('<i class="fa fa-map-marker fa-2x"></i>');
-		var $videoIcon = $('<i class="fa fa-play-circle-o fa-2x"></i>');
+		var $videoIcon = $('<i id="video" class="fa fa-play-circle-o fa-2x"></i>');
 		var $fileIcon = $('<i class="fa fa-paperclip fa-2x"></i>');
 		var $soundIcon = $('<i class="fa fa-volume-up fa-2x"></i>');
 
@@ -59,13 +62,21 @@ window.onload = function() {
 		$textArea.append($name);
 		$textArea.append($memory);
 
-
 		$div.append($buttonsDiv);
 		$div.append($textArea);
-		// $div.append($name);
-		// $div.append($memory);
 
 		$('.container').append($div);
+
+		var $videoButton = $('#video');
+
+		$videoButton.click(function() {
+
+			var $id = id;
+			$videoData = $('#video-' + $id);
+			console.log($videoData);
+			$videoData.addClass('position-video');
+			
+		});
 
 	};
 

@@ -12,6 +12,8 @@
   </div>
 
     <div class="pic-circles-section">
+      <div class="test">
+      </div>
       <div class="profile-pic">
       </div>
       <div class="fm-circle">
@@ -26,8 +28,6 @@
       <% counter = 1 %>
          <% @memories_hash.each do |memory_array| %>
            <% memorialized_user = User.find(memory_array[0]) %>
-
-
            <div id= <%=memorialized_user.id%> class="circle circle-<%=counter%>">
            </div>
       <% counter = counter + 1 %>
@@ -68,7 +68,11 @@
         <% memory_array[1].each do |memory| %>
 
             <% if memory.content.starts_with?("ziggeo") %>
-                <ziggeo ziggeo-video = <%= memory.content[6..-1] %> ziggeo-width=320 ziggeo-height=240> </ziggeo> -- <%= memory.user.full_name %>
+
+            <div id=video-<%=memorialized_user.id%> class="video-data">
+                <ziggeo ziggeo-video = <%= memory.content[6..-1] %> ziggeo-width=320 ziggeo-height=240> </ziggeo> 
+            </div>
+
             <% else %>
             <li class=<%=memorialized_user.id%>><%=memory.content %></li>
             <p> <%=memory.created_at%> </p>
