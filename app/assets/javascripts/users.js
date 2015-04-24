@@ -6,7 +6,7 @@ window.onload = function() {
 	
 	$('.circle').hover(function(event) {
 
-		$('html').find('*').removeClass('text-number');
+		// $('html').find('*').removeClass('text-number');
 		$('.image-area').css('background-image', 'none');
 		$('html').find('*').removeClass('position-video');
 		$('html').find('*').removeClass('view-public-button');
@@ -23,7 +23,7 @@ window.onload = function() {
 
 		$('#view-public-' + $userId).addClass('view-public-button');
 		$('#video-link-' + $userId).addClass('create-video-button');
-		$('#phone-number-' + $userId).addClass('text-number');
+		// $('#phone-number-' + $userId).addClass('text-number');
 
 		appendContentToVideoArea($name, $content, $userId);
 	});

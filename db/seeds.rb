@@ -68,8 +68,7 @@ alex.memories.create(content:'He oweLove this gLove this guy!uy!s me money', mem
 alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: ed.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex3.id)
 alex.memories.create(content:'He owes me money', memorialized_user_id: alex7.id)
-alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: abraham.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
+
 alex.memories.create(content:'He owes me money', memorialized_user_id: alex6.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
 
@@ -78,8 +77,7 @@ alex.memories.create(content:'He owes me money', memorialized_user_id: alex11.id
 alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: alex10.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex9.id)
 alex.memories.create(content:'He owes me money', memorialized_user_id: alex8.id)
-alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: abraham.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
+
 alex.memories.create(content:'He owes me money', memorialized_user_id: alex2.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
 
