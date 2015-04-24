@@ -39,18 +39,29 @@ class TwilioController < ApplicationController
         puts "*"*100
       end
     end
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts params
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
+    puts "^^^^^^^^^^^^^^^^^^^"
 
-    puts "-"*30
-    if @user
-      puts "From User: #{@user.full_name}"
-      puts "-"*5
-    end
-    puts 'to_number: '+ @to_number
-    puts "-"*5
-    puts 'from_number: '+ @from_number
-    puts "-"*5
-    puts 'body: '+ @body
-    puts "-"*30
+    # puts "-"*30
+    # if @user
+    #   puts "From User: #{@user.full_name}"
+    #   puts "-"*5
+    # end
+    # puts 'to_number: '+ @to_number
+    # puts "-"*5
+    # puts 'from_number: '+ @from_number
+    # puts "-"*5
+    # puts 'body: '+ @body
+    # puts "-"*30
     render 'process_sms.xml.erb', :content_type => 'text/xml'
   end
 
