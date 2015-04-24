@@ -29,11 +29,12 @@ class TwilioController < ApplicationController
     @from_number = params[:From].slice(2..-1)
     @user = User.find_by(phone_number: @from_number)
     @body = params[:Body]
+    @image_url = params[:image_url]
     if @user
       @memorialized_user = @user.get_memorialized_user_by_twilio_number(@to_number)
       if @memorialized_user
         puts @memorialized_user.full_name
-        @memory = Memory.create(content:@body, user_id:@user.id, memorialized_user_id:@memorialized_user.id)
+        @memory = Memory.create(content:@body, user_id:@user.id, memorialized_user_id:@memorialized_user.id, image_url:@image_url)
         puts @memory.content
         puts "*"*100
       end

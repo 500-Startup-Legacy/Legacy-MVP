@@ -15,6 +15,7 @@ RSpec.describe Memory, type: :model do
   it { should respond_to :memorialized_user_id }
   it { should respond_to :user }
   it { should respond_to :group_tag }
+  it { should respond_to :image_url }
 
   specify { expect(@memory.user).to eq user }
 
