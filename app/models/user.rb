@@ -57,6 +57,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def get_relationship(other_user)
+    self.relationships.find_by(memorialized_id:other_user.id)
+  end
+
   def get_memorializing_twilio_number(other_user)
     relationship = self.relationships.find_by(memorialized_id:other_user.id)
     return relationship.twilio_number if relationship
