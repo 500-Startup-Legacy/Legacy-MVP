@@ -3,33 +3,95 @@
 <script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
 <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
 </head>
+<%# <p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %1></p> %>
 
-<h1><%= @user.full_name %>'s Memories</h1>
-<p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %></p>
 
-<% @memories_hash.each do |memory_array| %>
-  <% memorialized_user = User.find(memory_array[0]) %>
+<div class="container">
 
-  <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
-  <h3>(To create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</h3>
-  <h3>(To create a video memory about <%= memorialized_user.full_name %>, click  
-    <%= link_to("here", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id)) %>)</h3>
-  <% if memorialized_user.public %>
-  <p><%= link_to("See all memories about #{memorialized_user.first_name}", url_for(controller: 'remember', action: 'show', user_id:memorialized_user.id)) %></p>
-  <% end %>
+  <div class="black-background">
+  </div>
 
-  <ul>
-    <% memory_array[1].each do |memory| %>
-      <% if memory.content.starts_with?("ziggeo") %>
-        <ziggeo ziggeo-video = <%= memory.content[6..-1] %>
-      ziggeo-width=320
-      ziggeo-height=240>
-        </ziggeo> -- <%= memory.user.full_name %>
-      <% else %>
-      <li><%=memory.content %></li>
+    <div class="pic-circles-section">
+      <div class="profile-pic">
+      </div>
+      <div class="fm-circle">
+        <h3>fm</h3>
+      </div>
+      <div class="fr-circle">
+        <h3>fr</h3>
+      </div>
+      <div class="co-circle">
+        <h3>co</h3>
+      </div>
+      <% counter = 1 %>
+         <% @memories_hash.each do |memory_array| %>
+           <% memorialized_user = User.find(memory_array[0]) %>
+
+
+           <div id= <%=memorialized_user.id%> class="circle circle-<%=counter%>">
+           </div>
+      <% counter = counter + 1 %>
       <% end %>
-    <% end %>
-  </ul>
+    </div>
+ </div>
 
-<% end %>
+  *************************
+
+
+  <div class="data">
+    <hr>
+    <h1><%= @user.full_name %>'s Memories</h1>
+
+    <% @memories_hash.each do |memory_array| %>
+      <% memorialized_user = User.find(memory_array[0]) %>
+      <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
+
+      <% if memorialized_user.public %>
+      <p><%= link_to("See all memories about #{memorialized_user.first_name}", url_for(controller: 'remember', action: 'show', user_id:memorialized_user.id)) %></p>
+      <% end %>
+
+
+    <div id=<%= memorialized_user.id %> class="circle"></div>
+
+    <h1>memoralized_user_id: <%= memorialized_user.id %></h1>
+
+    <div class="full-name">
+      <h5 class=<%= memorialized_user.id %>> <%=memorialized_user.full_name%></h5>
+    </div>
+
+    <ul>
+
+  <h3>(To create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</h3>
+  <h3>(To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("here", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id)) %>)</h3>
+
+
+        <% memory_array[1].each do |memory| %>
+
+            <% if memory.content.starts_with?("ziggeo") %>
+                <ziggeo ziggeo-video = <%= memory.content[6..-1] %> ziggeo-width=320 ziggeo-height=240> </ziggeo> -- <%= memory.user.full_name %>
+            <% else %>
+            <li class=<%=memorialized_user.id%>><%=memory.content %></li>
+            <p> <%=memory.created_at%> </p>
+        <% end %>
+    <% end %>
+    </ul>
+
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
