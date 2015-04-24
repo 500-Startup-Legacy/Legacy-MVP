@@ -3,7 +3,6 @@
 <script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
 <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
 </head>
-<%# <p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %1></p> %>
 
 
 <div class="container">
@@ -41,6 +40,7 @@
   <div class="data">
     <hr>
     <h1><%= @user.full_name %>'s Memories</h1>
+<p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %></p>
 
     <% @memories_hash.each do |memory_array| %>
       <% memorialized_user = User.find(memory_array[0]) %>
