@@ -7,7 +7,10 @@ window.onload = function() {
 	$('.circle').hover(function(event) {
 
 		$('.image-area').css('background-image', 'none');
-		
+		$('html').find('*').removeClass('position-video');
+		$('html').find('*').removeClass('view-public-button');
+		$('html').find('*').removeClass('create-video-button');
+
 		var $userId = event.target.id;
 
 		var $content = $('ul').find('.' + $userId).map(function(i, el){
@@ -16,17 +19,15 @@ window.onload = function() {
 
 		$name = $('.full-name .' + $userId).html();
 
+		$('#view-public-' + $userId).addClass('view-public-button');
+		$('#video-link-' + $userId).addClass('create-video-button');
+
 		appendContentToVideoArea($name, $content, $userId);
 	});
 
 	function appendContentToVideoArea(name, content, id) {
 
-		// $('.content-div').remove();
 		$('.content-div').remove();
-
-
-		$('html').find('*').removeClass('position-video');
-
 
 		var $div = $('<div class="content-div"></div>');
 		var $textArea = $('<div class="text-area"></div>');

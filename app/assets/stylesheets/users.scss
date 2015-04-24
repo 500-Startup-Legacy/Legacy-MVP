@@ -13,6 +13,7 @@ html {
 	position: absolute;
 	top: 10em;
 	left: 8em;
+/*}*/
 }
 
 .image-area {
@@ -25,6 +26,12 @@ html {
 	background-position: center center;
 }
 
+.logo {
+	color: white;
+	padding-top: .5em;
+	padding-left: 3em;
+	position: absolute;
+}
 h3 {
 	font-size: 2em;
 }
@@ -39,6 +46,36 @@ div .family {
 
 div .friend {
 	background-color: white;
+}	
+
+.make-video-button {
+	position: absolute;
+	top: 4em;
+	left: 4em;
+}
+
+.view-public-button {
+	position: absolute;
+	top: 30em;
+	left: 49em;
+	color: white;
+	display: block;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.view-public-button:hover {
+	opacity: .7;
+}
+
+.create-video-button {
+	position: absolute;
+	top: 33em;
+	left: 49em;
+	color: white;
+	display: block;
+	font-size: 12px;
+	text-decoration: underline;
 }
 
 
@@ -51,9 +88,17 @@ div .friend {
 	z-index: -1;
 }
 
+.black-background-data {
+	position: absolute;
+	background-color: black;
+	width: auto;
+	display: block;
+	height: 100%;
+}
+
 .content-div {
 	position: absolute;
-	width: 18em;
+	width: 17em;
 	height: 15em;
 	background-color: white;
 	top: 10em;
@@ -87,9 +132,7 @@ i:hover {
 	font-size: 1.2em;
 	padding-bottom: 1em;
 	font-style: bolder;
-	padding-top: .5em;
 	margin-left: 1em;
-
 }
 
 .text-area {
@@ -102,7 +145,6 @@ i:hover {
 }
 
 #paragraph {
-
 	font-size: 12px;
 	position: absolute;
 	margin-left: 1.5em;
@@ -195,7 +237,9 @@ i:hover {
 }
 
 .data {
-	display: block;
+	overflow: auto;
+	height: 10px;
+	width: auto;
 }
 
 .circle-1 {

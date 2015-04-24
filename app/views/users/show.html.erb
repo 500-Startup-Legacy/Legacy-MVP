@@ -41,10 +41,9 @@
  </div>
 
 
-  *************************DATA********************
-<hr>
-
   <div class="data">
+    <div class="black-background-data">
+    </div>
     <h1><%= @user.full_name %>'s Memories</h1>
 
     <% @memories_hash.each do |memory_array| %>
@@ -55,7 +54,9 @@
       <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
 
       <% if memorialized_user.public %>
-      <p><%= link_to("See all memories about #{memorialized_user.first_name}", url_for(controller: 'remember', action: 'show', user_id:memorialized_user.id)) %></p>
+
+        <%= link_to("View #{memorialized_user.first_name}'s Memories", url_for(controller: 'remember', action: 'show', user_id: memorialized_user.id), id: 'view-public-' + memorialized_user.id.to_s) %>
+
       <% end %>
 
       <h1>RELATION: <% if relationship = @user.relationships.find_by(memorialized_id: memorialized_user.id)%>
@@ -77,7 +78,7 @@
   <h3>(To create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %>)</h3>
 
 
-  <div id=video-link-<%=memorialized_user.id%> (To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("here", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id), class: 'pure-button')%></div>
+To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("Create Video", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id), id: 'video-link-' + memorialized_user.id.to_s)%>
 
 
         <% memory_array[1].each do |memory| %>
