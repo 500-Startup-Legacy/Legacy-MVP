@@ -5,6 +5,7 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
   </head>
   <body>
 
@@ -12,21 +13,22 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-      <ul>
+      <!-- <ul> -->
         <% if signed_in? %>
-        <div class="button1">
-          <li><%= link_to "Sign out", signout_path, method: 'delete', class: 'block' %></li>
-        </div>
-        <div class="button2">
-          <li><%= link_to "Dashboard", current_user, class: 'block' %></li>
-        </div>
-        <div class="button3">
-          <li><%= link_to "Settings", edit_user_path(current_user), class: 'block' %></li>
-        </div>
-        <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+<!--         <div class="button1">
+ -->          <%= link_to "Sign out", signout_path, method: 'delete', class: 'right' %>
+<!--         </div>
+ -->       
+  <!-- <div class="button2"> -->
+          <%= link_to "Dashboard", current_user, class: 'right' %>
+<!--         </div>
+ --><!--         <div class="button3">
+ -->          <%= link_to "Settings", edit_user_path(current_user), class: 'right' %>
+<!--         </div>
+ -->        <% else %>
+          <%= link_to "Sign in", signin_path %>
         <% end %>
-      </ul>
+      <!-- </ul> -->
     </nav>
     <%= yield %>
 

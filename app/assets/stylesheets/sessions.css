@@ -1,26 +1,24 @@
 
 
-.block {
-	width: 7em;
-	height: 1em;
-	color: red;
-/*	background-color: black;
-*/	position: relative;
-	left: 80em;
-	cursor: pointer;
-	display: inline-block;
-}
-
-.div
-
-.block2 {
-	width: 7em;
-	height: 1em;
-	color: red;
-	background-color: black;
+.right {
 	float: right;
-	cursor: pointer;
+	display: block;
+	overflow: hidden;
+	margin: 1em 1em;
+	border-color: ;
+	color: white;
 }
-.block a {
-	color: red;
+
+a {
+	text-decoration: none;
+}
+
+.right:hover {
+	opacity: .7;
+
+}
+
+nav {
+	height: 2.3em;
+	background-color: black;
 }
