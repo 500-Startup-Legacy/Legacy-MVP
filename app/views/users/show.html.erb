@@ -77,9 +77,9 @@
 
     <ul>
 
-      <% if @user.get_memorializing_twilio_number(memorialized_user) != "" %>
+      <% if @user.get_memorializing_twilio_number(memorialized_user) != nil %>
 
-         <p id=<%='phone-number-' + memorialized_user.id.to_s%>>Create a memory about <%= memorialized_user.full_name %>, text <%= format_phone_number @user.get_memorializing_twilio_number(memorialized_user) %></p>
+         <p id=<%='phone-number-' + memorialized_user.id.to_s%>>Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %></p>
 
       <% end %>
 
