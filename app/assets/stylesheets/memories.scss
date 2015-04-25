@@ -1,3 +1,26 @@
-// Place all the styles related to the Memories controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*
+ziggeo {
+	position: relative;
+	left: 40%;
+	padding-top-top: 8em;
+}*/
+
+/*button {
+
+}*/
+body {
+background-color: gray;
+}
+
+
+form input[type=submit]:hover {
+	opacity: .9;
+	
+}
+
+form input[type=submit] {
+	margin-top: 1em;
+	position: relative;
+	left: 5.5em;
+}

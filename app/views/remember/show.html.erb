@@ -4,19 +4,18 @@
 <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
 </head>
 
-<h1><%= @user.full_name %> Remembered</h1>
+<div class="content">
+<h1><%= @user.full_name %> <span>remembered..</span></h1>
 
 <ul>
 <% @user.remembrances.each do |memory| %>
-	<% if memory.content.starts_with?("ziggeo") %>
-		<ziggeo ziggeo-video = <%= memory.content[6..-1] %>
-			ziggeo-width=320
-			ziggeo-height=240>
-		</ziggeo>
-		-- <%= memory.user.full_name %>
-	<% else %>
-	  <li><%= memory.content %> -- <%= memory.user.full_name %></li>
-  <% end %>
+	
+	  <li><%= memory.content %></li><br>
 <% end %>
-
 </ul>
+</div>
+<div class='black-bottom-signup'>
+</div>
+ <p class="footer-logo">power by You</p>
+
+
