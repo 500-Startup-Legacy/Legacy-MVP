@@ -2,13 +2,24 @@
 <link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
 <script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
 <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
+
 </head>
 
+<div class="video-recorder">
 
 <%= form_tag({controller: "memories", action: "create"}, method: "post") do %>
 <ziggeo ziggeo-input_bind='videotoken'
-				ziggeo-width=320
-        ziggeo-height=240>
+				ziggeo-width=400
+        ziggeo-height=300>
 </ziggeo>
-  <%= submit_tag("Create Video Memory") %>
+<div class="pure-controls">
+  <%= submit_tag("Create Video Memory", :class => 'pure-button, pure-button-primary')%>
+</div>
 <% end %>
+
+
+</div>
+
+<!-- 320 
+
+240 -->
