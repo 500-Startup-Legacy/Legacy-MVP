@@ -39,13 +39,7 @@ alex.memorialize!(alex4, "coworker")
 alex.memorialize!(alex5, "family")
 alex.memorialize!(alex6, "friend")
 alex.memorialize!(alex7, "coworker")
-alex.memorialize!(alex8, "family")
-alex.memorialize!(alex9, "friend")
-alex.memorialize!(alex10, "coworker")
-alex.memorialize!(alex11, "family")
-alex.memorialize!(alex12, "friend")
-alex.memorialize!(sora, "coworker")
-alex.memorialize!(ed, "friend")
+
 
 
 
