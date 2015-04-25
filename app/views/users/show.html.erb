@@ -29,17 +29,48 @@
 
 
       <% counter = 1 %>
-         <% @memories_hash.each do |memory_array| %>
+      <% family_array = [] %>
+      <% friend_array = [] %>
+      <% coworker_array = [] %>
+
+            
+         <% @memories_hash.each do |memory_array| %>      
            <% memorialized_user = User.find(memory_array[0]) %>
-           <div id= <%=memorialized_user.id%> class="circle circle-<%=counter%>">
+           <%  relationship = @user.relationships.find_by(memorialized_id: memorialized_user.id).group_tag %>
+           <% if relationship == "family" %>
+                <% family_array.push(memorialized_user.id) %>
+             <% elsif relationship == "friend" %>
+                <% friend_array.push(memorialized_user.id) %>
+             <% else %>
+                <% coworker_array.push(memorialized_user.id) %>
+           <% end %>     
+        <% end %>
+
+         <% family_array.each do |each| %>
+           <div id= <%=each%> class="circle circle-<%=counter%>">
            </div>
-      <% counter = counter + 1 %>
-      <% end %>
+           <% counter = counter + 1 %>
+        <% end %>
+
+         <% friend_array.each do |each| %>
+           <div id= <%=each%> class="circle circle-<%=counter%>">
+           </div>
+           <% counter = counter + 1 %>
+        <% end %>
+
+         <% coworker_array.each do |each| %>
+           <div id= <%=each%> class="circle circle-<%=counter%>">
+           </div>
+           <% counter = counter + 1 %>
+        <% end %>
 
     </div>
 
     <!-- <p class="footer-logo">power by You</p> -->
  </div>
+
+
+
 
 
   <div class="data">
