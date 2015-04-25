@@ -28,41 +28,57 @@
       </div>
 
 
-      <% counter = 1 %>
-      <% family_array = [] %>
-      <% friend_array = [] %>
-      <% coworker_array = [] %>
+        <% counter = 1 %>
+        <% family_array = [] %>
+        <% friend_array = [] %>
+        <% coworker_array = [] %>
 
             
-         <% @memories_hash.each do |memory_array| %>      
-           <% memorialized_user = User.find(memory_array[0]) %>
-           <%  relationship = @user.relationships.find_by(memorialized_id: memorialized_user.id).group_tag %>
-           <% if relationship == "family" %>
+      <% @memories_hash.each do |memory_array| %>      
+          
+          <% memorialized_user = User.find(memory_array[0]) %>
+          
+          <% if find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
+
+            <% relationship = find_relation.group_tag %>
+
+            <% if relationship == "family" %>
                 <% family_array.push(memorialized_user.id) %>
-             <% elsif relationship == "friend" %>
-                <% friend_array.push(memorialized_user.id) %>
-             <% else %>
+              <% elsif relationship == "friend" %>
+                  <% friend_array.push(memorialized_user.id) %>
+              <% else %>
                 <% coworker_array.push(memorialized_user.id) %>
-           <% end %>     
-        <% end %>
+             <% end %>
+           
+           <% end %>
 
-         <% family_array.each do |each| %>
+      <% end %>
+
+
+      <% family_array.each do |each| %>
            <div id= <%=each%> class="circle circle-<%=counter%>">
            </div>
            <% counter = counter + 1 %>
-        <% end %>
+      <% end %>
 
-         <% friend_array.each do |each| %>
+      <% friend_array.each do |each| %>
+          <% if counter < 5 %>
+             <% counter = 5 %>
+          <% end %>
            <div id= <%=each%> class="circle circle-<%=counter%>">
            </div>
            <% counter = counter + 1 %>
-        <% end %>
+      <% end %>
 
-         <% coworker_array.each do |each| %>
+      <% coworker_array.each do |each| %>
+          <% if counter < 10 %>
+              <% counter = 10 %>
+          <% end %>
            <div id= <%=each%> class="circle circle-<%=counter%>">
            </div>
            <% counter = counter + 1 %>
-        <% end %>
+      <% end %>
+
 
     </div>
 
