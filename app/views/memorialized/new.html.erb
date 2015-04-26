@@ -1,8 +1,18 @@
 
-<%= form_tag({controller: "memorialized", action: "create"}, method: "post") do %>
-  <%= label_tag(:email, "Email") %>
-  <%= text_field_tag(:email) %>
-  <%= label_tag(:group_tag, "Relationship") %>
-  <%= select_tag(:group_tag, options_for_select(['friend', 'family', 'coworker'])) %>
-  <%= submit_tag("Memorialize") %>
-<% end %>
+<div class="new-memorialized-form">
+	<h1>Memorialize Someone</h1>
+	<%= form_tag({controller: "memorialized", action: "create"}, method: "post", :class => 'pure-form, pure-form-aligned') do %>
+		<div class="pure-control-group">
+		  <%= label_tag(:email, "Email") %>
+		  <%= text_field_tag(:email) %>
+		</div>
+		<div class="pure-control-group"> 
+		 <%= label_tag(:group_tag, "Relationship") %>
+		 <%= select_tag(:group_tag, options_for_select(['friend', 'family', 'coworker']), :class => 'pure-input-1-2') %>
+		</div>
+		<div class="pure-controls, new-memorialized-button">
+		  <%= submit_tag("Memorialize", :class => 'pure-button, pure-button-primary') %>
+	<% end %>
+		</div>
+
+</div>
