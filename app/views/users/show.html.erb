@@ -12,6 +12,8 @@
   <div class="black-background">
   </div>
 
+<%= link_to "Memorialize Someone!", new_user_memorialized_path(@user), :class => "memorialize-someone" %>
+
     <div class="pic-circles-section">
       <div class="image-area">
       </div>
@@ -32,11 +34,17 @@
         <% family_array = [] %>
         <% friend_array = [] %>
         <% coworker_array = [] %>
+        <% deceased_array = [] %>
 
             
       <% @memories_hash.each do |memory_array| %>      
           
           <% memorialized_user = User.find(memory_array[0]) %>
+
+          <% if memorialized_user.public %>
+            <% deceased_array.push(memorialized_user.id) %>
+          <% end %>
+
           
           <% if find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
 
@@ -49,10 +57,10 @@
               <% else %>
                 <% coworker_array.push(memorialized_user.id) %>
              <% end %>
-           
            <% end %>
 
       <% end %>
+
 
 
       <% family_array.each do |each| %>
@@ -85,6 +93,19 @@
     <!-- <p class="footer-logo">power by You</p> -->
  </div>
 
+ <ul class="dead">
+  <li>21,</li>
+  <li>32,</li>
+     <% deceased_array.each do |each| %>
+       <li> <%= each %>, </li>
+     <% end %>
+  </ul>
+
+
+
+
+
+
 
 
 
@@ -114,7 +135,6 @@
 
        </h1>
 
-    <div id=<%= memorialized_user.id %> class="circle"></div>
 
     <h1>memoralized_user_id: <%= memorialized_user.id %></h1>
 

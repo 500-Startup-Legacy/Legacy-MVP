@@ -7,6 +7,20 @@ html {
 	font-family: Arial, sans-serif;
 }
 
+.memorialize-someone {
+	position: absolute;
+	left: 90em;
+	top: 14em;
+	z-index: 10;
+	color: white;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.memorialize-someone:hover {
+	opacity: .7;
+}
+
 .black-bottom-signup {
 	position: relative;
 	width: 100%;

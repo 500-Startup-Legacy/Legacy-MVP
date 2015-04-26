@@ -3,6 +3,21 @@ console.log('linked');
 
 window.onload = function() {
 
+
+	$('.circle').each(function() {
+
+		var $each =  $(this);
+		var id = $(this).attr('id');
+
+
+		if ($(".dead:contains(" + id + ")").length) {
+			$(this).css('backgroundColor', 'none');
+			$(this).css('border-width', '2px');
+			$(this).css('border-color', 'white');
+			$(this).css('border-style', 'solid');
+		};
+	});
+
 	
 	$('.circle').hover(function(event) {
 
