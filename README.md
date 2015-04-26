@@ -37,7 +37,24 @@ For a quick demonstration:
 /api/users/:user_id/memorialized
 /api/users/:user_id/memorialized/:id
 /api/users/:id
+
+/api/released_users/:released_user_id/memorialized/:user_id/memories
 ```
+
+
+The `User` that needs to be signed in to access the first 8 API endpoints is the one with the id `:user_id`.  
+
+The `User` that needs to be signed in to access the last API endpoint is also the one with id `:user_id`.  However, the other condition that must be met with this last API endpoint is that the `User` with id `:released_user_id` must be public (i.e. their `public` field must be set to `true`).
+
+This last endpoint usecase is as follows:
+
+`User` `abraham` has passed away. He has recorded many memories about `User`s `collin` and `ed`.  
+
+When `collin` is logged in, he can access all the memories `abraham` has recorded about him using `"/api/released_users/#{abraham.id}/memorialized/#{collin.id}/memories"`.  
+
+Note that he will not receive any of the memories `abraham` has recorded about `ed`:  he will only receive memories `abraham` has recorded about `collin`.
+
+
 
 ##General
 

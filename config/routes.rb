@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     match '/users/:user_id/memorialized/family', to: 'memorialized#family', via: 'get'
     match '/users/:user_id/memorialized/friends', to: 'memorialized#friends', via: 'get'
     match '/users/:user_id/memorialized/coworkers', to: 'memorialized#coworkers', via: 'get'
+
+    match '/released_users/:released_user_id/memorialized/:user_id/memories', to: 'released_memories#index', via: 'get'
+
     resources :users, only: [:show] do
       resources :memorialized, only: [:show, :index] do
         resources :memories, only: [:show, :index]
