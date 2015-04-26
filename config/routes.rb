@@ -8,6 +8,17 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    match '/users/:user_id/memorialized/family', to: 'memorialized#family', via: 'get'
+    match '/users/:user_id/memorialized/friends', to: 'memorialized#friends', via: 'get'
+    match '/users/:user_id/memorialized/coworkers', to: 'memorialized#coworkers', via: 'get'
+    resources :users, only: [:show] do
+      resources :memorialized, only: [:show, :index] do
+        resources :memories, only: [:show, :index]
+      end
+    end
+  end
+
   root "static_pages#home"
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'

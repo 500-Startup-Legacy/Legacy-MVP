@@ -1,5 +1,6 @@
 # Legacy-MVP
 
+
 ##Overview
 
 Legacy is a time-spanning social media app.  A person can create an account, find other people using Legacy, and "memorialize" those people by creating "memories" (think "posts") about them.  When a person passes away, their "Legacy" can be viewed at a public URL.  This will display all the memories other users have created about them.
@@ -24,11 +25,27 @@ For a quick demonstration:
 
 9.  This takes you to the public page where Abraham is being memorialized.  Here you can see not only memories Ed has created about Abraham, but also memories other users have created about Abraham.
 
+
+##Read-only API
+
+```
+/api/users/:user_id/memorialized/family  
+/api/users/:user_id/memorialized/friends  
+/api/users/:user_id/memorialized/coworkers  
+/api/users/:user_id/memorialized/:memorialized_id/memories
+/api/users/:user_id/memorialized/:memorialized_id/memories/:id
+/api/users/:user_id/memorialized
+/api/users/:user_id/memorialized/:id
+/api/users/:id
+```
+
 ##General
 
 -  [X]  fix authorization
 
 -  [X]  add validation to `Relationship` so a `User` cannot memorialize another `User` that they have already memorialized
+
+-  [X]  add read only API for easier DOM manipulation
 
 ##Phase I
 
