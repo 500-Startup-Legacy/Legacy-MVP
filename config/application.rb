@@ -17,6 +17,10 @@ Bundler.require(*Rails.groups)
 module Legacy
   class Application < Rails::Application
     config.active_record.raise_in_transactional_callbacks = true
-    config.twilio_numbers = ['2023910271', '7033497371','3472153240']
+    # config.twilio_numbers = ['2023910271', '7033497371','3472153240']
+    config.twilio_numbers = ['9173823711', '9173828318', '9173821836', '9173821928', '9173823479']
   end
 end
+
+
+
