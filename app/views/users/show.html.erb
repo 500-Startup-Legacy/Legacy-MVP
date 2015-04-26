@@ -1,18 +1,186 @@
-<h1><%= @user.full_name %>'s Memories</h1>
+<head>
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
 
-<% @memories_hash.each do |memory_array| %>
-  <% memorialized_user = User.find(memory_array[0]) %>
+<script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
+</head>
 
-  <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
-  <% if memorialized_user.public %>
-  <p><%= link_to("See all memories about #{memorialized_user.first_name}", url_for(controller: 'remember', action: 'show', user_id:memorialized_user.id)) %></p>
-  <% end %>
 
-  <ul>
-    <% memory_array[1].each do |memory| %>
-      <li><%=memory.content %></li>
-    <% end %>
+<div class="container">
+
+  <div class="black-background">
+  </div>
+
+<%= link_to "Memorialize Someone!", new_user_memorialized_path(@user), :class => "memorialize-someone" %>
+
+    <div class="pic-circles-section">
+      <div class="image-area">
+      </div>
+      <div class="profile-pic">
+      </div>
+      <div class="fm-circle">
+        <h3>fm</h3>
+      </div>
+      <div class="fr-circle">
+        <h3>fr</h3>
+      </div>
+      <div class="co-circle">
+        <h3>co</h3>
+      </div>
+
+
+        <% counter = 1 %>
+        <% family_array = [] %>
+        <% friend_array = [] %>
+        <% coworker_array = [] %>
+        <% deceased_array = [] %>
+
+            
+      <% @memories_hash.each do |memory_array| %>      
+          
+          <% memorialized_user = User.find(memory_array[0]) %>
+
+          <% if memorialized_user.public %>
+            <% deceased_array.push(memorialized_user.id) %>
+          <% end %>
+
+          
+          <% if find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
+
+            <% relationship = find_relation.group_tag %>
+
+            <% if relationship == "family" %>
+                <% family_array.push(memorialized_user.id) %>
+              <% elsif relationship == "friend" %>
+                  <% friend_array.push(memorialized_user.id) %>
+              <% else %>
+                <% coworker_array.push(memorialized_user.id) %>
+             <% end %>
+           <% end %>
+
+      <% end %>
+
+
+
+      <% family_array.each do |each| %>
+           <div id= <%=each%> class="circle circle-<%=counter%>">
+           </div>
+           <% counter = counter + 1 %>
+      <% end %>
+
+      <% friend_array.each do |each| %>
+          <% if counter < 5 %>
+             <% counter = 5 %>
+          <% end %>
+           <div id= <%=each%> class="circle circle-<%=counter%>">
+           </div>
+           <% counter = counter + 1 %>
+      <% end %>
+
+      <% coworker_array.each do |each| %>
+          <% if counter < 10 %>
+              <% counter = 10 %>
+          <% end %>
+           <div id= <%=each%> class="circle circle-<%=counter%>">
+           </div>
+           <% counter = counter + 1 %>
+      <% end %>
+
+
+    </div>
+
+    <!-- <p class="footer-logo">power by You</p> -->
+ </div>
+
+ <ul class="dead">
+  <li>21,</li>
+  <li>32,</li>
+     <% deceased_array.each do |each| %>
+       <li> <%= each %>, </li>
+     <% end %>
   </ul>
 
-<% end %>
+
+
+
+
+
+
+
+
+
+  <div class="data">
+    <div class="black-background-data">
+    </div>
+    <h1><%= @user.full_name %>'s Memories</h1>
+<p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %></p>
+
+    <% @memories_hash.each do |memory_array| %>
+
+
+      <% memorialized_user = User.find(memory_array[0]) %>
+      <hr>
+      <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
+
+      <% if memorialized_user.public %>
+
+        <%= link_to("View #{memorialized_user.first_name}'s Memories", url_for(controller: 'remember', action: 'show', user_id: memorialized_user.id), id: 'view-public-' + memorialized_user.id.to_s) %>
+
+      <% end %>
+
+      <h1>RELATION: <% if relationship = @user.relationships.find_by(memorialized_id: memorialized_user.id)%>
+        <%=relationship.group_tag%>
+        <%end%>
+
+       </h1>
+
+
+    <h1>memoralized_user_id: <%= memorialized_user.id %></h1>
+
+    <div class="full-name">
+      <h5 class=<%= memorialized_user.id %>> <%=memorialized_user.full_name%></h5>
+    </div>
+
+    <ul>
+
+      <% if @user.get_memorializing_twilio_number(memorialized_user) != nil %>
+
+         <p id=<%='phone-number-' + memorialized_user.id.to_s%>>Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %></p>
+
+      <% end %>
+
+
+To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("Create Video", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id), id: 'video-link-' + memorialized_user.id.to_s)%>
+
+
+        <% memory_array[1].each do |memory| %>
+
+            <% if memory.content.starts_with?("ziggeo") %>
+
+            <div id=video-<%=memorialized_user.id%> class="video-data">
+                <ziggeo ziggeo-video = <%= memory.content[6..-1] %> ziggeo-width=320 ziggeo-height=240> </ziggeo> 
+            </div>
+            <% else %>
+            <li class=<%=memorialized_user.id%>><%=memory.content %></li>
+            <div id=image-<%=memorialized_user.id%> class="image-data"><%=memory.image_url%></div>
+            <p> <%=memory.created_at%> </p>
+        <% end %>
+    <% end %>
+    </ul>
+
+    <% end %>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
 

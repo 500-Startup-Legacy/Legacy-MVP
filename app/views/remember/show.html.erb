@@ -1,8 +1,21 @@
-<h1><%= @user.full_name %> Remembered</h1>
+<head>
+<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+<script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
+<script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
+</head>
+
+<div class="content">
+<h1><%= @user.full_name %> <span>remembered..</span></h1>
 
 <ul>
 <% @user.remembrances.each do |memory| %>
-  <li><%= memory.content %> -- <%= memory.user.full_name %></li>
+	
+	  <li><%= memory.content %></li><br>
 <% end %>
-
 </ul>
+</div>
+<div class='black-bottom-signup'>
+</div>
+ <p class="footer-logo">power by You</p>
+
+

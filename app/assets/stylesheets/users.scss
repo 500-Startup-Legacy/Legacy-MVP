@@ -1,3 +1,434 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+html {
+	font-family: Arial, sans-serif;
+}
+
+.memorialize-someone {
+	position: absolute;
+	left: 90em;
+	top: 14em;
+	z-index: 10;
+	color: white;
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+.memorialize-someone:hover {
+	opacity: .7;
+}
+
+.black-bottom-signup {
+	position: relative;
+	width: 100%;
+	height: 8em;
+	display: block;
+	background-color: black;
+	top: 14em;
+	z-index: -4
+}
+form input[type=text] {
+	color: black;
+}
+.sign-up-form {
+/*	background-color: black;
+*/	display: block;
+	width: 32em;
+	height: 25em;
+	margin: 0 35%;
+	color: #1dc8fb;
+	background-color: #545454;
+	position: relative;
+	top: 6em;
+	padding-top: 1em;
+	border-radius: 2em;
+	box-shadow: 10px 10px 5px #888888;
+}
+
+
+.sign-up-form h1 {
+	position: relative;
+	text-align: center;
+	color: rgba(255, 137, 49, 1);
+}
+
+.edit-form h1 {
+	text-align: center;
+	color: rgba(255, 137, 49, 1);
+	position: relative;
+
+}
+
+.position-video {
+	width: 20em;
+	height: 16em;
+	position: absolute;
+	top: 10em;
+	left: 8em;
+/*}*/
+}
+
+.image-area {
+	width: 20em;
+	height: 15em;
+	position: absolute;
+	top: 7em;
+	left: 8em;
+	background-size: cover;
+	background-position: center center;
+}
+
+.footer-logo {
+	color: #69a53a;
+	position: absolute;
+	left: 80em;
+	top: 46em;
+	z-index: 5;
+}
+
+
+h3 {
+	font-size: 2em;
+}
+.container {
+	width: 100%;
+	height: 55em;
+}
+
+div .family {
+	background-color: red;
+}
+
+div .friend {
+	background-color: white;
+}	
+
+.make-video-button {
+	position: absolute;
+	top: 4em;
+	left: 4em;
+}
+
+.view-public-button {
+	position: absolute;
+	top: 30em;
+	left: 49em;
+	color: white;
+	display: block;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.view-public-button:hover {
+	opacity: .7;
+}
+
+.create-video-button {
+	position: absolute;
+	top: 33em;
+	left: 49em;
+	color: white;
+	display: block;
+	font-size: 12px;
+	text-decoration: underline;
+}
+
+.create-video-button:hover {
+	opacity: .7;
+}
+
+.text-number {
+	position: absolute;
+	display: block;
+	top: 48em;
+	left: 40em;
+	color: white;
+	font-size: 12px;
+	z-index: 30;
+}
+
+.black-background {
+	position: absolute;
+	background-color: black;
+	width: 100%;
+	height: 55em;
+	display: block;
+	z-index: -1;
+}
+
+.black-background-data {
+	position: absolute;
+	background-color: black;
+	width: auto;
+	display: block;
+	height: 100%;
+}
+
+.content-div {
+	position: absolute;
+	width: 17em;
+	height: 15em;
+	background-color: white;
+	top: 10em;
+	left: 32em;
+	display: block;
+	color: white;
+}
+
+.buttons-div {
+	width: 2.5em;
+	height: 100%;
+	position: absolute;
+	background-color: black;
+	padding-left: 1em;
+	display: block;
+	float: left;
+}
+
+i {
+	color: rgba(255, 137, 49, 1);;
+	margin-bottom: .5em;
+	cursor: pointer;
+	z-index: 4;
+}
+
+i:hover {
+	opacity: .6;
+}
+
+.content-div .name {
+	font-size: 1.2em;
+	padding-bottom: 1em;
+	font-style: bolder;
+	margin-left: 1em;
+	line-height: 2px;
+}
+
+.text-area {
+	background-color: black;
+	display: inline-block;
+	position: absolute;
+	width: 100%;
+	margin-left: 3.5em;
+	height: 100%;
+}
+
+#paragraph {
+	font-size: 12px;
+	position: absolute;
+	margin-left: 1.5em;
+}
+
+.pic-circles-section {
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.pic-circles-section .profile-pic {
+	position: absolute;
+	top: 16em;
+	left: 65em;
+	width: 10em;
+	height: 10em;
+	-moz-border-radius: 20em;
+	-webkit-border-radius: 20em;
+	border-radius: 20em;
+	display: block;
+	background-image: image-url('landlady.jpeg');
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
+	border: solid;
+	border-width: .5em;
+	border-color: #69a53a;
+}
+
+.pic-circles-section .fm-circle {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 17em;
+	left: 60em;
+	width: 4em;
+	height: 4em;
+	-moz-border-radius: 8em;
+	-webkit-border-radius: 8em;
+	border-radius: 8em;	
+	display: block;
+	background-color: rgba(255, 137, 49, 1);
+}
+
+.fm-circle h3 {
+	position: relative;
+	top: .7em;
+}
+
+.pic-circles-section .fr-circle {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 24em;
+	left: 60em;
+	width: 4em;
+	height: 4em;
+	-moz-border-radius: 8em;
+	-webkit-border-radius: 8em;
+	border-radius: 8em;	
+	display: block;
+	background-color: #44d5ff;
+}
+
+.fr-circle h3 {
+	position: relative;
+	top: .7em;
+}
+
+.pic-circles-section .co-circle {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 29em;
+	left: 67em;
+	width: 4em;
+	height: 4em;
+	-moz-border-radius: 8em;
+	-webkit-border-radius: 8em;
+	border-radius: 8em;	
+	display: block;
+	background-color: #f0ff08;
+}
+
+.co-circle h3 {
+	position: relative;
+	top: .7em;
+	color: black;
+}
+
+.data {
+	overflow: auto;
+	height: 1px;
+	display: block;
+	width: auto;
+}
+
+.circle-1 {
+	background-color: rgba(255, 137, 49, 1);
+	position: absolute;
+	top: 15em;
+	left: 58em;
+}
+
+.circle-2 {
+	background-color: rgba(255, 137, 49, 1);
+	position: absolute;
+	top: 18em;
+	left: 57em;
+}
+
+.circle-3 {
+	background-color: rgba(255, 137, 49, 1);
+	position: absolute;
+	top: 13em;
+	left: 56em;
+}
+
+.circle-4 {
+	background-color: rgba(255, 137, 49, 1);
+	position: absolute;
+	top: 15em;
+	left: 55em;
+}
+
+.circle-5 {
+	background-color: rgba(255, 137, 49, 1);
+	position: absolute;
+	top: 12em;
+	left: 54em;
+}
+
+.circle-6 {
+	background-color: #1dc8fb;
+	position: absolute;
+	top: 24em;
+	left: 58em;
+}
+
+.circle-7 {
+	background-color: #1dc8fb;
+	position: absolute;
+	top: 25em;
+	left: 56em;
+}
+
+.circle-8 {
+	background-color: #1dc8fb;
+	position: absolute;
+	top: 27em;
+	left: 57em;
+}
+
+.circle-9 {
+	background-color: #1dc8fb;
+	position: absolute;
+	top: 26em;
+	left: 53em;
+}
+.circle-10 {
+	background-color: #1dc8fb;
+	position: absolute;
+	top: 24em;
+	left: 54em;
+}
+
+.circle-11 {
+	background-color: #e7f233;
+	position: absolute;
+	top: 34em;
+	left: 65em;
+}
+
+.circle-12{
+	background-color: #e7f233;
+	position: absolute;
+	top: 33em;
+	left: 67em;
+}
+
+.circle-13 {
+	background-color: #e7f233;
+	position: absolute;
+	top: 36em;
+	left: 67em;
+}
+
+.circle-14 {
+	background-color: #e7f233;
+	position: absolute;
+	top: 36em;
+	left: 64em;
+}
+
+.circle-15 {
+	background-color: #e7f233;
+	position: absolute;
+	top: 39em;
+	left: 65em;
+}
+
+.circle {
+	width: 30px;
+	height: 30px;
+	-moz-border-radius: 60px;
+	-webkit-border-radius: 60px;
+	border-radius: 60px;
+	display: block;
+	cursor: pointer;
+}
+
+.circle:hover {
+	opacity: .7;
+}

@@ -1,0 +1,8 @@
+<Response>
+  <Sms>
+    Message received!
+  <% if @memory %>
+      You've created a memory about <%= @memorialized_user.full_name %>.
+    <% end %>
+  </Sms>
+</Response>

@@ -2,9 +2,11 @@
 <html>
   <head>
     <title>Legacy</title>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+    <%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,700italic' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
@@ -12,20 +14,20 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-      <ul>
-        <li><%= link_to "Home", root_path %></li>
+      <p class="logo">legacy</p>
         <% if signed_in? %>
-          <li><%= link_to "Sign out", signout_path, method: 'delete' %></li>
-          <li><%= link_to "Dashboard", current_user %></li>
-          <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+         <%= link_to "Sign out", signout_path, method: 'delete', class: 'right' %>
+          <%= link_to "Dashboard", current_user, class: 'right' %>
+          <%= link_to "Settings", edit_user_path(current_user), class: 'right' %>
         <% else %>
-          <li><%= link_to "Sign in", signin_path %></li>
+          <%= link_to "Sign in", signin_path, class: 'right' %>
         <% end %>
-      </ul>
     </nav>
     <%= yield %>
 
-    <%= debug(params) if Rails.env.development? %>
+<!--      <%= debug(params) if Rails.env.development? %>
+ -->
+
 
   </body>
 </html>

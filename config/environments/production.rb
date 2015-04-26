@@ -1,6 +1,6 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-
+  config.middleware.use Rack::TwilioWebhookAuthentication, Rails.application.secrets.twilio_auth_token, '/twilio/process_sms'
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -53,7 +53,7 @@ Rails.application.configure do
 
   # Use a different logger for distributed setups.
   # config.logger = ActiveSupport::TaggedLogging.new(SyslogLogger.new)
-
+    config.logger = Logger.new(STDOUT)
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 

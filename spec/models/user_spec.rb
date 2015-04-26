@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe User, type: :model do
   before :each do
     # @juan = FactoryGirl.create(:user)
-    @juan = User.new(first_name:'Juan', last_name: 'Smith', email:'juan@smith.com', password: 'foobar', password_confirmation: 'foobar')
+    @juan = User.new(first_name:'Juan', last_name: 'Smith', email:'juan@smith.com', password: 'foobar', password_confirmation: 'foobar', phone_number: '2222222222')
   end
 
   subject { @juan }
@@ -18,11 +18,33 @@ RSpec.describe User, type: :model do
   it { should respond_to :memorializers }
   it { should respond_to :remembrances }
   it { should respond_to :public }
+  it { should respond_to :phone_number }
+  it { should respond_to :legacy_contact_email }
+  it { should respond_to :get_memorialized_user_by_twilio_number }
 
   it { should respond_to :memories }
 
-  describe "when a first name, last name, and email are present" do
+  describe "#get_memorialized_user_by_twilio_number" do
+    let!(:other_user) { FactoryGirl.create(:user) }
+    before do
+      @juan.save
+      @relationship = @juan.memorialize!(other_user, "friend")
+      @twilio_number = @relationship.twilio_number
+    end
+
+    it "should return the user associated with the twilio number" do
+      expect(@juan.get_memorialized_user_by_twilio_number(@twilio_number)).to eq(other_user)
+    end
+
+  end
+
+  describe "when a first name, last name, phone number, and email are present" do
     it { should be_valid }
+  end
+
+  describe "when phone number is not present" do
+    before { @juan.phone_number = nil }
+    it { should_not be_valid }
   end
 
   describe "when a first name is not present" do
@@ -64,6 +86,34 @@ RSpec.describe User, type: :model do
     it { should_not be_valid }
   end
 
+  describe "when a phone number has dashes in it" do
+    before do
+      @juan.phone_number = '222-222-2222'
+      @juan.save
+    end
+    it 'should be saved without the dashes' do
+      expect(@juan.phone_number).to eq('2222222222')
+    end
+  end
+
+  describe "when a phone number starts with a 1" do
+    before do
+      @juan.phone_number = '1-222-222-2222'
+      @juan.save
+    end
+    it 'should be saved without the initial 1' do
+      expect(@juan.phone_number).to eq('2222222222')
+    end
+  end
+
+  describe "when a phone number has non-numerical chararacters" do
+    before do
+      @juan.phone_number = '1-222-hello-2222'
+      @juan.save
+    end
+    it { should_not be_valid }
+  end
+
   it "should have a full name" do
     expect(@juan.full_name).to eq(@juan.first_name + " " + @juan.last_name)
   end
@@ -79,7 +129,7 @@ RSpec.describe User, type: :model do
     let(:other_user) { FactoryGirl.create(:user) }
     before do
       @juan.save
-      @juan.memorialize!(other_user)
+      @juan.memorialize!(other_user, "family")
     end
   
     it { should be_memorializing other_user }
@@ -118,6 +168,7 @@ RSpec.describe User, type: :model do
   end
 
   describe "#remembrances" do
+    before { @juan.save }
     let(:other_user) { FactoryGirl.create(:user) }
     let!(:memory_1) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:@juan.id) }
     let!(:memory_2) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:@juan.id) }

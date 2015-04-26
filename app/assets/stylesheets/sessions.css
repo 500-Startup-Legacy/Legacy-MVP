@@ -1,0 +1,67 @@
+
+.right {
+	display: block;
+	overflow: hidden;
+	margin: 1em 1em;
+	/* border-color: ; */
+	color: white;
+	float: right;
+}
+.logo {
+	color: #69a53a;
+	padding-top: 1em;
+	padding-left: 3em;
+	position: absolute;
+}
+
+a {
+	text-decoration: none;
+}
+
+.right:hover {
+	opacity: .7;
+
+}
+
+nav {
+	height: 3em;
+	background-color: black;
+	position: relative;
+}
+
+.form-custom p {
+	width: 9em;
+	margin: 0 auto;
+	padding-top: 2em;
+}
+
+.form-custom a {
+	text-decoration: underline;
+	color: white;
+}
+
+.form-custom a:hover {
+	opacity: .6;
+}
+
+.black-bottom-signup {
+	position: relative;
+	width: 100%;
+	height: 8em;
+	display: block;
+	background-color: black;
+	top: 14em;
+	z-index: -4
+}
+
+.footer-logo {
+	color: #69a53a;
+	position: absolute;
+	left: 80em;
+	top: 46em;
+	z-index: 5;
+}
+
+form input[type=text] {
+	color: black;
+}

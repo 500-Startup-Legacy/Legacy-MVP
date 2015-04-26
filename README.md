@@ -1,5 +1,6 @@
 # Legacy-MVP
 
+
 ##Overview
 
 Legacy is a time-spanning social media app.  A person can create an account, find other people using Legacy, and "memorialize" those people by creating "memories" (think "posts") about them.  When a person passes away, their "Legacy" can be viewed at a public URL.  This will display all the memories other users have created about them.
@@ -24,6 +25,45 @@ For a quick demonstration:
 
 9.  This takes you to the public page where Abraham is being memorialized.  Here you can see not only memories Ed has created about Abraham, but also memories other users have created about Abraham.
 
+
+##Read-only API
+
+```
+/api/users/:user_id/memorialized/family  
+/api/users/:user_id/memorialized/friends  
+/api/users/:user_id/memorialized/coworkers  
+/api/users/:user_id/memorialized/:memorialized_id/memories
+/api/users/:user_id/memorialized/:memorialized_id/memories/:id
+/api/users/:user_id/memorialized
+/api/users/:user_id/memorialized/:id
+/api/users/:id
+
+/api/released_users/:released_user_id/memorialized/:user_id/memories
+```
+
+
+The `User` that needs to be signed in to access the first 8 API endpoints is the one with the id `:user_id`.  
+
+The `User` that needs to be signed in to access the last API endpoint is also the one with id `:user_id`.  However, the other condition that must be met with this last API endpoint is that the `User` with id `:released_user_id` must be public (i.e. their `public` field must be set to `true`).
+
+This last endpoint usecase is as follows:
+
+`User` `abraham` has passed away. He has recorded many memories about `User`s `collin` and `ed`.  
+
+When `collin` is logged in, he can access all the memories `abraham` has recorded about him using `"/api/released_users/#{abraham.id}/memorialized/#{collin.id}/memories"`.  
+
+Note that he will not receive any of the memories `abraham` has recorded about `ed`:  he will only receive memories `abraham` has recorded about `collin`.
+
+
+
+##General
+
+-  [X]  fix authorization
+
+-  [X]  add validation to `Relationship` so a `User` cannot memorialize another `User` that they have already memorialized
+
+-  [X]  add read only API for easier DOM manipulation
+
 ##Phase I
 
 -  [X]  a `User` sign up
@@ -34,7 +74,7 @@ For a quick demonstration:
 
 -  [X]  a `User` can memorialize anothe `User`
 
--  [X] a `User` can can view posts the `User` himself has made about other `Users`
+-  [X]  a `User` can can view posts the `User` himself has made about other `Users`
 
 -  [X]  a `User` can have a Memory of another `User`
 
@@ -42,12 +82,21 @@ For a quick demonstration:
 
 ##Phase II-A (Twilio)
 
--  [ ]  add form for `User` to choose another `User` to `memorialize`
+-  [X]  add `group_tag` field to `Relationship` model
 
-    -  [ ]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
+-  [X]  add form for `User` to choose another `User` to `memorialize`
 
--  [ ]  create method that will create new `Memory` from text
+-  [X]  add mobile phone number field to  `User` model
 
+    -  [X]  form specifies phone number (from Twilio) the `User` can text to create a new `Memory` for the memorialized
+
+-  [X]  create method that will create new `Memory` from text
+
+-  [X]  secure twilio_controller by chaning middleware so Twilio auth id and secret key required to make POST request
+
+-  [X]  add MMS capability from Twilio
+
+-  [X]  add pretty print formatter for phone numbers
 
 ##Phase II-B (Ziggeo)
 
@@ -56,6 +105,14 @@ For a quick demonstration:
 
 
 ##Nice To Haves for Later
+
+-  [ ]  migrate Zigeo auth id from code to environmental variable
+
+-  [ ]  add `paperclip` gem for saving images of users
+
+    -  [ ]  use `paperclip` to save MMS images directly to DB
+
+    -  [ ]  delete MMS images from Twilio servers as soon as they're saved to DB
 
 -  [ ]  setup Heroku to run Puma server instead of Webrick 
 
@@ -157,36 +214,64 @@ Since we do not yet have Twilio set up, the only way to add a `Memory` is either
 
 Testing is done with [RSpec](http://rspec.info/).  To run the tests on the command line, either use the `rspec` command or, if that doesn't work, `bundle exec rspec`.
 
+###Deploying to Heroku
+
+Ensure the following environmental variables are set in Heroku:
+
+-  `TWILIO_ACCOUNT_SID`
+-  `TWILIO_AUTH_TOKEN`
+
+The list of phone numbers we've purchased from Twilio is in the `config/application.rb` file.  As phone numbers are added, removed, or changed from our Twilio account, they must be updated in this file.
+
+```ruby
+#config/application.rb
+module Legacy
+  class Application < Rails::Application
+    config.active_record.raise_in_transactional_callbacks = true
+    config.twilio_numbers = ['2023910271', '7033497371','3472153240']
+  end
+end
+```
+
+To access this variable in the app, use `Rails.application.config.twilio_numbers`.
+
 
 ###Routes
-
 ```
-          Prefix Verb   URI Pattern                                 Controller#Action
-        sessions POST   /sessions(.:format)                         sessions#create
-     new_session GET    /sessions/new(.:format)                     sessions#new
-         session DELETE /sessions/:id(.:format)                     sessions#destroy
-   user_memories GET    /users/:user_id/memories(.:format)          memories#index
-                 POST   /users/:user_id/memories(.:format)          memories#create
- new_user_memory GET    /users/:user_id/memories/new(.:format)      memories#new
-edit_user_memory GET    /users/:user_id/memories/:id/edit(.:format) memories#edit
-     user_memory GET    /users/:user_id/memories/:id(.:format)      memories#show
-                 PATCH  /users/:user_id/memories/:id(.:format)      memories#update
-                 PUT    /users/:user_id/memories/:id(.:format)      memories#update
-                 DELETE /users/:user_id/memories/:id(.:format)      memories#destroy
-           users GET    /users(.:format)                            users#index
-                 POST   /users(.:format)                            users#create
-        new_user GET    /users/new(.:format)                        users#new
-       edit_user GET    /users/:id/edit(.:format)                   users#edit
-            user GET    /users/:id(.:format)                        users#show
-                 PATCH  /users/:id(.:format)                        users#update
-                 PUT    /users/:id(.:format)                        users#update
-                 DELETE /users/:id(.:format)                        users#destroy
-            root GET    /                                           static_pages#home
-          signup GET    /signup(.:format)                           users#new
-          signin GET    /signin(.:format)                           sessions#new
-         signout DELETE /signout(.:format)                          sessions#destroy
-                 GET    /remember/:user_id(.:format)                remember#show
+                    Prefix    Verb   URI Pattern                                                               Controller#Action
 
+                     sessions POST   /sessions(.:format)                                                       sessions#create
+                  new_session GET    /sessions/new(.:format)                                                   sessions#new
+                      session DELETE /sessions/:id(.:format)                                                   sessions#destroy
+   user_memorialized_memories GET    /users/:user_id/memorialized/:memorialized_id/memories(.:format)          memories#index
+                              POST   /users/:user_id/memorialized/:memorialized_id/memories(.:format)          memories#create
+ new_user_memorialized_memory GET    /users/:user_id/memorialized/:memorialized_id/memories/new(.:format)      memories#new
+edit_user_memorialized_memory GET    /users/:user_id/memorialized/:memorialized_id/memories/:id/edit(.:format) memories#edit
+     user_memorialized_memory GET    /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#show
+                              PATCH  /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#update
+                              PUT    /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#update
+                              DELETE /users/:user_id/memorialized/:memorialized_id/memories/:id(.:format)      memories#destroy
+      user_memorialized_index GET    /users/:user_id/memorialized(.:format)                                    memorialized#index
+                              POST   /users/:user_id/memorialized(.:format)                                    memorialized#create
+        new_user_memorialized GET    /users/:user_id/memorialized/new(.:format)                                memorialized#new
+       edit_user_memorialized GET    /users/:user_id/memorialized/:id/edit(.:format)                           memorialized#edit
+            user_memorialized GET    /users/:user_id/memorialized/:id(.:format)                                memorialized#show
+                              PATCH  /users/:user_id/memorialized/:id(.:format)                                memorialized#update
+                              PUT    /users/:user_id/memorialized/:id(.:format)                                memorialized#update
+                              DELETE /users/:user_id/memorialized/:id(.:format)                                memorialized#destroy
+                        users GET    /users(.:format)                                                          users#index
+                              POST   /users(.:format)                                                          users#create
+                     new_user GET    /users/new(.:format)                                                      users#new
+                    edit_user GET    /users/:id/edit(.:format)                                                 users#edit
+                         user GET    /users/:id(.:format)                                                      users#show
+                              PATCH  /users/:id(.:format)                                                      users#update
+                              PUT    /users/:id(.:format)                                                      users#update
+                              DELETE /users/:id(.:format)                                                      users#destroy
+                         root GET    /                                                                         static_pages#home
+                       signup GET    /signup(.:format)                                                         users#new
+                       signin GET    /signin(.:format)                                                         sessions#new
+                      signout DELETE /signout(.:format)                                                        sessions#destroy
+                              GET    /remember/:user_id(.:format)                                              remember#show
 ```
 
 

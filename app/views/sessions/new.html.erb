@@ -1,15 +1,27 @@
-<h1>Sign in</h1>
+<div class="sign-up-form">
+	<h1>Sign in</h1>
 
-<%= form_for(:session, url: sessions_path) do |f| %>
+	<%= form_for(:session, url: sessions_path, :html => {:class => "pure-form, pure-form-aligned"}) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+	<div class="pure-control-group">
+	  <%= f.label :email %>
+	  <%= f.text_field :email %>
+	</div>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
+	<div class="pure-control-group">
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+	</div>
 
-  <%= f.submit "Sign in" %>
+	<div class="pure-controls">
+	  <%= f.submit "Sign in", :class => 'pure-button, pure-button-primary' %>
+	</div>
 
-<% end %>
-
-<p>New user? <%= link_to "Sign up!", signup_path %></p>
+	<% end %>
+	<div class="form-custom">
+	<p>New user? <%= link_to "Sign up!", signup_path %></p>
+	</div>
+</div>
+<div class='black-bottom-signup'>
+</div>
+ <p class="footer-logo">power by You</p>
