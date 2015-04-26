@@ -30,22 +30,11 @@ ed.memorialize!(collin, "family")
 sora.memorialize!(collin, "family")
 
 sora.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
-alex.memorialize!(collin, "friend")
+alex.memorialize!(collin, "family")
 alex.memorialize!(abraham, "family")
 alex.memorialize!(alex1, "coworker")
-alex.memorialize!(alex2, "family")
-alex.memorialize!(alex3, "friend")
-alex.memorialize!(alex4, "coworker")
-alex.memorialize!(alex5, "family")
-alex.memorialize!(alex6, "friend")
-alex.memorialize!(alex7, "coworker")
-alex.memorialize!(alex8, "family")
-alex.memorialize!(alex9, "friend")
-alex.memorialize!(alex10, "coworker")
-alex.memorialize!(alex11, "family")
-alex.memorialize!(alex12, "friend")
-alex.memorialize!(sora, "coworker")
-alex.memorialize!(ed, "friend")
+
+
 
 
 
