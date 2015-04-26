@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   validates :first_name, presence:true
   validates :last_name, presence:true
   validates :email, presence:true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, uniqueness: true
+  validates :legacy_contact_email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, allow_blank:true
   validates :password, length: { minimum: 6 }
   validates :phone_number, presence:true, uniqueness:true, length: { is:10 }
   has_secure_password
@@ -69,7 +70,10 @@ class User < ActiveRecord::Base
   def remembrances
     Memory.where(memorialized_user_id: self.id)
   end
-  
+
+  def as_json(options = {})
+    super(options.merge({ except: [:password_digest, :remember_token, :phone_number, :created_at, :updated_at, :legacy_contact_email] })) 
+  end 
 
   private
     def create_remember_token

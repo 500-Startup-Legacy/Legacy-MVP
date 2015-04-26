@@ -19,6 +19,7 @@ RSpec.describe User, type: :model do
   it { should respond_to :remembrances }
   it { should respond_to :public }
   it { should respond_to :phone_number }
+  it { should respond_to :legacy_contact_email }
   it { should respond_to :get_memorialized_user_by_twilio_number }
 
   it { should respond_to :memories }

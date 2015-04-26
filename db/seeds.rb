@@ -52,7 +52,6 @@ alex.memorialize!(ed, "friend")
 ed.memories.create(content:'He was our greatest president.', memorialized_user_id: abraham.id)
 ed.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
 
-
 collin.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
 collin.memories.create(content:'Sunnyside fo evah!', memorialized_user_id: ed.id)
 
@@ -82,4 +81,8 @@ alex.memories.create(content:'He owes me money', memorialized_user_id: alex2.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
 
 
+abraham.memories.create(content:'Love this guy!', memorialized_user_id: collin.id)
+abraham.memories.create(content:'Wil always remember Collin cuz he da bomb', memorialized_user_id: collin.id)
+abraham.memories.create(content:"Don't think I forgot about all that money you owe me", memorialized_user_id: collin.id)
 
+abraham.memories.create(content:"Ed, Collin shouldn't be able to see this memory.", memorialized_user_id: ed.id)

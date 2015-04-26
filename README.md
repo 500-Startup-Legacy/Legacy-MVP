@@ -1,5 +1,6 @@
 # Legacy-MVP
 
+
 ##Overview
 
 Legacy is a time-spanning social media app.  A person can create an account, find other people using Legacy, and "memorialize" those people by creating "memories" (think "posts") about them.  When a person passes away, their "Legacy" can be viewed at a public URL.  This will display all the memories other users have created about them.
@@ -24,11 +25,44 @@ For a quick demonstration:
 
 9.  This takes you to the public page where Abraham is being memorialized.  Here you can see not only memories Ed has created about Abraham, but also memories other users have created about Abraham.
 
+
+##Read-only API
+
+```
+/api/users/:user_id/memorialized/family  
+/api/users/:user_id/memorialized/friends  
+/api/users/:user_id/memorialized/coworkers  
+/api/users/:user_id/memorialized/:memorialized_id/memories
+/api/users/:user_id/memorialized/:memorialized_id/memories/:id
+/api/users/:user_id/memorialized
+/api/users/:user_id/memorialized/:id
+/api/users/:id
+
+/api/released_users/:released_user_id/memorialized/:user_id/memories
+```
+
+
+The `User` that needs to be signed in to access the first 8 API endpoints is the one with the id `:user_id`.  
+
+The `User` that needs to be signed in to access the last API endpoint is also the one with id `:user_id`.  However, the other condition that must be met with this last API endpoint is that the `User` with id `:released_user_id` must be public (i.e. their `public` field must be set to `true`).
+
+This last endpoint usecase is as follows:
+
+`User` `abraham` has passed away. He has recorded many memories about `User`s `collin` and `ed`.  
+
+When `collin` is logged in, he can access all the memories `abraham` has recorded about him using `"/api/released_users/#{abraham.id}/memorialized/#{collin.id}/memories"`.  
+
+Note that he will not receive any of the memories `abraham` has recorded about `ed`:  he will only receive memories `abraham` has recorded about `collin`.
+
+
+
 ##General
 
 -  [X]  fix authorization
 
 -  [X]  add validation to `Relationship` so a `User` cannot memorialize another `User` that they have already memorialized
+
+-  [X]  add read only API for easier DOM manipulation
 
 ##Phase I
 
