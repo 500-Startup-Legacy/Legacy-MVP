@@ -70,7 +70,10 @@ class User < ActiveRecord::Base
   def remembrances
     Memory.where(memorialized_user_id: self.id)
   end
-  
+
+  def as_json(options = {})
+    super(options.merge({ except: [:password_digest, :remember_token, :phone_number, :created_at, :updated_at, :legacy_contact_email] })) 
+  end 
 
   private
     def create_remember_token
