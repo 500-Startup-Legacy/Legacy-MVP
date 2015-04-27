@@ -14,20 +14,23 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-      <p class="logo">legacy</p>
-        <% if signed_in? %>
-         <%= link_to "Sign out", signout_path, method: 'delete', class: 'right' %>
-          <%= link_to "Dashboard", current_user, class: 'right' %>
-          <%= link_to "Settings", edit_user_path(current_user), class: 'right' %>
+<!--       <p class="logo">legacy</p>
+ -->       <% if signed_in? %>
+         <%= link_to "Log Out", signout_path, method: 'delete', class: 'right' %>
+
+          <%= link_to current_user, class: 'logo-link' do %>
+            <span class="my-span">my</span><span class="journey-span">Journey</span
+          <% end %>
+
+          <%= link_to edit_user_path(current_user) do %>
+            <i class="fa fa-cog fa-lg"></i>
+          <% end %>
+
         <% else %>
           <%= link_to "Sign in", signin_path, class: 'right' %>
         <% end %>
     </nav>
     <%= yield %>
-
-<!--      <%= debug(params) if Rails.env.development? %>
- -->
-
 
   </body>
 </html>

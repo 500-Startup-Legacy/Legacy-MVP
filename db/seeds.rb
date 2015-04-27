@@ -35,8 +35,18 @@ sora.memories.create(content:'What a sharp dresser!', memorialized_user_id: coll
 alex.memorialize!(alex1, "coworker")
 alex.memorialize!(collin, "coworker")
 alex.memorialize!(abraham, "coworker")
-
-
+alex.memorialize!(ed, "coworker")
+alex.memorialize!(alex2, "coworker")
+alex.memorialize!(alex3, "family")
+alex.memorialize!(alex4, "coworker")
+alex.memorialize!(alex5, "coworker")
+alex.memorialize!(alex6, "friend")
+alex.memorialize!(alex7, "coworker")
+alex.memorialize!(alex8, "coworker")
+alex.memorialize!(alex9, "family")
+alex.memorialize!(alex10, "coworker")
+alex.memorialize!(alex11, "family")
+alex.memorialize!(alex12, "family")
 
 
 
@@ -46,30 +56,22 @@ ed.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin
 collin.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
 collin.memories.create(content:'Sunnyside fo evah!', memorialized_user_id: ed.id)
 
-alex.memories.create(content:'Love this guy!Love this guy!Love this guy!', memorialized_user_id: abraham.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'Love this guy!Love this guy!LovLove tLove this guy!his guy!e this guy!', memorialized_user_id: ed.id, image_url: 'https://placeimg.com/339/191/any')
 alex.memories.create(content:'He was a badass mofoLovLove this guy!e this guy!', memorialized_user_id: collin.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'Glad he"s deLove thisLove this guy! guy!ad!', memorialized_user_id: alex1.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'Love this gLove tLove thLove this guy!is guy!his guy!uy!', memorialized_user_id: alex2.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'He owes me moLove thiLove this guy!s guy!ney', memorialized_user_id: alex3.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'GlLove this guy!adLove this guy! he"s dead!', memorialized_user_id: alex4.id)
-alex.memories.create(content:'Love tLove this gLove this guy!uy!his guy!', memorialized_user_id: alex5.id)
-alex.memories.create(content:'He oweLove this gLove this guy!uy!s me money', memorialized_user_id: ed.id)
 alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: ed.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex3.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex7.id)
 
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex6.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
 
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex12.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex11.id)
-alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: alex10.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex9.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex8.id)
-
+alex.memories.create(content:'Glad he"s deLove thisLove this guy! guy!ad!', memorialized_user_id: alex1.id, image_url: 'https://placeimg.com/339/191/any')
 alex.memories.create(content:'He owes me money', memorialized_user_id: alex2.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: alex3.id)
 alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
+alex.memories.create(content:'Love tLove this gLove this guy!uy!his guy!', memorialized_user_id: alex5.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex6.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex7.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex8.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: alex9.id)
+alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: alex10.id)
+alex.memories.create(content:'He owes me money', memorialized_user_id: alex11.id)
+alex.memories.create(content:'Love this guy!', memorialized_user_id: alex12.id)
 
 
 abraham.memories.create(content:'Love this guy!', memorialized_user_id: collin.id)

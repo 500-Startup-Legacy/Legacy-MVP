@@ -53,15 +53,15 @@ window.onload = function() {
 		var $name = $('<h1 class="name">' + name + '</h1>');
 		var $memory = $('<p id="paragraph">' + content + '</p>');
 
-		var $gpsIcon = $('<i class="fa fa-map-marker fa-2x"></i>');
 		var $videoIcon = $('<i id="video" class="fa fa-play-circle-o fa-2x"></i>');
 		var $fileIcon = $('<i id="image" class="fa fa-paperclip fa-2x"></i>');
 		var $soundIcon = $('<i class="fa fa-volume-up fa-2x"></i>');
+		var $circleNav = $('<div id="circle-nav"></div>');
 
 		$memory = $memory.text().replace(/,/g, "<br>");
 		$memory = $('<p id="paragraph">' + $memory + '</p>');
 
-		$buttonsDiv.append($gpsIcon);
+		$buttonsDiv.append($circleNav);
 		$buttonsDiv.append($videoIcon);
 		$buttonsDiv.append($fileIcon);
 		$buttonsDiv.append($soundIcon);
@@ -104,7 +104,8 @@ window.onload = function() {
 
 		    console.log(color);
 		
-			 $('i').css('color', color);
+			 $('.buttons-div').css('color', color);
+			 $('#circle-nav').css('backgroundColor', color);
 
 		function hexc(colorval) {
 		    var parts = colorval.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);

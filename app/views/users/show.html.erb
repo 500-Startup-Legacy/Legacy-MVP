@@ -12,7 +12,7 @@
   <div class="black-background">
   </div>
 
-  <%= link_to "Memorialize Someone!", new_user_memorialized_path(@user), :class => "memorialize-someone" %>
+
 
     <div class="pic-circles-section">
       <div class="image-area">
@@ -25,9 +25,12 @@
       <div class="fr-circle">
         <h3>fr</h3>
       </div>
-      <div class="co-circle">
-        <h3>co</h3>
+
+   <%= link_to new_user_memorialized_path(@user) do %>
+      <div class="create-circle">
+        <h3>+</h3>
       </div>
+   <% end %>
 
 
         <% counter = 1 %>
@@ -45,7 +48,7 @@
             <% deceased_array.push(memorialized_user.id) %>
           <% end %>
  
-          <% if find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
+          <% find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
 
             <% relationship = find_relation.group_tag %>
 
@@ -57,7 +60,6 @@
                 <% coworker_array.push(memorialized_user.id) %>
             <% end %>
 
-          <% end %>
 
       <% end %>
 
@@ -97,8 +99,8 @@
  </div>
 
 
-*************DATA FOR DOM MANIPULATIONS******************************
-
+<!-- //**************DATA FOR DOM MANIPULATIONS******************************/
+ -->
 
  <ul class="dead">
      <% deceased_array.each do |each| %>

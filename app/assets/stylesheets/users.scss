@@ -7,11 +7,32 @@ html {
 	font-family: Arial, sans-serif;
 }
 
+.logo-link {
+	display: block;
+	float: left;
+	padding: 1em 1.5em;
+
+}
+
+.my-span {
+	color: yellow;
+	font-size: 1.3em;
+}
+
+.logo-link:hover {
+	opacity: .8;
+}
+.journey-span {
+	color: white;
+	font-size: 1.3em;
+}
+
+
 .dead {
 	background-color: black;
 }
 
-.memorialize-someone {
+/*.memorialize-someone {
 	position: absolute;
 	left: 90em;
 	top: 14em;
@@ -19,7 +40,7 @@ html {
 	color: white;
 	text-decoration: underline;
 	font-size: 12px;
-}
+}*/
 
 .memorialize-someone:hover {
 	opacity: .7;
@@ -192,8 +213,14 @@ div .friend {
 	float: left;
 }
 
-i {
-	color: rgba(255, 137, 49, 1);;
+.fa-cog {
+	float: right;
+	padding: .8em .8em 1em 1em;
+	color: gray;
+}
+
+i #video, i #image, i .fa-volume-up {
+	color: rgba(255, 137, 49, 1);
 	margin-bottom: .5em;
 	cursor: pointer;
 	z-index: 4;
@@ -201,7 +228,21 @@ i {
 
 i:hover {
 	opacity: .6;
+	cursor: pointer;
 }
+
+#circle-nav {
+	width: 25px;
+	height: 25px;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	display: block;
+	margin-bottom: 3px;
+/*	background-color: white;
+*/}
+
+
 
 .content-div .name {
 	font-size: 1.2em;
@@ -291,7 +332,7 @@ i:hover {
 	top: .7em;
 }
 
-.pic-circles-section .co-circle {
+.pic-circles-section .create-circle {
 	position: absolute;
 	text-align: center;
 	color: white;
@@ -303,8 +344,25 @@ i:hover {
 	-webkit-border-radius: 8em;
 	border-radius: 8em;	
 	display: block;
-	background-color: #f0ff08;
+	border-color: white;
+	border-style: solid;
+	border-width: 1px;
+	text-align: center;
 }
+
+.blee {
+	color: white;
+}
+
+.create-circle h3 {
+	position: relative;
+	top: .5em;
+}
+
+.create-circle:hover {
+	opacity: .8;
+}
+
 
 .co-circle h3 {
 	position: relative;
@@ -388,7 +446,7 @@ i:hover {
 	left: 54em;
 }
 
-.circle-11 {
+/*.circle-11 {
 	background-color: #e7f233;
 	position: absolute;
 	top: 34em;
@@ -421,7 +479,7 @@ i:hover {
 	position: absolute;
 	top: 39em;
 	left: 65em;
-}
+}*/
 
 .circle {
 	width: 30px;
