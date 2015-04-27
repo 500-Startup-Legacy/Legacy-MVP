@@ -12,7 +12,7 @@
   <div class="black-background">
   </div>
 
-<%= link_to "Memorialize Someone!", new_user_memorialized_path(@user), :class => "memorialize-someone" %>
+  <%= link_to "Memorialize Someone!", new_user_memorialized_path(@user), :class => "memorialize-someone" %>
 
     <div class="pic-circles-section">
       <div class="image-area">
@@ -44,8 +44,7 @@
           <% if memorialized_user.public %>
             <% deceased_array.push(memorialized_user.id) %>
           <% end %>
-
-          
+ 
           <% if find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
 
             <% relationship = find_relation.group_tag %>
@@ -56,11 +55,11 @@
                   <% friend_array.push(memorialized_user.id) %>
               <% else %>
                 <% coworker_array.push(memorialized_user.id) %>
-             <% end %>
-           <% end %>
+            <% end %>
+
+          <% end %>
 
       <% end %>
-
 
 
       <% family_array.each do |each| %>
@@ -68,7 +67,6 @@
            </div>
            <% counter = counter + 1 %>
       <% end %>
-
 
           <% if counter < 5 %>
              <% counter = 5 %>
@@ -81,38 +79,32 @@
            <% counter = counter + 1 %>
       <% end %>
 
+
           <% if counter < 10 %>
               <% counter = 10 %>
           <% end %>
-          
+
+
       <% coworker_array.each do |each| %>
            <div id= <%=each%> class="circle circle-<%=counter%>">
            </div>
            <% counter = counter + 1 %>
       <% end %>
 
-
     </div>
 
-    <!-- <p class="footer-logo">power by You</p> -->
+
  </div>
 
+
+*************DATA FOR DOM MANIPULATIONS******************************
+
+
  <ul class="dead">
-  <li>21,</li>
-  <li>32,</li>
      <% deceased_array.each do |each| %>
        <li> <%= each %>, </li>
      <% end %>
   </ul>
-
-
-
-
-
-
-
-
-
 
   <div class="data">
     <div class="black-background-data">

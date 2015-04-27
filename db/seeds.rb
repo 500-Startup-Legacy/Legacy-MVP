@@ -30,9 +30,11 @@ ed.memorialize!(collin, "family")
 sora.memorialize!(collin, "family")
 
 sora.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
-alex.memorialize!(collin, "family")
-alex.memorialize!(abraham, "family")
+
+
 alex.memorialize!(alex1, "coworker")
+alex.memorialize!(collin, "coworker")
+alex.memorialize!(abraham, "coworker")
 
 
 
