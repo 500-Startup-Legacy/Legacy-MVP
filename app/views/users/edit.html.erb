@@ -1,53 +1,58 @@
-<div class="sign-up-form edit-form">
-<h1>Update your profile</h1>
+<div class="black-background-sign-up">
 
-<%= form_for(@user, :html => {:class => "pure-form, pure-form-aligned"}) do |f| %>
-  <%= render 'shared/error_messages' %>
 
-  <div class="pure-control-group">
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+    <div class="sign-up-form">
+    <h1>Update your profile</h1>
+
+    <%= form_for(@user, :html => {:class => "pure-form, pure-form-aligned"}) do |f| %>
+      <%= render 'shared/error_messages' %>
+
+      <div class="pure-control-group">
+    <!--   <%= f.label :email %>
+     -->  <%= f.text_field :email, :placeholder => 'Email' %>
+    </div>
+
+      <div class="pure-control-group">
+    <!--   <%= f.label :first_name %>
+     -->  <%= f.text_field :first_name, :placeholder => 'First Name' %>
+    </div>
+
+      <div class="pure-control-group">
+    <!--   <%= f.label :last_name %>
+     -->  <%= f.text_field :last_name, :placeholder => 'Last Name' %>
+    </div>
+
+
+      <div class="pure-control-group">
+    <!--   <%= f.label :phone_number, 'Phone Number' %>
+     -->  <%= f.text_field :phone_number, :placeholder => 'Phone Number' %>
+    </div>
+
+        <div class="pure-control-group">
+    <!--       <%= f.label :legacy_contact_email, 'Contact Email Address (in case of death)' %>
+     -->      <%= f.text_field :legacy_contact_email, :placeholder => 'Contact Email Address (in case of death)' %>
+       </div>
+
+      <div class="pure-control-group">
+    <!--   <%= f.label :password %>
+     -->  <%= f.password_field :password, :placeholder => 'Password' %>
+    </div>
+
+      <div class="pure-control-group">
+
+    <!--   <%= f.label :password_confirmation %>
+     -->  <%= f.password_field :password_confirmation, :placeholder => 'Confirmation' %>
+    </div>
+
+    <!-- <div class="pure-controls">
+     -->  <%= f.submit "Save changes", :class => "pure-button, pure-button-primary" %>
+    <!-- </div>
+     -->
+    <% end %>
+
+    </div>
 </div>
 
-  <div class="pure-control-group">
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-</div>
-
-  <div class="pure-control-group">
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-</div>
-
-
-  <div class="pure-control-group">
-  <%= f.label :phone_number, 'Phone Number' %>
-  <%= f.text_field :phone_number %>
-</div>
-
-    <div class="pure-control-group">
-      <%= f.label :legacy_contact_email, 'Contact Email Address (in case of death)' %>
-      <%= f.text_field :legacy_contact_email %>
-   </div>
-
-  <div class="pure-control-group">
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-</div>
-
-  <div class="pure-control-group">
-
-  <%= f.label :password_confirmation %>
-  <%= f.password_field :password_confirmation %>
-</div>
-
-<div class="pure-controls">
-  <%= f.submit "Save changes", :class => "pure-button, pure-button-primary" %>
-</div>
-
-<% end %>
-
-</div>
 <div class='black-bottom-signup'>
 </div>
  <p class="footer-logo">power by You</p>

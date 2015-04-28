@@ -4,8 +4,65 @@
 
 
 html {
-	font-family: Arial, sans-serif;
+	font-family: 'Ubuntu', sans-serif;
 }
+
+#user-new-title {
+	color: white;
+}
+
+.pure-form textarea {
+	color: white;
+}
+
+input {
+	position: relative;
+	left: 50%;
+	margin-left: -8em;
+	border-radius: 12px;
+	background-color: black;
+	border-color: #fdd900;
+	width: 15em;
+	height: 2.5em;
+	padding-left: 2em;
+	-webkit-appearance: none;
+	outline: none;
+	border-style: solid;
+	border-width: 1px;
+	color: white;
+}
+
+input[type=text]:focus {
+	color: white;
+}
+
+.pure-control-group input[type=text] {
+	color: white;
+}
+
+.pure-form input, select, textarea {
+	color: white;
+}
+textarea:focus, input:focus {
+	color: white;
+}
+
+
+input[type="submit"] {
+	position: relative;
+	left: 50%;
+	margin-left: 2.7em;
+	width: 17em;
+	color: black;
+	height: 2.5em;
+	border-radius: 12px;
+	line-height: 1em;
+	background-color: #fdd900;
+	text-align: center;
+	padding-left: 0;
+}
+
+
 
 .logo-link {
 	display: block;
@@ -64,20 +121,27 @@ form input[type=text] {
 	width: 32em;
 	height: 25em;
 	margin: 0 35%;
-	color: #1dc8fb;
-	background-color: #545454;
+	color: #fdd900;
+	background-color: black;
 	position: relative;
 	top: 6em;
 	padding-top: 1em;
 	border-radius: 2em;
-	box-shadow: 10px 10px 5px #888888;
 }
 
+.black-background-sign-up {
+	background-color: black;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
 
 .sign-up-form h1 {
 	position: relative;
 	text-align: center;
-	color: rgba(255, 137, 49, 1);
+	color: #fdd900;
+	margin-bottom: .5em;
+	font-size: 2em;
 }
 
 .edit-form h1 {
@@ -348,6 +412,25 @@ i:hover {
 	border-style: solid;
 	border-width: 1px;
 	text-align: center;
+}
+
+.pic-circles-section .create-circle-hardcode {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 14em;
+	left: 65em;
+	width: 2em;
+	height: 2em;
+	-moz-border-radius: 4em;
+	-webkit-border-radius: 4em;
+	border-radius: 4em;	
+	display: block;
+	border-color: white;
+	border-style: solid;
+	border-width: 1px;
+	text-align: center;
+	cursor: pointer;
 }
 
 .blee {

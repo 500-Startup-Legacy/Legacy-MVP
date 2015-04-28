@@ -6,7 +6,7 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
-    <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,700italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Quattrocento+Sans:400,700,700italic|Ubuntu' rel='stylesheet' type='text/css'>
   </head>
   <body>
 
@@ -14,13 +14,14 @@
       <div class="alert alert-<%= key %>"><%= value %></div>
     <% end %>
     <nav>
-<!--       <p class="logo">legacy</p>
- -->       <% if signed_in? %>
-         <%= link_to "Log Out", signout_path, method: 'delete', class: 'right' %>
 
           <%= link_to current_user, class: 'logo-link' do %>
-            <span class="my-span">my</span><span class="journey-span">Journey</span
+            <span class="my-span">my</span><span class="journey-span">Journey</span>
           <% end %>
+          
+      <% if signed_in? %>
+         <%= link_to "Log Out", signout_path, method: 'delete', class: 'right' %>
+
 
           <%= link_to edit_user_path(current_user) do %>
             <i class="fa fa-cog fa-lg"></i>
