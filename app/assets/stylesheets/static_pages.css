@@ -2,22 +2,33 @@ html {
 	font-family: 'Quattrocento Sans', sans-serif;
 }
 
-.main h1 {
-	font-size: 8em;
-}
+
 .main {
 	background-color: black;
 	text-align: center;
 	height: 40em;
 	padding-top: 13em;
-	font-family: 'Quattrocento Sans', sans-serif;
 	color: white;
 }
 
-.main span {
-	font-size: 1em;
-	background-color: black;
+#my-home-page-span {
+	color: yellow;
+	font-size: 7em;
+	z-index: 14;
 }
+
+hr {
+	width: 22em;
+	margin-top: 2em;
+}
+
+#journey-home-page-span {
+	color: white;
+	font-size: 7em;
+	z-index: 14;
+}
+
+
 
 .black-bottom-home {
 	position: relative;
