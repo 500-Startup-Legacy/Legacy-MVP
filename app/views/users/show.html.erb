@@ -1,30 +1,29 @@
 <head>
-<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
-<%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
+  <link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+  <%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
 
-<script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
-<script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
+  <script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
+  <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
 </head>
 
 
 <div class="container">
-
   <div class="black-background">
   </div>
 
 
 
-    <div class="pic-circles-section">
-      <div class="image-area">
-      </div>
-      <div class="profile-pic">
-      </div>
-      <div class="fm-circle">
-        <h3>fm</h3>
-      </div>
-      <div class="fr-circle">
-        <h3>fr</h3>
-      </div>
+  <div class="pic-circles-section">
+    <div class="image-area">
+    </div>
+    <div class="profile-pic">
+    </div>
+    <div class="fm-circle">
+      <h3>fm</h3>
+    </div>
+    <div class="fr-circle">
+      <h3>fr</h3>
+    </div>
 
    <%= link_to new_user_memorialized_path(@user) do %>
       <div class="create-circle">
@@ -32,16 +31,16 @@
       </div>
    <% end %>
 
-      <div class="create-circle-hardcode">
-        <h3>+</h3>
-      </div>
+    <div class="create-circle-hardcode">
+      <h3>+</h3>
+    </div>
 
 
-        <% counter = 1 %>
-        <% family_array = [] %>
-        <% friend_array = [] %>
-        <% coworker_array = [] %>
-        <% deceased_array = [] %>
+      <% counter = 1 %>
+      <% family_array = [] %>
+      <% friend_array = [] %>
+      <% coworker_array = [] %>
+      <% deceased_array = [] %>
 
             
       <% @memories_hash.each do |memory_array| %>      
@@ -54,15 +53,15 @@
  
           <% find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
 
-            <% relationship = find_relation.group_tag %>
+          <% relationship = find_relation.group_tag %>
 
-            <% if relationship == "family" %>
-                <% family_array.push(memorialized_user.id) %>
-              <% elsif relationship == "friend" %>
-                  <% friend_array.push(memorialized_user.id) %>
-              <% else %>
-                <% coworker_array.push(memorialized_user.id) %>
-            <% end %>
+          <% if relationship == "family" %>
+              <% family_array.push(memorialized_user.id) %>
+            <% elsif relationship == "friend" %>
+              <% friend_array.push(memorialized_user.id) %>
+            <% else %>
+              <% coworker_array.push(memorialized_user.id) %>
+          <% end %>
 
 
       <% end %>
