@@ -1,30 +1,29 @@
 <head>
-<link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
-<%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
+  <link rel="stylesheet" href="//assets.ziggeo.com/css/ziggeo-betajs-player.min.css" />
+  <%# <link rel="stylesheet" href="https://yui.yahooapis.com/pure/0.6.0/pure-min.css"> %>
 
-<script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
-<script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
+  <script src="//assets.ziggeo.com/js/ziggeo-json2-betajs-player.min.js"></script>
+  <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
 </head>
 
 
 <div class="container">
-
   <div class="black-background">
   </div>
 
 
 
-    <div class="pic-circles-section">
-      <div class="image-area">
-      </div>
-      <div class="profile-pic">
-      </div>
-      <div class="fm-circle">
-        <h3>fm</h3>
-      </div>
-      <div class="fr-circle">
-        <h3>fr</h3>
-      </div>
+  <div class="pic-circles-section">
+    <div class="image-area">
+    </div>
+    <div class="profile-pic">
+    </div>
+    <div class="fm-circle">
+      <h3>fm</h3>
+    </div>
+    <div class="fr-circle">
+      <h3>fr</h3>
+    </div>
 
    <%= link_to new_user_memorialized_path(@user) do %>
       <div class="create-circle">
@@ -32,16 +31,16 @@
       </div>
    <% end %>
 
-      <div class="create-circle-hardcode">
-        <h3>+</h3>
-      </div>
+    <div class="create-circle-hardcode">
+      <h3>+</h3>
+    </div>
 
 
-        <% counter = 1 %>
-        <% family_array = [] %>
-        <% friend_array = [] %>
-        <% coworker_array = [] %>
-        <% deceased_array = [] %>
+      <% counter = 1 %>
+      <% family_array = [] %>
+      <% friend_array = [] %>
+      <% coworker_array = [] %>
+      <% deceased_array = [] %>
 
             
       <% @memories_hash.each do |memory_array| %>      
@@ -54,16 +53,15 @@
  
           <% find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %>
 
-            <% relationship = find_relation.group_tag %>
+          <% relationship = find_relation.group_tag %>
 
-            <% if relationship == "family" %>
-                <% family_array.push(memorialized_user.id) %>
-              <% elsif relationship == "friend" %>
-                  <% friend_array.push(memorialized_user.id) %>
-              <% else %>
-                <% coworker_array.push(memorialized_user.id) %>
-            <% end %>
-
+          <% if relationship == "family" %>
+              <% family_array.push(memorialized_user.id) %>
+            <% elsif relationship == "friend" %>
+              <% friend_array.push(memorialized_user.id) %>
+            <% else %>
+              <% coworker_array.push(memorialized_user.id) %>
+          <% end %>
 
       <% end %>
 
@@ -85,11 +83,9 @@
            <% counter = counter + 1 %>
       <% end %>
 
-
           <% if counter < 10 %>
               <% counter = 10 %>
           <% end %>
-
 
       <% coworker_array.each do |each| %>
            <div id= <%=each%> class="circle circle-<%=counter%>">
@@ -106,7 +102,7 @@
 <!-- //**************DATA FOR DOM MANIPULATIONS******************************/
  -->
 
- <ul class="dead">
+  <ul class="dead">
      <% deceased_array.each do |each| %>
        <li> <%= each %>, </li>
      <% end %>
@@ -116,45 +112,40 @@
     <div class="black-background-data">
     </div>
     <h1><%= @user.full_name %>'s Memories</h1>
-<p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %></p>
+    <p><%= link_to("Memorialize Someone!", new_user_memorialized_path(@user) ) %></p>
 
     <% @memories_hash.each do |memory_array| %>
-
 
       <% memorialized_user = User.find(memory_array[0]) %>
       <hr>
       <h2><%= @user.first_name %>'s memories about <%= memorialized_user.full_name %></h2>
 
       <% if memorialized_user.public %>
-
         <%= link_to("View #{memorialized_user.first_name}'s Memories", url_for(controller: 'remember', action: 'show', user_id: memorialized_user.id), id: 'view-public-' + memorialized_user.id.to_s) %>
-
       <% end %>
 
       <h1>RELATION: <% if relationship = @user.relationships.find_by(memorialized_id: memorialized_user.id)%>
         <%=relationship.group_tag%>
         <%end%>
+      </h1>
 
-       </h1>
+      <h1>memoralized_user_id: <%= memorialized_user.id %></h1>
+
+      <div class="full-name">
+        <h5 class=<%= memorialized_user.id %>> <%=memorialized_user.full_name%></h5>
+      </div>
+
+      
+      <ul>
+
+        <% if @user.get_memorializing_twilio_number(memorialized_user) != nil %>
+
+           <p id=<%='phone-number-' + memorialized_user.id.to_s%>>Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %></p>
+
+        <% end %>
 
 
-    <h1>memoralized_user_id: <%= memorialized_user.id %></h1>
-
-    <div class="full-name">
-      <h5 class=<%= memorialized_user.id %>> <%=memorialized_user.full_name%></h5>
-    </div>
-
-    <ul>
-
-      <% if @user.get_memorializing_twilio_number(memorialized_user) != nil %>
-
-         <p id=<%='phone-number-' + memorialized_user.id.to_s%>>Create a memory about <%= memorialized_user.full_name %>, text <%= @user.get_memorializing_twilio_number(memorialized_user) %></p>
-
-      <% end %>
-
-
-To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("Create Video", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id), id: 'video-link-' + memorialized_user.id.to_s)%>
-
+        To create a video memory about <%= memorialized_user.full_name %>, click  <%= link_to("Create Video", new_user_memorialized_memory_path(user_id:@user.id, memorialized_id:memorialized_user.id), id: 'video-link-' + memorialized_user.id.to_s)%>
 
         <% memory_array[1].each do |memory| %>
 
@@ -168,9 +159,9 @@ To create a video memory about <%= memorialized_user.full_name %>, click  <%= li
             <div id=image-<%=memorialized_user.id%> class="image-data"><%=memory.image_url%></div>
             <p> <%=memory.created_at%> </p>
         <% end %>
-    <% end %>
+      <% end %>
+    
     </ul>
-
     <% end %>
   </div>
 

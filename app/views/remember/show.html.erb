@@ -4,18 +4,20 @@
 <script>ZiggeoApi.token = "2deecf9c00f2077ad7ca6e9e383b5c92";</script>
 </head>
 
-<div class="content">
-<h1><%= @user.full_name %> <span>remembered..</span></h1>
+<div class="black-background">
+	<div class="content">
+		<h1 id="remember-show-name"><%= @user.full_name %> remembered..</h1>
 
-<ul>
-<% @user.remembrances.each do |memory| %>
-	
-	  <li><%= memory.content %></li><br>
-<% end %>
-</ul>
+			<ul>
+				<% @user.remembrances.each do |memory| %>
+					  <li><%= memory.content %></li><br>
+				<% end %>
+			</ul>
+
+	</div>
 </div>
+
 <div class='black-bottom-signup'>
 </div>
- <p class="footer-logo">power by You</p>
 
 
