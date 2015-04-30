@@ -1,4 +1,91 @@
 
+.pure-form textarea {
+	color: white;
+}
+
+#sign-in-title-new {
+	color: white;
+}
+
+input {
+	position: relative;
+	left: 50%;
+	margin-left: -8em;
+	border-radius: 12px;
+	background-color: black;
+	border-color: #fdd900;
+	width: 15em;
+	height: 2.5em;
+	padding-left: 2em;
+	-webkit-appearance: none;
+	outline: none;
+	border-style: solid;
+	border-width: 1px;
+	color: white;
+}
+
+input[type=text]:focus {
+	color: white;
+}
+
+.pure-control-group input[type=text] {
+	color: white;
+}
+
+.pure-form input, select, textarea {
+	color: white;
+}
+textarea:focus, input:focus {
+	color: white;
+}
+
+
+input[type="submit"] {
+	position: relative;
+	left: 50%;
+	margin-left: 2.7em;
+	width: 17em;
+	color: black;
+	height: 2.5em;
+	border-radius: 12px;
+	line-height: 1em;
+	background-color: #fdd900;
+	text-align: center;
+	padding-left: 0;
+}
+/**************/
+
+
+.sign-up-container {
+	width: 100%;
+	height: 60em;
+	display: block;
+/*	background-color: black;
+*/	z-index: -3;
+}
+
+.sign-in-form {
+/*	background-color: black;
+*/	display: block;
+	width: 32em;
+	height: 25em;
+	margin: 0 35%;
+	color: #1dc8fb;
+	background-color: black;
+	position: relative;
+	top: 6em;
+	padding-top: 1em;
+	border-radius: 2em;
+}
+
+.sign-in-form h1 {
+	position: relative;
+	text-align: center;
+	color: rgba(255, 137, 49, 1);
+}
+
+
+
 .right {
 	display: block;
 	overflow: hidden;

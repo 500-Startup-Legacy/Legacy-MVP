@@ -1,17 +1,4 @@
 
-/*
-ziggeo {
-	position: relative;
-	left: 40%;
-	padding-top-top: 8em;
-}*/
-
-/*button {
-
-}*/
-
-
-
 form input[type=submit]:hover {
 	opacity: .9;
 	
@@ -22,3 +9,12 @@ form input[type=submit] {
 	position: relative;
 	left: 5.5em;
 }
+
+
+.black-background-video-record {
+	background-color: black;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+

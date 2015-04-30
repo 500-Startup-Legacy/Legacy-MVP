@@ -14,9 +14,9 @@ RSpec.describe "UserPages", type: :request do
   describe "signup page" do
     before { visit signup_path }
 
-    let(:submit) { 'Create my account' }
+    let(:submit) { 'Create Account' }
 
-    it { should have_content 'Sign Up' }
+    it { should have_content 'myJourney' }
 
     describe "with invalid information" do
       it "should not create a new user" do
@@ -42,7 +42,7 @@ RSpec.describe "UserPages", type: :request do
         before { click_button submit }
         let(:user) { User.find_by(email: "juan@smith.com") }
 
-        it { should have_link 'Sign out' }
+        it { should have_link 'Log Out' }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
       end
 
@@ -71,11 +71,11 @@ RSpec.describe "UserPages", type: :request do
       let(:new_email) { "new@new.com"}
 
       before do
-        fill_in "First name", with: new_first_name
-        fill_in "Last name", with: new_last_name
+        fill_in "First Name", with: new_first_name
+        fill_in "Last Name", with: new_last_name
         fill_in "Email", with: new_email
         fill_in "Password", with: user.password
-        fill_in "Password confirmation", with: user.password
+        fill_in "Confirmation", with: user.password
         click_button "Save changes"
       end
 

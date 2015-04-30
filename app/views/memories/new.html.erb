@@ -5,21 +5,22 @@
 
 </head>
 
-<div class="video-recorder">
+<div class="black-background-video-record">
+	
+	<div class="video-recorder">
 
-<%= form_tag({controller: "memories", action: "create"}, method: "post") do %>
-<ziggeo ziggeo-input_bind='videotoken'
-				ziggeo-width=400
-        ziggeo-height=300>
-</ziggeo>
-<div class="pure-controls">
-  <%= submit_tag("Create Video Memory", :class => 'pure-button, pure-button-primary')%>
+	<%= form_tag({controller: "memories", action: "create"}, method: "post") do %>
+	<ziggeo ziggeo-input_bind='videotoken'
+					ziggeo-width=400
+	        ziggeo-height=300>
+	</ziggeo>
+	<div class="pure-controls">
+	  <%= submit_tag("Create Video Memory", :class => 'pure-button, pure-button-primary, video-create-memory-button')%>
+	</div>
+	<% end %>
+	
+	</div>
 </div>
-<% end %>
-
-
-</div>
-
 <!-- 320 
 
 240 -->

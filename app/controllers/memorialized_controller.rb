@@ -21,6 +21,7 @@ class MemorializedController < ApplicationController
     @memorializer = User.find(params[:user_id])
     @memorialized = User.find_by(email: params[:email])
     relationship = @memorializer.memorialize!(@memorialized, params[:group_tag]) if @memorialized
+    binding.pry
     if @memorialized && relationship
       success_messsage = "You've memorialized #{@memorialized.full_name}!" 
       success_messsage += "  Text your memories of #{@memorialized.full_name} to #{relationship.twilio_number}" if relationship.twilio_number

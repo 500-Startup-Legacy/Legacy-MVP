@@ -1,3 +1,12 @@
+html {
+
+}
+
+#memorialize-new-title {
+	position: relative;
+	left: 10px;
+	color: white;
+}
 
 .new-memorialized-form {
 /*	background-color: black;
@@ -12,9 +21,96 @@
 	padding: 1em 3em;
 	border-radius: 2em;
 	box-shadow: 10px 10px 5px #888888;
-
-
 }
+
+select {
+	position: relative;
+	left: 8em;
+	width: 17.3em;
+	height: 3em;
+	border-width: 1px;
+	border-color: #fdd900;
+	border-style: solid;
+	background: transparent;
+}
+
+select {
+	text-indent: 20px;
+}
+
+.pure-form textarea {
+	color: white;
+}
+
+
+input {
+	position: relative;
+	left: 50%;
+	margin-left: -8em;
+	border-radius: 12px;
+	background-color: black;
+	border-color: #fdd900;
+	width: 15em;
+	height: 2.5em;
+	padding-left: 2em;
+	-webkit-appearance: none;
+	outline: none;
+	border-style: solid;
+	border-width: 1px;
+	color: white;
+}
+
+input[type=text]:focus {
+	color: white;
+}
+
+.pure-control-group input[type=text] {
+	color: white;
+}
+
+.pure-form input, select, textarea {
+	color: white;
+}
+textarea:focus, input:focus {
+	color: white;
+}
+
+
+input[type="submit"] {
+	position: relative;
+	left: 50%;
+	margin-left: 2.7em;
+	width: 17em;
+	color: black;
+	height: 2.5em;
+	border-radius: 12px;
+	line-height: 1em;
+	background-color: #fdd900;
+	text-align: center;
+	padding-left: 0;
+}
+
+.sign-up-button-form {
+	position: relative;
+	left: 50%;
+	margin-left: -7.8em;
+	width: 17em;
+	display: block;
+	color: white;
+	height: 2.5em;
+	border-radius: 12px;
+	background-color: black;
+	text-align: center;
+	padding-left: 0;
+	line-height: 2em;
+	border-style: solid;
+	border-width: 1px;
+}
+
+.sign-up-button-form:hover {
+	opacity: .8;
+}
+
 
 .new-memorialized-form h1 {
 	position: relative;
