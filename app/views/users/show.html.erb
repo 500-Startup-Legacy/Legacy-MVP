@@ -41,6 +41,7 @@
       <% family_array = [] %>
       <% friend_array = [] %>
       <% coworker_array = [] %>
+      <% deceased_array = [] %>
 
 
       <% @subjects.each do |subject| %>      
@@ -57,18 +58,6 @@
 
       <% end %>
             
-      <%# <% @memories_hash.each do |memory_array| %1> %>      
-      <%#     <% memorialized_user = User.find(memory_array[0]) %1> %>
-      <%#     <% find_relation = @user.relationships.find_by(memorialized_id: memorialized_user.id) %1> %>
-      <%#     <% relationship = find_relation.group_tag %1> %>
-      <%#     <% if relationship == "family" %1> %>
-      <%#         <% family_array.push(memorialized_user.id) %1> %>
-      <%#       <% elsif relationship == "friend" %1> %>
-      <%#         <% friend_array.push(memorialized_user.id) %1> %>
-      <%#       <% else %1> %>
-      <%#         <% coworker_array.push(memorialized_user.id) %1> %>
-      <%#     <% end %1> %>
-      <%# <% end %1> %>
 
 
       <% family_array.each do |each| %>
@@ -107,11 +96,11 @@
 <!-- //**************DATA FOR DOM MANIPULATIONS******************************/
  -->
 
-  <%# <ul class="dead"> %>
-  <%#    <% deceased_array.each do |each| %1> %>
-  <%#      <li> <%= each %1>, </li> %>
-  <%#    <% end %1> %>
-  <%# </ul> %>
+  <ul class="dead">
+     <% deceased_array.each do |each| %>
+       <li> <%= each %>, </li>
+     <% end %>
+  </ul>
 
   <div class="data">
     <div class="black-background-data">

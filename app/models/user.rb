@@ -15,17 +15,7 @@ class User < ActiveRecord::Base
   validates :phone_number, presence:true, uniqueness:true, length: { is:10 }
   has_secure_password
 
-  has_many :relationships, foreign_key: "memorializer_id", dependent: :destroy
-  has_many :memorialized_users, through: :relationships, source: :memorialized
   has_many :subjects, dependent: :destroy
-
-  has_many :reverse_relationships, foreign_key: "memorialized_id", 
-                                   class_name: 'Relationship', 
-                                   dependent: :destroy
-
-  has_many :memorializers, through: :reverse_relationships, source: :memorializer
-
-  has_many :memories, dependent: :destroy
 
 
   def full_name
@@ -40,37 +30,16 @@ class User < ActiveRecord::Base
     Digest::SHA1.hexdigest(token.to_s)
   end
 
-  # def memorializing?(other_user)
-  #   relationships.find_by(memorialized_id: other_user.id)
-  # end
-
-  # def memorialize!(other_user, group_tag)
-  #   return nil if self.relationships.map { |relationship| relationship.memorialized_id }.include? other_user.id
-  #   relationships.create(memorialized_id:other_user.id, group_tag:group_tag)
-  # end
-
-  # def unmemorialize!(other_user)
-  #   relationships.find_by(memorialized_id:other_user.id).destroy
-  # end
-
   def get_memorialized_user_by_twilio_number(twilio_number)
     self.relationships.each do |relationship|
       return User.find(relationship.memorialized_id) if relationship.twilio_number == twilio_number
     end
   end
 
-  # def get_relationship(other_user)
-  #   self.relationships.find_by(memorialized_id:other_user.id)
-  # end
-
   def get_memorializing_twilio_number(other_user)
     relationship = self.relationships.find_by(memorialized_id:other_user.id)
     return relationship.twilio_number if relationship
   end
-
-  # def remembrances
-  #   Memory.where(memorialized_user_id: self.id)
-  # end
 
   def memories
     subjects = self.subjects
@@ -85,4 +54,5 @@ class User < ActiveRecord::Base
     def create_remember_token
       self.remember_token = User.digest(User.new_remember_token)
     end
+
 end
