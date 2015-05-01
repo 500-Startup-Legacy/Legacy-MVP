@@ -2,16 +2,6 @@ class MemorializedController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
 
-  def index
-    @user = User.find(params[:user_id])
-    @memorialized_users = @user.memorialized_users
-  end
-
-  def show
-    @user = User.find(params[:user_id])
-    @memorialized_user = User.find(params[:id])
-  end
-
   def new
     @memorializer = User.find(params[:user_id])
     @memorialized = User.new()

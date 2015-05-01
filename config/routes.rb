@@ -2,10 +2,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
 
   resources :users do
-    # resources :memories, only: [:index]
-    resources :memorialized do
+    resources :subjects, only: [:new, :create] do
       resources :memories
     end
+    # resources :memorialized do
+    #   resources :memories
+    # end
   end
 
   namespace :api do
@@ -27,6 +29,6 @@ Rails.application.routes.draw do
   match '/signin', to: 'sessions#new', via: 'get'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   match '/twilio/process_sms', to:'twilio#process_sms', via: 'post'
-  get "/remember/:user_id", to: 'remember#show'
+  # get "/remember/:user_id", to: 'remember#show'
 
 end

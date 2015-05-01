@@ -11,34 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426033722) do
+ActiveRecord::Schema.define(version: 20150501185432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "memories", force: :cascade do |t|
     t.text     "content"
-    t.integer  "user_id"
-    t.integer  "memorialized_user_id"
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
     t.string   "image_url"
+    t.integer  "subject_id"
   end
 
-  add_index "memories", ["user_id"], name: "index_memories_on_user_id", using: :btree
-
-  create_table "relationships", force: :cascade do |t|
-    t.integer  "memorializer_id"
-    t.integer  "memorialized_id"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+  create_table "subjects", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "email"
     t.string   "group_tag"
     t.string   "twilio_number"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
-
-  add_index "relationships", ["memorialized_id"], name: "index_relationships_on_memorialized_id", using: :btree
-  add_index "relationships", ["memorializer_id", "memorialized_id"], name: "index_relationships_on_memorializer_id_and_memorialized_id", unique: true, using: :btree
-  add_index "relationships", ["memorializer_id"], name: "index_relationships_on_memorializer_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"

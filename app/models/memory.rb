@@ -1,11 +1,10 @@
 class Memory < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :subject
   default_scope -> { order('created_at DESC') }
-  validates :user_id, presence: true
-  validates :memorialized_user_id, presence: true
+  validates :subject_id, presence: true
 
   def group_tag
-    relationship.group_tag
+    subject.group_tag
   end
 
   private

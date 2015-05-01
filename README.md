@@ -25,6 +25,18 @@ For a quick demonstration:
 
 9.  This takes you to the public page where Abraham is being memorialized.  Here you can see not only memories Ed has created about Abraham, but also memories other users have created about Abraham.
 
+##User Stories
+
+-  A User can create a Subject that the User will later be able to create Memories about 
+
+-  The Subject must have name, an email address, and a relationship to the User (e.g. "friend", "family", "other")
+
+-  The User is given a phone number that the User can text messages and pictures to that will ensure the messages get turned into Memories about the Subject
+
+-  The User can see the Memories that the User has created about the Subject on the User's dashboard 
+
+-  The User has a link on their dashboard which they can click and then record a video about the Subject that will be saved as a Memory
+
 
 ##Read-only API
 
