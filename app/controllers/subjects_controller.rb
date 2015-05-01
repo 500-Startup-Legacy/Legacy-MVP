@@ -16,7 +16,7 @@ class SubjectsController < ApplicationController
       flash[:success] = success_messsage
       redirect_to @user
     else
-        flash[:fail]  
+        # flash[:fail]  
       render 'new'
     end
     # @memorialized = User.find_by(email: params[:email])
