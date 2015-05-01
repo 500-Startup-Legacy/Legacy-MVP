@@ -58,10 +58,11 @@ class TwilioController < ApplicationController
     @body = params[:Body]
     @image_url = params[:MediaUrl0]
     if @user
-      @memorialized_user = @user.get_memorialized_user_by_twilio_number(@to_number)
-      if @memorialized_user
-        puts @memorialized_user.full_name
-        @memory = Memory.create(content:@body, user_id:@user.id, memorialized_user_id:@memorialized_user.id, image_url:@image_url)
+      @subject = @user.subjects.find_by(twilio_number: @to_number)
+      # @memorialized_user = @user.get_memorialized_user_by_twilio_number(@to_number)
+      if @subject
+        puts @subject.name
+        @memory = @subject.memories.create(content:@body, image_url:@image_url)
         puts @memory.content
         puts "*"*100
       end
