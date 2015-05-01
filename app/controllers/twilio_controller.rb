@@ -59,7 +59,6 @@ class TwilioController < ApplicationController
     @image_url = params[:MediaUrl0]
     if @user
       @subject = @user.subjects.find_by(twilio_number: @to_number)
-      # @memorialized_user = @user.get_memorialized_user_by_twilio_number(@to_number)
       if @subject
         puts @subject.name
         @memory = @subject.memories.create(content:@body, image_url:@image_url)
