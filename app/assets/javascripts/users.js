@@ -21,7 +21,6 @@ window.onload = function() {
 	
 	$('.circle').hover(function(event) {
 
-		// $('html').find('*').removeClass('text-number');
 		$('.image-area').css('background-image', 'none');
 		$('html').find('*').removeClass('position-video');
 		$('html').find('*').removeClass('view-public-button');
@@ -121,25 +120,17 @@ window.onload = function() {
 
 	};
 
+    var currentUserID = window.location.href.split('/').slice(-1)[0];
+    console.log(currentUserID);
+    
+
+    $.get('/api/users/'+currentUserID+'/memorialized/family', function(data){
+        console.log('boop');
+        console.log(data);
+    });
+
 
 
 
 
 };
-
-
-	// var counter = 0;
-
-	// $('.circle').each(function(each){
-	// 	var left = $(this).offset().left;
-	// 	var top = $(this).offset().top;
-
-	// 	counter = counter + 50;
-
-	// 	var newLeft = left + counter;
-	// 	var newTop = top + counter;
-
-	// 	$(this).css('top', newTop);
-	// 	$(this).css('left', newLeft);
-
-	// });

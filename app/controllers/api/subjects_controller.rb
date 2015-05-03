@@ -1,18 +1,17 @@
-class Api::MemorializedController < ApplicationController
+class Api::SubjectsController < ApplicationController
   before_action :signed_in_user
   before_action :correct_user
 
   def index
     @user = User.find(params[:user_id])
-    @memorialized_users = @user.memorialized_users
-    render json: @memorialized_users
+    @subjects = @user.subjects
+    render json: @subjects
   end
 
   def show
-    # render json: {'hello':'world'} if params[:id] == 'friends'
     @user = User.find(params[:user_id])
-    @memorialized_user = User.find(params[:id])
-    render json: @memorialized_user
+    @subject = @user.subjects.find(params[:id])
+    render json: @subject
   end
 
 # c.memorialized_users.select {|u| c.get_relationship(u).group_tag == 'friend' }
