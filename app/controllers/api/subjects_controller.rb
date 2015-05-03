@@ -14,20 +14,19 @@ class Api::SubjectsController < ApplicationController
     render json: @subject
   end
 
-# c.memorialized_users.select {|u| c.get_relationship(u).group_tag == 'friend' }
   def family
     @user = User.find(params[:user_id])
-    render json: @user.memorialized_users.select {|u| @user.get_relationship(u).group_tag == 'family' }
+    render json: @user.subjects.select {|s| s.group_tag == 'family' }
   end
 
   def friends
     @user = User.find(params[:user_id])
-    render json: @user.memorialized_users.select {|u| @user.get_relationship(u).group_tag == 'friend' }
+    render json: @user.subjects.select {|s| s.group_tag == 'friend' }
   end
 
   def coworkers
     @user = User.find(params[:user_id])
-    render json: @user.memorialized_users.select {|u| @user.get_relationship(u).group_tag == 'coworker' }
+    render json: @user.subjects.select {|s| s.group_tag == 'coworker' }
   end
 
   def signed_in_user
