@@ -18,8 +18,6 @@
       <div class="create-circle"> <h3>+</h3> </div>
     <% end %>
 
-
-
   </div> <!-- end pic-circles-section div -->
 
 </div> <!-- end container div -->
@@ -29,46 +27,9 @@
 
 <div class="data">
   <div class="black-background-data"> </div>
-  <h1><%= @user.full_name %>'s Memories</h1>
-  <p><%= link_to("Memorialize Someone!", new_user_subject_path(@user) ) %></p>
+  <ul id="media-stash"> </ul>
 
   <% @subjects.each do |subject| %>
-
-    <hr>
-    <h2><%= @user.first_name %>'s memories about <%= subject.name %></h2>
-
-    <h1>RELATION: <% subject.group_tag%> </h1>
-
-    <h1>subject_id: <%= subject.id %></h1>
-
-    <div class="full-name">
-      <h5 class=<%= subject.id %>> <%=subject.name%></h5>
-    </div>
-
-
-    <ul>
-
-      <% if subject.twilio_number != nil %>
-        <p id=<%='phone-number-' + subject.id.to_s%>>Create a memory about <%= subject.name %>, text <%= subject.twilio_number %></p>
-      <% end %>
-
-
-      To create a video memory about <%= subject.name %>, click  <%= link_to("Create Video", new_user_subject_memory_path(user_id:@user.id, subject_id:subject.id), id: 'video-link-' + subject.id.to_s)%>
-
-    <% subject.memories.each do |memory| %>
-
-      <% if memory.content.starts_with?("ziggeo") %>
-
-        <div id=video-<%=subject.id%> class="video-data">
-          <ziggeo ziggeo-video = <%= memory.content[6..-1] %> ziggeo-width=320 ziggeo-height=240> </ziggeo> 
-        </div>
-      <% else %>
-        <li class=<%=subject.id%>><%=memory.content %></li>
-        <div id=image-<%=subject.id%> class="image-data"><%=memory.image_url%></div>
-        <p> <%=memory.created_at%> </p>
-      <% end %>
-    <% end %>
-
-    </ul>
+  <%= link_to("Create Video", new_user_subject_memory_path(user_id:@user.id, subject_id:subject.id), id: 'video-link-' + subject.id.to_s)%>
   <% end %>
 </div>

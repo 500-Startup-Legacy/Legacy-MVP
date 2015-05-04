@@ -5,7 +5,7 @@ class Api::MemoriesController < ApplicationController
   def index
     @user = User.find(params[:user_id])
     @subject = @user.subjects.find(params[:subject_id])
-    render json: @subject.memories
+    render json: @subject.memories.as_json(include: [:subject])
   end
 
   def show

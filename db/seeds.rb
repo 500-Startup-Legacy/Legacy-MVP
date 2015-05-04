@@ -75,6 +75,12 @@ collin_abraham.memories.create(content:'Love this guy!')
 
 collin_ed = collin.subjects.create(email:ed.email, group_tag:"family", name: ed.full_name)
 collin_ed.memories.create(content:'Sunnyside fo evah!')
+collin_ed.memories.create(content:'Mo sunnyside memories fo evah!')
+collin_ed.memories.create(content:'Makin a big old list of memories')
+
+collin_alex = collin.subjects.create(email:alex.email, group_tag:"family", name: alex.full_name)
+collin_alex.memories.create(content:'Chimichangas', image_url: 'https://api.twilio.com/2010-04-01/Accounts/AC619f789765e27b4af291c61d77952b80/Messages/MMfcaff6a9b8596c9b950c2d0a1c2c4145/Media/ME077f3b494927677fd285476131e06d5b')
+collin_alex.memories.create(content:'Chimichangas', image_url: 'http://vignette3.wikia.nocookie.net/carebearfamily/images/d/d9/Care_bear_stare.jpg/revision/latest?cb=20120424053847')
 
 
 
