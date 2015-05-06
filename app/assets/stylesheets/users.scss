@@ -347,14 +347,23 @@ i:hover {
 	-webkit-border-radius: 20em;
 	border-radius: 20em;
 	display: block;
-	background-image: image-url('person.jpg');
-	background-size: cover;
+/*	background-image: url('person.jpg');
 	background-position: center center;
-	background-repeat: no-repeat;
+	background-size: cover;
+	color: gray;*/
+	background-color: gray;
+	color: white;
 	border: solid;
 	border-width: .5em;
 	border-color: #69a53a;
+	text-align: center;
 }
+
+.profile-pic p {
+	margin-top: 3em;
+	font-size: 20px;
+}
+
 
 .pic-circles-section .fm-circle {
 	position: absolute;
@@ -412,6 +421,24 @@ i:hover {
 	border-style: solid;
 	border-width: 1px;
 	text-align: center;
+}
+
+.pic-circles-section .create-circle-small {
+	position: absolute;
+	text-align: center;
+	color: white;
+	top: 12em;
+	left: 65em;
+	width: 2em;
+	height: 2em;
+	-moz-border-radius: 4em;
+	-webkit-border-radius: 4em;
+	border-radius: 4em;	
+	display: block;
+	border-color: white;
+	border-style: solid;
+	border-width: 1px;
+	text-align: center;	
 }
 
 .pic-circles-section .create-circle-hardcode {

@@ -1,6 +1,6 @@
 <div class="black-background-sign-up">
 	<div class="sign-up-form">
-		<h1 id="memorialize-new-title">Memorialize Someone</h1>
+		<h1 id="memorialize-new-title">Add Someone</h1>
 		<%= form_tag({controller: "memorialized", action: "create"}, method: "post", :class => 'pure-form, pure-form-aligned') do %>
 			<div class="pure-control-group">
 <!-- 			  <%= label_tag(:email, "Email") %>
@@ -10,7 +10,7 @@
 <!-- 			 <%= label_tag(:group_tag, "Relationship") %>
  -->			 <%= select_tag(:group_tag, options_for_select(['friend', 'family', 'coworker']), :class => 'pure-input-1-2, select-menu') %>
 			</div>
-			  <%= submit_tag("Memorialize", :class => 'pure-button, pure-button-primary') %>
+			  <%= submit_tag("Start Posting", :class => 'pure-button, pure-button-primary') %>
 		<% end %>
 	</div>
 </div>
