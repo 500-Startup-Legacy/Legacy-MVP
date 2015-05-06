@@ -1,5 +1,5 @@
 User.delete_all
-Relationship.delete_all
+Subject.delete_all
 Memory.delete_all
 
 collin = User.create(first_name:'Collin', last_name: 'Meyers', email:'cfmeyers@gmail.com', password: 'foobar', password_confirmation: 'foobar', phone_number:'7038287113')
@@ -23,59 +23,72 @@ alex12 = User.create(first_name:'alex12', last_name: 'wang', email:'alexwang9499
 
 
 
-collin.memorialize!(abraham, "friend")
-collin.memorialize!(ed, "family")
-ed.memorialize!(abraham, "coworker")
-ed.memorialize!(collin, "family")
-sora.memorialize!(collin, "family")
-
-sora.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
+sora_collin = sora.subjects.create(email:collin.email, group_tag:"family", name: collin.full_name)
+sora_collin.memories.create(content:'What a sharp dresser!')
 
 
-alex.memorialize!(alex1, "coworker")
-alex.memorialize!(collin, "coworker")
-alex.memorialize!(abraham, "coworker")
-alex.memorialize!(ed, "coworker")
-alex.memorialize!(alex2, "coworker")
-alex.memorialize!(alex3, "family")
-alex.memorialize!(alex4, "coworker")
-alex.memorialize!(alex5, "coworker")
-alex.memorialize!(alex6, "friend")
-alex.memorialize!(alex7, "coworker")
-alex.memorialize!(alex8, "coworker")
-alex.memorialize!(alex9, "family")
-alex.memorialize!(alex10, "coworker")
-alex.memorialize!(alex11, "family")
-alex.memorialize!(alex12, "family")
+alex_alex1 = alex.subjects.create(email:alex1.email,   name: alex1.full_name, group_tag:"coworker")
+alex_alex1.memories.create(content:'Glad he"s deLove thisLove this guy! guy!ad!', image_url: 'https://placeimg.com/339/191/any')
+
+alex_collin =alex.subjects.create(email:collin.email,  name: collin.full_name, group_tag:"coworker")
+alex_collin.memories.create(content:'He was a badass mofoLovLove this guy!e this guy!', image_url: 'https://placeimg.com/339/191/any')
+
+alex_abraham=alex.subjects.create(email:abraham.email, name: abraham.full_name, group_tag:"coworker")
+
+alex_ed =    alex.subjects.create(email:ed.email,      name: ed.full_name, group_tag:"coworker")
+alex_ed.memories.create(content:'Glad he"s dead!')
+
+alex_alex2 = alex.subjects.create(email:alex2.email,   name: alex2.full_name, group_tag:"coworker")
+alex_alex3 = alex.subjects.create(email:alex3.email,   name: alex3.full_name, group_tag:"family")
+alex_alex4 = alex.subjects.create(email:alex4.email,   name: alex4.full_name, group_tag:"coworker")
+alex_alex5 = alex.subjects.create(email:alex5.email,   name: alex5.full_name, group_tag:"coworker")
+alex_alex6 = alex.subjects.create(email:alex6.email,   name: alex6.full_name, group_tag:"friend")
+alex_alex7 = alex.subjects.create(email:alex7.email,   name: alex7.full_name, group_tag:"coworker")
+alex_alex8 = alex.subjects.create(email:alex8.email,   name: alex8.full_name, group_tag:"coworker")
+alex_alex9 = alex.subjects.create(email:alex9.email,   name: alex9.full_name, group_tag:"family")
+alex_alex10= alex.subjects.create(email:alex10.email,  name: alex10.full_name, group_tag:"coworker")
+alex_alex11= alex.subjects.create(email:alex11.email,  name: alex11.full_name, group_tag:"family")
+alex_alex12= alex.subjects.create(email:alex12.email,  name: alex12.full_name, group_tag:"family")
+
+
+alex_alex2.memories.create(content:'He owes me money')
+alex_alex3.memories.create(content:'Love this guy!')
+alex_alex4.memories.create(content:'Love this guy!')
+alex_alex5.memories.create(content:'Love tLove this gLove this guy!uy!his guy!')
+alex_alex6.memories.create(content:'He owes me money')
+alex_alex7.memories.create(content:'He owes me money')
+alex_alex8.memories.create(content:'He owes me money')
+alex_alex9.memories.create(content:'Love this guy!')
+alex_alex10.memories.create(content:'Glad he"s dead!')
+alex_alex11.memories.create(content:'He owes me money')
+alex_alex12.memories.create(content:'Love this guy!')
+
+
+ed_abraham = ed.subjects.create(email:abraham.email, group_tag:"friend", name: abraham.full_name)
+ed_abraham.memories.create(content:'He was our greatest president.')
+
+ed_collin = ed.subjects.create(email:collin.email, group_tag:"family", name: collin.full_name)
+ed_collin.memories.create(content:'What a sharp dresser!')
+
+collin_abraham = collin.subjects.create(email:abraham.email, group_tag:"friend", name: abraham.full_name)
+collin_abraham.memories.create(content:'Love this guy!')
+
+collin_ed = collin.subjects.create(email:ed.email, group_tag:"family", name: ed.full_name)
+collin_ed.memories.create(content:'Sunnyside fo evah!')
+collin_ed.memories.create(content:'Mo sunnyside memories fo evah!')
+collin_ed.memories.create(content:'Makin a big old list of memories')
+
+collin_alex = collin.subjects.create(email:alex.email, group_tag:"family", name: alex.full_name)
+collin_alex.memories.create(content:'Chimichangas', image_url: 'https://api.twilio.com/2010-04-01/Accounts/AC619f789765e27b4af291c61d77952b80/Messages/MMfcaff6a9b8596c9b950c2d0a1c2c4145/Media/ME077f3b494927677fd285476131e06d5b')
+collin_alex.memories.create(content:'Chimichangas', image_url: 'http://vignette3.wikia.nocookie.net/carebearfamily/images/d/d9/Care_bear_stare.jpg/revision/latest?cb=20120424053847')
 
 
 
-ed.memories.create(content:'He was our greatest president.', memorialized_user_id: abraham.id)
-ed.memories.create(content:'What a sharp dresser!', memorialized_user_id: collin.id)
 
-collin.memories.create(content:'Love this guy!', memorialized_user_id: abraham.id)
-collin.memories.create(content:'Sunnyside fo evah!', memorialized_user_id: ed.id)
-
-alex.memories.create(content:'He was a badass mofoLovLove this guy!e this guy!', memorialized_user_id: collin.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: ed.id)
-
-
-alex.memories.create(content:'Glad he"s deLove thisLove this guy! guy!ad!', memorialized_user_id: alex1.id, image_url: 'https://placeimg.com/339/191/any')
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex2.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex3.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex4.id)
-alex.memories.create(content:'Love tLove this gLove this guy!uy!his guy!', memorialized_user_id: alex5.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex6.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex7.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex8.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex9.id)
-alex.memories.create(content:'Glad he"s dead!', memorialized_user_id: alex10.id)
-alex.memories.create(content:'He owes me money', memorialized_user_id: alex11.id)
-alex.memories.create(content:'Love this guy!', memorialized_user_id: alex12.id)
-
-
-abraham.memories.create(content:'Love this guy!', memorialized_user_id: collin.id)
-abraham.memories.create(content:'Wil always remember Collin cuz he da bomb', memorialized_user_id: collin.id)
-abraham.memories.create(content:"Don't think I forgot about all that money you owe me", memorialized_user_id: collin.id)
-
-abraham.memories.create(content:"Ed, Collin shouldn't be able to see this memory.", memorialized_user_id: ed.id)
+abraham_collin = abraham.subjects.create(email:collin.email, group_tag:"friend", name: collin.full_name)
+abraham_ed = abraham.subjects.create(email:ed.email, group_tag:"friend", name: ed.full_name)
+abraham_ed.memories.create(content:"Ed, Collin shouldn't be able to see this memory.")
+abraham_collin.memories.create(content:'Love this guy!')
+abraham_collin.memories.create(content:'Wil always remember Collin cuz he da bomb')
+abraham_collin.memories.create(content:"Don't think I forgot about all that money you owe me")
+abraham_collin.memories.create(content:"Don't think I forgot about all that money you owe me")

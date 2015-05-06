@@ -4,12 +4,14 @@ class Api::MemoriesController < ApplicationController
 
   def index
     @user = User.find(params[:user_id])
-    render json: @user.memories.where(memorialized_user_id:params[:memorialized_id])
+    @subject = @user.subjects.find(params[:subject_id])
+    render json: @subject.memories.as_json(include: [:subject])
   end
 
   def show
     @user = User.find(params[:user_id])
-    @memory = @user.memories.find(params[:id])
+    @subject = @user.subjects.find(params[:subject_id])
+    @memory = @subject.memories.find(params[:id])
     render json: @memory
   end
 

@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe User, type: :model do
   before :each do
-    # @juan = FactoryGirl.create(:user)
     @juan = User.new(first_name:'Juan', last_name: 'Smith', email:'juan@smith.com', password: 'foobar', password_confirmation: 'foobar', phone_number: '2222222222')
   end
 
@@ -10,33 +9,12 @@ RSpec.describe User, type: :model do
 
   it { should respond_to :remember_token }
   it { should respond_to :authenticate }
-  it { should respond_to :relationships }
-  it { should respond_to :memorialized_users }
-  it { should respond_to :memorialize! }
-  it { should respond_to :unmemorialize! }
-  it { should respond_to :reverse_relationships }
-  it { should respond_to :memorializers }
-  it { should respond_to :remembrances }
+  it { should respond_to :subjects }
   it { should respond_to :public }
   it { should respond_to :phone_number }
   it { should respond_to :legacy_contact_email }
-  it { should respond_to :get_memorialized_user_by_twilio_number }
 
   it { should respond_to :memories }
-
-  describe "#get_memorialized_user_by_twilio_number" do
-    let!(:other_user) { FactoryGirl.create(:user) }
-    before do
-      @juan.save
-      @relationship = @juan.memorialize!(other_user, "friend")
-      @twilio_number = @relationship.twilio_number
-    end
-
-    it "should return the user associated with the twilio number" do
-      expect(@juan.get_memorialized_user_by_twilio_number(@twilio_number)).to eq(other_user)
-    end
-
-  end
 
   describe "when a first name, last name, phone number, and email are present" do
     it { should be_valid }
@@ -125,59 +103,5 @@ RSpec.describe User, type: :model do
     end
   end
 
-  describe "memorializing" do
-    let(:other_user) { FactoryGirl.create(:user) }
-    before do
-      @juan.save
-      @juan.memorialize!(other_user, "family")
-    end
-  
-    it { should be_memorializing other_user }
-    specify { expect(@juan.memorialized_users).to include(other_user) }
-
-    describe "memorialized user" do
-      subject { other_user }
-      specify { expect(other_user.memorializers).to include(@juan) }
-    end
-
-    describe "and unmemorializing" do
-      before { @juan.unmemorialize! other_user }
-      it { should_not be_memorializing other_user }
-      specify { expect(@juan.memorialized_users).to_not include(other_user) }
-    end
-  end
-
-  describe "memory association" do
-    before { @juan.save }
-    let!(:older_memory) { FactoryGirl.create(:memory, user:@juan, created_at: 1.day.ago) }
-    let!(:newer_memory) { FactoryGirl.create(:memory, user:@juan, created_at: 1.hour.ago) }
-
-    it "should return the right memories in the right order" do
-      expect(@juan.memories.to_a).to eq [newer_memory, older_memory]
-    end
-
-    it "should destroy associated memories" do
-      memories = @juan.memories.to_a
-      @juan.destroy
-      expect(memories).not_to be_empty
-      memories.each do |memory|
-        expect(Memory.where(id: memory.id)).to be_empty
-      end
-    end
-
-  end
-
-  describe "#remembrances" do
-    before { @juan.save }
-    let(:other_user) { FactoryGirl.create(:user) }
-    let!(:memory_1) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:@juan.id) }
-    let!(:memory_2) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:@juan.id) }
-    let!(:memory_3) { FactoryGirl.create(:memory, user:other_user, memorialized_user_id:7) }
-
-    it "returns an collection of memories other users have had about it" do
-      expect(@juan.remembrances.to_a).to eq [memory_2, memory_1]
-    end
-
-  end
 
 end

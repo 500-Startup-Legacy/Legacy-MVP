@@ -1,4 +1,11 @@
-FactoryGirl.define do  
+FactoryGirl.define do  factory :subject do
+    user_id 1
+name "MyString"
+email "MyString"
+group_tag "MyString"
+twilio_number "MyString"
+  end
+  
 
   factory :user do
     first_name 'Juan'
